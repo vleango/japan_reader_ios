@@ -4,6 +4,7 @@ use_frameworks!
 target 'japanese-memo' do
   pod 'Alamofire', '~> 3.0'
   pod 'SwiftyJSON', '~> 2.3.1'
+  pod 'RealmSwift', '~> 0.100.0'
 end
 
 target 'japanese-memoTests' do

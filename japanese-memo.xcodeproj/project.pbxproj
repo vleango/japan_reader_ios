@@ -21,6 +21,7 @@
 		3B7CF7201CD572A8006ACED3 /* SearchIndexController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B7CF71F1CD572A8006ACED3 /* SearchIndexController.swift */; };
 		3BD0107D1CD5783900FB9C2F /* Network.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BD0107C1CD5783900FB9C2F /* Network.swift */; };
 		3BD010821CD5855900FB9C2F /* ReadIndexController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BD010811CD5855900FB9C2F /* ReadIndexController.swift */; };
+		3BD010851CD5892F00FB9C2F /* Article.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BD010841CD5892F00FB9C2F /* Article.swift */; };
 		E7A3C80C91467FE3135CF04F /* Pods_japanese_memo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FBFB8910F33022AA45A8BB03 /* Pods_japanese_memo.framework */; };
 /* End PBXBuildFile section */
 
@@ -62,6 +63,7 @@
 		3B7CF71F1CD572A8006ACED3 /* SearchIndexController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SearchIndexController.swift; path = controllers/search/SearchIndexController.swift; sourceTree = "<group>"; };
 		3BD0107C1CD5783900FB9C2F /* Network.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Network.swift; path = managers/Network.swift; sourceTree = "<group>"; };
 		3BD010811CD5855900FB9C2F /* ReadIndexController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ReadIndexController.swift; path = controllers/read/ReadIndexController.swift; sourceTree = "<group>"; };
+		3BD010841CD5892F00FB9C2F /* Article.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Article.swift; path = models/Article.swift; sourceTree = "<group>"; };
 		7AAA4438477CF7C451756E8E /* Pods-japanese-memo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-japanese-memo.release.xcconfig"; path = "Pods/Target Support Files/Pods-japanese-memo/Pods-japanese-memo.release.xcconfig"; sourceTree = "<group>"; };
 		A528E3B8C0DC9E16FF74A8AE /* Pods-japanese-memo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-japanese-memo.debug.xcconfig"; path = "Pods/Target Support Files/Pods-japanese-memo/Pods-japanese-memo.debug.xcconfig"; sourceTree = "<group>"; };
 		FBFB8910F33022AA45A8BB03 /* Pods_japanese_memo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_japanese_memo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -129,6 +131,7 @@
 			children = (
 				3B2037C61CD4A53B00A27644 /* controllers */,
 				3BD0107B1CD5781C00FB9C2F /* managers */,
+				3BD010831CD5880300FB9C2F /* models */,
 				3B2037C31CD4A4C600A27644 /* storyboards */,
 				3B2037931CD4A3AB00A27644 /* AppDelegate.swift */,
 				3B20379C1CD4A3AB00A27644 /* Assets.xcassets */,
@@ -200,6 +203,14 @@
 				3BD010811CD5855900FB9C2F /* ReadIndexController.swift */,
 			);
 			name = read;
+			sourceTree = "<group>";
+		};
+		3BD010831CD5880300FB9C2F /* models */ = {
+			isa = PBXGroup;
+			children = (
+				3BD010841CD5892F00FB9C2F /* Article.swift */,
+			);
+			name = models;
 			sourceTree = "<group>";
 		};
 		E8EFE4F16ECA4C4F1B5707A2 /* Frameworks */ = {
@@ -401,6 +412,7 @@
 			files = (
 				3BD010821CD5855900FB9C2F /* ReadIndexController.swift in Sources */,
 				3B2037C81CD4A57900A27644 /* MainTabBarController.swift in Sources */,
+				3BD010851CD5892F00FB9C2F /* Article.swift in Sources */,
 				3B2037941CD4A3AB00A27644 /* AppDelegate.swift in Sources */,
 				3BD0107D1CD5783900FB9C2F /* Network.swift in Sources */,
 				3B7CF7201CD572A8006ACED3 /* SearchIndexController.swift in Sources */,

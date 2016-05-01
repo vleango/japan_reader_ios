@@ -14,18 +14,18 @@ class SearchIndexController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        let params:[String : AnyObject] = [
-            "search[query]" : "school",
-            "cart_item[lang]" : "eng"
-        ]
-        
-        NetworkManager.search(params, callback: { (success, object) -> Void in
-            if success {
-                self.dismissViewControllerAnimated(true, completion: nil)
-            }
-            else {
-            }
-        })
+//        let params:[String : AnyObject] = [
+//            "search[query]" : "school",
+//            "cart_item[lang]" : "eng"
+//        ]
+//        
+//        NetworkManager.search(params, callback: { (success, object) -> Void in
+//            if success {
+//                self.dismissViewControllerAnimated(true, completion: nil)
+//            }
+//            else {
+//            }
+//        })
         
     }
 

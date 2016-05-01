@@ -24,6 +24,11 @@ final class Network {
         execute(url, method: .POST, params:params, callback: callback)
     }
     
+    func read(callback: ((success:Bool, object:AnyObject?) -> Void)?) {
+        let url = "articles"
+        execute(url, params:nil, callback: callback)
+    }
+    
     private func execute(
         url:String,
         method:Alamofire.Method = .GET,
@@ -34,7 +39,7 @@ final class Network {
             isLoading = true
             var header:[String: String]?
             
-            Alamofire.request(method, "http://localhost:3000/jdict/\(url)", parameters: params, headers: header)
+            Alamofire.request(method, "http://localhost:3000/api/v1/\(url)", parameters: params, headers: header)
                 .responseJSON { response in
                     if let block = callback {
                         switch response.result {

@@ -28,7 +28,9 @@
 		<true/>
 		<key>NSExceptionDomains</key>
 		<dict>
-			<key>localhost:3000</key>
+			<key></key>
+			<string></string>
+			<key>api.localhost:3000</key>
 			<string></string>
 		</dict>
 	</dict>
