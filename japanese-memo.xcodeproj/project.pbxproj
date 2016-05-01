@@ -18,6 +18,10 @@
 		3B7CF7191CD56BC5006ACED3 /* Read.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3B7CF7181CD56BC5006ACED3 /* Read.storyboard */; };
 		3B7CF71B1CD56CE8006ACED3 /* Favorite.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3B7CF71A1CD56CE8006ACED3 /* Favorite.storyboard */; };
 		3B7CF71D1CD571CF006ACED3 /* Option.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3B7CF71C1CD571CF006ACED3 /* Option.storyboard */; };
+		3B7CF7201CD572A8006ACED3 /* SearchIndexController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B7CF71F1CD572A8006ACED3 /* SearchIndexController.swift */; };
+		3BD0107D1CD5783900FB9C2F /* Network.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BD0107C1CD5783900FB9C2F /* Network.swift */; };
+		3BD010821CD5855900FB9C2F /* ReadIndexController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BD010811CD5855900FB9C2F /* ReadIndexController.swift */; };
+		E7A3C80C91467FE3135CF04F /* Pods_japanese_memo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FBFB8910F33022AA45A8BB03 /* Pods_japanese_memo.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -55,6 +59,12 @@
 		3B7CF7181CD56BC5006ACED3 /* Read.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = Read.storyboard; path = storyboards/Read.storyboard; sourceTree = "<group>"; };
 		3B7CF71A1CD56CE8006ACED3 /* Favorite.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = Favorite.storyboard; path = storyboards/Favorite.storyboard; sourceTree = "<group>"; };
 		3B7CF71C1CD571CF006ACED3 /* Option.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = Option.storyboard; path = storyboards/Option.storyboard; sourceTree = "<group>"; };
+		3B7CF71F1CD572A8006ACED3 /* SearchIndexController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SearchIndexController.swift; path = controllers/search/SearchIndexController.swift; sourceTree = "<group>"; };
+		3BD0107C1CD5783900FB9C2F /* Network.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Network.swift; path = managers/Network.swift; sourceTree = "<group>"; };
+		3BD010811CD5855900FB9C2F /* ReadIndexController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ReadIndexController.swift; path = controllers/read/ReadIndexController.swift; sourceTree = "<group>"; };
+		7AAA4438477CF7C451756E8E /* Pods-japanese-memo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-japanese-memo.release.xcconfig"; path = "Pods/Target Support Files/Pods-japanese-memo/Pods-japanese-memo.release.xcconfig"; sourceTree = "<group>"; };
+		A528E3B8C0DC9E16FF74A8AE /* Pods-japanese-memo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-japanese-memo.debug.xcconfig"; path = "Pods/Target Support Files/Pods-japanese-memo/Pods-japanese-memo.debug.xcconfig"; sourceTree = "<group>"; };
+		FBFB8910F33022AA45A8BB03 /* Pods_japanese_memo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_japanese_memo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -62,6 +72,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E7A3C80C91467FE3135CF04F /* Pods_japanese_memo.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -82,6 +93,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		2D647EE21BB62A58C37F9C96 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				A528E3B8C0DC9E16FF74A8AE /* Pods-japanese-memo.debug.xcconfig */,
+				7AAA4438477CF7C451756E8E /* Pods-japanese-memo.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 		3B2037871CD4A3AB00A27644 = {
 			isa = PBXGroup;
 			children = (
@@ -89,6 +109,8 @@
 				3B2037A91CD4A3AB00A27644 /* japanese-memoTests */,
 				3B2037B41CD4A3AB00A27644 /* japanese-memoUITests */,
 				3B2037911CD4A3AB00A27644 /* Products */,
+				2D647EE21BB62A58C37F9C96 /* Pods */,
+				E8EFE4F16ECA4C4F1B5707A2 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -106,6 +128,7 @@
 			isa = PBXGroup;
 			children = (
 				3B2037C61CD4A53B00A27644 /* controllers */,
+				3BD0107B1CD5781C00FB9C2F /* managers */,
 				3B2037C31CD4A4C600A27644 /* storyboards */,
 				3B2037931CD4A3AB00A27644 /* AppDelegate.swift */,
 				3B20379C1CD4A3AB00A27644 /* Assets.xcassets */,
@@ -148,9 +171,43 @@
 		3B2037C61CD4A53B00A27644 /* controllers */ = {
 			isa = PBXGroup;
 			children = (
+				3BD0107E1CD584FC00FB9C2F /* read */,
+				3B7CF71E1CD5726D006ACED3 /* search */,
 				3B2037C71CD4A57900A27644 /* MainTabBarController.swift */,
 			);
 			name = controllers;
+			sourceTree = "<group>";
+		};
+		3B7CF71E1CD5726D006ACED3 /* search */ = {
+			isa = PBXGroup;
+			children = (
+				3B7CF71F1CD572A8006ACED3 /* SearchIndexController.swift */,
+			);
+			name = search;
+			sourceTree = "<group>";
+		};
+		3BD0107B1CD5781C00FB9C2F /* managers */ = {
+			isa = PBXGroup;
+			children = (
+				3BD0107C1CD5783900FB9C2F /* Network.swift */,
+			);
+			name = managers;
+			sourceTree = "<group>";
+		};
+		3BD0107E1CD584FC00FB9C2F /* read */ = {
+			isa = PBXGroup;
+			children = (
+				3BD010811CD5855900FB9C2F /* ReadIndexController.swift */,
+			);
+			name = read;
+			sourceTree = "<group>";
+		};
+		E8EFE4F16ECA4C4F1B5707A2 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				FBFB8910F33022AA45A8BB03 /* Pods_japanese_memo.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -160,9 +217,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 3B2037BA1CD4A3AB00A27644 /* Build configuration list for PBXNativeTarget "japanese-memo" */;
 			buildPhases = (
+				F16FEC4B97609CD810BAD5AE /* Check Pods Manifest.lock */,
 				3B20378C1CD4A3AB00A27644 /* Sources */,
 				3B20378D1CD4A3AB00A27644 /* Frameworks */,
 				3B20378E1CD4A3AB00A27644 /* Resources */,
+				DF460CF1A4D1DD63E39CED60 /* Embed Pods Frameworks */,
+				C435C594835D89AB011BF026 /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -286,13 +346,64 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		C435C594835D89AB011BF026 /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-japanese-memo/Pods-japanese-memo-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		DF460CF1A4D1DD63E39CED60 /* Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-japanese-memo/Pods-japanese-memo-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		F16FEC4B97609CD810BAD5AE /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		3B20378C1CD4A3AB00A27644 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3BD010821CD5855900FB9C2F /* ReadIndexController.swift in Sources */,
 				3B2037C81CD4A57900A27644 /* MainTabBarController.swift in Sources */,
 				3B2037941CD4A3AB00A27644 /* AppDelegate.swift in Sources */,
+				3BD0107D1CD5783900FB9C2F /* Network.swift in Sources */,
+				3B7CF7201CD572A8006ACED3 /* SearchIndexController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -432,6 +543,7 @@
 		};
 		3B2037BB1CD4A3AB00A27644 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = A528E3B8C0DC9E16FF74A8AE /* Pods-japanese-memo.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = "japanese-memo/Info.plist";
@@ -443,6 +555,7 @@
 		};
 		3B2037BC1CD4A3AB00A27644 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 7AAA4438477CF7C451756E8E /* Pods-japanese-memo.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = "japanese-memo/Info.plist";

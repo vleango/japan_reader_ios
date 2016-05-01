@@ -26,10 +26,10 @@
             </objects>
             <point key="canvasLocation" x="334.5" y="535.5"/>
         </scene>
-        <!--Table View Controller-->
+        <!--Read Index Controller-->
         <scene sceneID="wv1-eb-3Wp">
             <objects>
-                <tableViewController id="ASa-fe-9P1" sceneMemberID="viewController">
+                <tableViewController id="ASa-fe-9P1" customClass="ReadIndexController" customModule="japanese_memo" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="lt4-iJ-8TM">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
