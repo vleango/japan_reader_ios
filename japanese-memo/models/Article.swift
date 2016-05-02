@@ -19,25 +19,22 @@ class Article: Object {
         static let title = "title"
         static let subtitle = "subtitle"
         static let body = "body"
+        static let image_url = "image_url"
         static let published_date = "published_date"
-        static let title_with_ruby = "title_with_ruby"
-        static let subtitle_with_ruby = "subtitle_with_ruby"
-        static let body_with_ruby = "body_with_ruby"
         static let source = "source"
     }
     
     dynamic var id = ""
     dynamic var provider = ""
     dynamic var news_id = ""
-    dynamic var title = ""
-    dynamic var subtitle = ""
-    dynamic var body = ""
     dynamic var published_date = ""
-    dynamic var image_url = ""
-    dynamic var title_with_ruby = ""
-    dynamic var subtitle_with_ruby = ""
-    dynamic var body_with_ruby = ""
+    dynamic var image_url:String? = ""
     dynamic var source = ""
+    dynamic var title = ""
+    
+    let titleBits = List<TextBit>()
+    let subtitleBits = List<TextBit>()
+    let bodyBits = List<TextBit>()
     
     convenience init(json:JSON) {
         self.init()
@@ -45,15 +42,35 @@ class Article: Object {
         self.provider = json[Article.constants.provider].stringValue
         self.news_id = json[Article.constants.news_id].stringValue
         self.title = json[Article.constants.title].stringValue
-        self.subtitle = json[Article.constants.subtitle].stringValue
-        self.body = json[Article.constants.body].stringValue
-        self.published_date = json[Article.constants.published_date].stringValue
-        self.title_with_ruby = json[Article.constants.title_with_ruby].stringValue
-        self.subtitle_with_ruby = json[Article.constants.subtitle_with_ruby].stringValue
-        self.body_with_ruby = json[Article.constants.body_with_ruby].stringValue
-        self.source = json[Article.constants.source].stringValue
         
-        self.image_url = json["image"]["url"].stringValue
-    }
+        let titleBitsArray = json[Article.constants.title].arrayValue
+        for bit in titleBitsArray {
+            self.titleBits.append(TextBit.init(bits: bit))
+        }
+        
+        let subtitleBitsArray = json[Article.constants.subtitle].arrayValue
+        for bit in subtitleBitsArray {
+            self.subtitleBits.append(TextBit.init(bits: bit))
+        }
+        
+        let bodyBitsArray = json[Article.constants.body].arrayValue
+        for bit in bodyBitsArray {
+            self.bodyBits.append(TextBit.init(bits: bit))
+        }
 
+        let imageUrl = json["image_url"].stringValue
+        if imageUrl != "" {
+            self.image_url = "http://localhost:3000\(imageUrl)"
+        }
+        self.published_date = json[Article.constants.published_date].stringValue
+        self.source = json[Article.constants.source].stringValue
+    }
+    
+    func bitsAsString(list:List<TextBit>) -> String {
+        let strings = list.map {
+            (bit) -> String in
+            return bit.word
+        }
+        return strings.joinWithSeparator("")
+    }
 }

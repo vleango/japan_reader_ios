@@ -19,6 +19,14 @@ final class Network {
     }
     private var isLoading:Bool = false
     
+    func downloadImage(url:String, callback: (UIImage? -> Void)) {
+        Alamofire.request(.GET, url).responseData { response -> Void in
+            if let imageData = response.data {
+                callback(UIImage(data: imageData))
+            }
+        }
+    }
+    
     func search(params:[String : AnyObject], callback: ((success:Bool, object:AnyObject?) -> Void)?) {
         let url = "searches"
         execute(url, method: .POST, params:params, callback: callback)

@@ -3,6 +3,8 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
         <!--Read-->
@@ -30,34 +32,51 @@
         <scene sceneID="wv1-eb-3Wp">
             <objects>
                 <tableViewController id="ASa-fe-9P1" customClass="ReadIndexController" customModule="japanese_memo" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="lt4-iJ-8TM">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="100" sectionHeaderHeight="28" sectionFooterHeight="28" id="lt4-iJ-8TM">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="artileCell" textLabel="dIv-kT-R9L" detailTextLabel="HTO-j3-USi" style="IBUITableViewCellStyleSubtitle" id="Jeo-IJ-9Ak">
-                                <rect key="frame" x="0.0" y="92" width="375" height="44"/>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="artileCell" rowHeight="100" id="Jeo-IJ-9Ak" customClass="ReadIndexCell" customModule="japanese_memo" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="92" width="375" height="100"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Jeo-IJ-9Ak" id="WhI-gZ-WFt">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="99"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="dIv-kT-R9L">
-                                            <rect key="frame" x="15" y="5" width="32" height="20"/>
-                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="16"/>
-                                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="title" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hJN-Lv-fIt">
+                                            <rect key="frame" x="96" y="8" width="271" height="21"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Subtitle" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="HTO-j3-USi">
-                                            <rect key="frame" x="15" y="25" width="41" height="14"/>
-                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="11"/>
-                                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                            <nil key="highlightedColor"/>
-                                        </label>
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="vuv-J2-dVM">
+                                            <rect key="frame" x="8" y="8" width="80" height="80"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" constant="80" id="hDf-Vu-Wgv"/>
+                                                <constraint firstAttribute="width" secondItem="vuv-J2-dVM" secondAttribute="height" multiplier="1:1" id="hid-oU-yE0"/>
+                                            </constraints>
+                                        </imageView>
                                     </subviews>
+                                    <constraints>
+                                        <constraint firstAttribute="bottomMargin" secondItem="vuv-J2-dVM" secondAttribute="bottom" constant="3" id="2F2-je-p5Q"/>
+                                        <constraint firstItem="hJN-Lv-fIt" firstAttribute="leading" secondItem="vuv-J2-dVM" secondAttribute="trailing" constant="8" symbolic="YES" id="D6O-hh-pdo"/>
+                                        <constraint firstItem="vuv-J2-dVM" firstAttribute="top" secondItem="hJN-Lv-fIt" secondAttribute="top" id="FXD-Mw-fdN"/>
+                                        <constraint firstAttribute="trailingMargin" secondItem="hJN-Lv-fIt" secondAttribute="trailing" id="Krf-i5-hd4"/>
+                                        <constraint firstAttribute="bottomMargin" secondItem="vuv-J2-dVM" secondAttribute="bottom" constant="3" id="XHB-XA-JwE"/>
+                                        <constraint firstAttribute="topMargin" secondItem="vuv-J2-dVM" secondAttribute="top" id="ti2-rr-OHW"/>
+                                        <constraint firstItem="vuv-J2-dVM" firstAttribute="leading" secondItem="WhI-gZ-WFt" secondAttribute="leadingMargin" id="xug-TV-bK0"/>
+                                    </constraints>
+                                    <variation key="default">
+                                        <mask key="constraints">
+                                            <exclude reference="2F2-je-p5Q"/>
+                                        </mask>
+                                    </variation>
                                 </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="coverImageView" destination="vuv-J2-dVM" id="QzS-X9-Bao"/>
+                                    <outlet property="titleLabel" destination="hJN-Lv-fIt" id="It3-CX-6Nw"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>
@@ -67,10 +86,63 @@
                     </tableView>
                     <navigationItem key="navigationItem" id="gPX-fe-2xg"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
+                    <connections>
+                        <segue destination="hRe-On-kgE" kind="show" identifier="sToReadShowSegue" id="isr-oj-GeC"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="n4Y-vS-k7q" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="859.5" y="535.5"/>
+        </scene>
+        <!--Read Show Controller-->
+        <scene sceneID="sMd-yu-4Kr">
+            <objects>
+                <viewController id="hRe-On-kgE" customClass="ReadShowController" customModule="japanese_memo" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="CWa-7e-BtY"/>
+                        <viewControllerLayoutGuide type="bottom" id="Xgh-Mz-Jkn"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="zed-TZ-RJp">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" usesAttributedText="YES" translatesAutoresizingMaskIntoConstraints="NO" id="qTU-LV-BIm">
+                                <rect key="frame" x="-4" y="0.0" width="383" height="667"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <attributedString key="attributedText">
+                                    <fragment content="Loading...">
+                                        <attributes>
+                                            <color key="NSBackgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="deviceRGB"/>
+                                            <color key="NSColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                            <font key="NSFont" size="24" name="AndaleMono"/>
+                                            <real key="NSKern" value="0.0"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="natural" lineBreakMode="wordWrapping" baseWritingDirection="leftToRight" lineSpacing="30" minimumLineHeight="14" defaultTabInterval="36" tighteningFactorForTruncation="0.0">
+                                                <tabStops/>
+                                            </paragraphStyle>
+                                            <color key="NSStrokeColor" red="0.0" green="0.50196078431372548" blue="0.0" alpha="1" colorSpace="deviceRGB"/>
+                                            <real key="NSStrokeWidth" value="0.0"/>
+                                        </attributes>
+                                    </fragment>
+                                </attributedString>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="qTU-LV-BIm" firstAttribute="top" secondItem="CWa-7e-BtY" secondAttribute="bottom" constant="-64" id="a7E-uB-Ceq"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="qTU-LV-BIm" secondAttribute="trailing" constant="-20" id="j2k-Bw-Nni"/>
+                            <constraint firstItem="Xgh-Mz-Jkn" firstAttribute="top" secondItem="qTU-LV-BIm" secondAttribute="bottom" constant="-49" id="qyQ-8u-qeN"/>
+                            <constraint firstItem="qTU-LV-BIm" firstAttribute="leading" secondItem="zed-TZ-RJp" secondAttribute="leadingMargin" constant="-20" id="vcP-0b-XKU"/>
+                        </constraints>
+                    </view>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
+                    <connections>
+                        <outlet property="textView" destination="qTU-LV-BIm" id="Sdw-WL-f0s"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="81R-CK-hFm" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1401.5" y="535.5"/>
         </scene>
     </scenes>
     <resources>
