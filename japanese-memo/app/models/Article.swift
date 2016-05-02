@@ -58,9 +58,9 @@ class Article: Object {
             self.bodyBits.append(TextBit.init(bits: bit))
         }
 
-        let imageUrl = json["image_url"].stringValue
+        let imageUrl = json[Article.constants.image_url].stringValue
         if imageUrl != "" {
-            self.image_url = "http://localhost:3000\(imageUrl)"
+            self.image_url = "\(Constants.app.domain)\(imageUrl)"
         }
         self.published_date = json[Article.constants.published_date].stringValue
         self.source = json[Article.constants.source].stringValue

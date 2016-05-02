@@ -47,7 +47,7 @@ final class Network {
             isLoading = true
             var header:[String: String]?
             
-            Alamofire.request(method, "http://localhost:3000/api/v1/\(url)", parameters: params, headers: header)
+            Alamofire.request(method, "\(Constants.app.apiUrl)\(url)", parameters: params, headers: header)
                 .responseJSON { response in
                     if let block = callback {
                         switch response.result {
