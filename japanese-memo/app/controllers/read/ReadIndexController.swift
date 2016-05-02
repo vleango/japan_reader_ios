@@ -59,6 +59,7 @@ class ReadIndexController: UITableViewController {
                 }
             }
             else {
+                UtilManager.displayAlertView("Network Error", message: "An error has occurred", viewController: self)
             }
         })
     }
