@@ -26,10 +26,12 @@ class ArtibutedArticle {
             return string
         }
     }
+    var enableFurigana:Bool
     
     init(article: Article, image:UIImage?) {
         self.article = article
         self.image = image
+        enableFurigana = true
     }
     
     // MARK - private methods
@@ -46,7 +48,7 @@ class ArtibutedArticle {
     }
     
     private func titleString() -> NSMutableAttributedString {
-        if article.titleBits.count != 0 {
+        if enableFurigana == true && article.titleBits.count != 0 {
             return BitStringFrom(article.title, bits: article.titleBits, attributes: attributes(paragraphStyle()))
         }
         else {
@@ -58,7 +60,7 @@ class ArtibutedArticle {
     }
     
     private func bodyString() -> NSMutableAttributedString {
-        if article.bodyBits.count != 0 {
+        if enableFurigana == true && article.bodyBits.count != 0 {
             return BitStringFrom(article.body, bits: article.bodyBits, attributes: attributes(paragraphStyle(.Justified)))
         }
         else {
