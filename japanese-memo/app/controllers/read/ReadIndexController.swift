@@ -23,8 +23,9 @@ class ReadIndexController: UITableViewController {
         tableView.estimatedRowHeight = 100.0
         
         // add refresh control
+        // TODO: add refreshed time at to attributed string
         refreshControl = UIRefreshControl()
-        refreshControl!.addTarget(self, action: Selector(loadData()), forControlEvents: UIControlEvents.ValueChanged)
+        refreshControl!.addTarget(self, action: #selector(ReadIndexController.refresh(_:)), forControlEvents: UIControlEvents.ValueChanged)
         
         // load the data from network
         loadData()

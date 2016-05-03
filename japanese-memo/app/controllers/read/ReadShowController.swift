@@ -18,19 +18,28 @@ class ReadShowController: UIViewController, UITextViewDelegate {
         
         textView.delegate = self
         
+        // setup page
+        self.title = article.title
+        
+        
+        // still need to get body
+        
         let paragraphStyle = NSMutableParagraphStyle()
         paragraphStyle.lineSpacing = 40
 
         let attributes = [ NSFontAttributeName: UIFont(name: "Hiragino Sans W3", size: 28.0)!, NSParagraphStyleAttributeName : paragraphStyle ]
-        let attributedString = NSMutableAttributedString(string: article.bitsAsString(article.bodyBits), attributes: attributes)
+        //let attributedString = NSMutableAttributedString(string: article.bitsAsString(article.bodyBits), attributes: attributes)
+        
+        let attributedString = NSMutableAttributedString(string: article.title, attributes: attributes)
+        
         
         // add clickable events
-        for index in 0 ..< article.bodyBits.count {
-            let bit = article.bodyBits[index]
-            if (bit.furigana) != "" {
-                attributedString.addAttribute(NSLinkAttributeName, value: "http://thaleang.com/\(index)", range: NSMakeRange(bit.position, bit.word.characters.count))
-            }
-        }
+//        for index in 0 ..< article.bodyBits.count {
+//            let bit = article.bodyBits[index]
+//            if (bit.furigana) != "" {
+//                attributedString.addAttribute(NSLinkAttributeName, value: "http://thaleang.com/\(index)", range: NSMakeRange(bit.position, bit.word.characters.count))
+//            }
+//        }
 
         textView.attributedText = attributedString
     }
