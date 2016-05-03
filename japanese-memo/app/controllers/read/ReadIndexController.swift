@@ -43,13 +43,15 @@ class ReadIndexController: UITableViewController {
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if segue.identifier == showSegue {
             let showVC = segue.destinationViewController as! ReadShowController
-            showVC.article = sender as! Article
+            let article = sender as! Article
+            showVC.article = article
+            showVC.image = tableViewImageCache.imageCache[article.image_url!]
         }
     }
     
     // MARK: - Network
     private func loadData() {
-        NetworkManager.read({ (success, object) -> Void in
+        NetworkManager.reads({ (success, object) -> Void in
             if success {
                 if let rawJSON = object {
                     let json = JSON(rawJSON)

@@ -84,7 +84,18 @@
                             <outlet property="delegate" destination="ASa-fe-9P1" id="mao-GP-lrG"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" id="gPX-fe-2xg"/>
+                    <navigationItem key="navigationItem" id="gPX-fe-2xg">
+                        <nil key="title"/>
+                        <segmentedControl key="titleView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="bar" selectedSegmentIndex="0" id="oHx-gK-mc1">
+                            <rect key="frame" x="100" y="7" width="176" height="30"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <segments>
+                                <segment title="All"/>
+                                <segment title="Easy"/>
+                                <segment title="Normal"/>
+                            </segments>
+                        </segmentedControl>
+                    </navigationItem>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
                     <connections>
                         <segue destination="hRe-On-kgE" kind="show" identifier="sToReadShowSegue" id="isr-oj-GeC"/>
@@ -137,7 +148,7 @@
                     </view>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
                     <connections>
-                        <outlet property="textView" destination="qTU-LV-BIm" id="Sdw-WL-f0s"/>
+                        <outlet property="textView" destination="qTU-LV-BIm" id="2mc-WC-v5H"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="81R-CK-hFm" userLabel="First Responder" sceneMemberID="firstResponder"/>

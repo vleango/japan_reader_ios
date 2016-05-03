@@ -32,8 +32,13 @@ final class Network {
         execute(url, method: .POST, params:params, callback: callback)
     }
     
-    func read(callback: ((success:Bool, object:AnyObject?) -> Void)?) {
+    func reads(callback: ((success:Bool, object:AnyObject?) -> Void)?) {
         let url = "articles"
+        execute(url, params:nil, callback: callback)
+    }
+    
+    func read(articleId: String, callback: ((success:Bool, object:AnyObject?) -> Void)?) {
+        let url = "articles/\(articleId)"
         execute(url, params:nil, callback: callback)
     }
     

@@ -7,71 +7,58 @@
 //
 
 import UIKit
+import SwiftyJSON
 
 class ReadShowController: UIViewController, UITextViewDelegate {
 
     var article:Article!
+    var image:UIImage?
     @IBOutlet weak var textView: UITextView!
     
+
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         textView.delegate = self
-        
-        // setup page
-        self.title = article.title
-        
-        
-        // still need to get body
-        
-        let paragraphStyle = NSMutableParagraphStyle()
-        paragraphStyle.lineSpacing = 40
-
-        let attributes = [ NSFontAttributeName: UIFont(name: "Hiragino Sans W3", size: 28.0)!, NSParagraphStyleAttributeName : paragraphStyle ]
-        //let attributedString = NSMutableAttributedString(string: article.bitsAsString(article.bodyBits), attributes: attributes)
-        
-        let attributedString = NSMutableAttributedString(string: article.title, attributes: attributes)
-        
-        
-        // add clickable events
-//        for index in 0 ..< article.bodyBits.count {
-//            let bit = article.bodyBits[index]
-//            if (bit.furigana) != "" {
-//                attributedString.addAttribute(NSLinkAttributeName, value: "http://thaleang.com/\(index)", range: NSMakeRange(bit.position, bit.word.characters.count))
-//            }
-//        }
-
-        textView.attributedText = attributedString
+        let artibutedArticle = ArtibutedArticle.init(article: article, image: image)
+        textView.attributedText = artibutedArticle.attributedString
+        loadData()
     }
-
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
     
+    // Disables scroll so that the textView isn't in the middle after the text is loaded
     override func viewWillAppear(animated: Bool) {
         textView.scrollEnabled = false
     }
     
+    // Reenables scrolling for viewWillAppear purpose
     override func viewDidAppear(animated: Bool) {
         textView.scrollEnabled = true
     }
     
-    func textView(textView: UITextView, shouldInteractWithURL URL: NSURL, inRange characterRange: NSRange) -> Bool {
-        let index = Int(URL.lastPathComponent!)
-        let bit = article.bodyBits[index!]
-        return false
+    // Mark - Network
+    
+    private func loadData() {
+        NetworkManager.read(article.id) { (success, object) in
+            if success {
+                if let rawJSON = object {
+                    self.article = Article.init(json: JSON(rawJSON))
+                    let artibutedArticle = ArtibutedArticle.init(article: self.article, image: self.image)
+                    self.textView.attributedText = artibutedArticle.attributedString
+                }
+            }
+        }
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+    // Mark - TextViewDelegate Methods
+    
+    func textView(textView: UITextView, shouldInteractWithURL URL: NSURL, inRange characterRange: NSRange) -> Bool {
+        let index = Int(URL.lastPathComponent!)
+        let bit = article.titleBits[index!]
+        return false
     }
-    */
 
 }
