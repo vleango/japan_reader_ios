@@ -21,6 +21,8 @@ class ArtibutedArticle {
             string.appendAttributedString(imageString())
             string.appendAttributedString(newLine(2))
             string.appendAttributedString(titleString())
+            string.appendAttributedString(newLine(2))
+            string.appendAttributedString(bodyString())
             return string
         }
     }
@@ -37,7 +39,7 @@ class ArtibutedArticle {
         if let validImage = image {
             let attachment = ImageAttachment.init(validImage, reduction: 0.8)
             let image = NSMutableAttributedString.init(attributedString: NSAttributedString.init(attachment: attachment))
-            image.addAttribute(NSParagraphStyleAttributeName, value: centerParagraph(), range: NSMakeRange(0, 1))
+            image.addAttribute(NSParagraphStyleAttributeName, value: paragraphStyle(), range: NSMakeRange(0, 1))
             string = image
         }
         return string
@@ -45,12 +47,24 @@ class ArtibutedArticle {
     
     private func titleString() -> NSMutableAttributedString {
         if article.titleBits.count != 0 {
-            return BitStringFrom(article.title, bits: article.titleBits, attributes: attributes(centerParagraph(30)))
+            return BitStringFrom(article.title, bits: article.titleBits, attributes: attributes(paragraphStyle()))
         }
         else {
             return NSMutableAttributedString(
                 string: article.title,
-                attributes: attributes(centerParagraph(30))
+                attributes: attributes(paragraphStyle())
+            )
+        }
+    }
+    
+    private func bodyString() -> NSMutableAttributedString {
+        if article.bodyBits.count != 0 {
+            return BitStringFrom(article.body, bits: article.bodyBits, attributes: attributes(paragraphStyle(.Justified)))
+        }
+        else {
+            return NSMutableAttributedString(
+                string: article.body,
+                attributes: attributes(paragraphStyle(.Justified))
             )
         }
     }
@@ -76,7 +90,7 @@ class ArtibutedArticle {
     
     // default attributes
     private func attributes(paragraphStyle: NSMutableParagraphStyle = NSMutableParagraphStyle()) -> [String : AnyObject]? {
-        let font = UIFont.init(name: "Hiragino Sans W3", size: 28.0)
+        let font = UIFont.init(name: "Hiragino Sans W3", size: 24.0)
         return [
             NSFontAttributeName: font!,
             NSParagraphStyleAttributeName : paragraphStyle
@@ -84,10 +98,17 @@ class ArtibutedArticle {
     }
     
     // centered NSParagraph with lineSpacing option
-    private func centerParagraph(lineSpacing:CGFloat = 0.0) -> NSMutableParagraphStyle {
+    private func paragraphStyle(alignment:NSTextAlignment = .Center, lineSpacing:CGFloat = 0.0) -> NSMutableParagraphStyle {
         let paragraphStyle = NSMutableParagraphStyle()
-        paragraphStyle.alignment = NSTextAlignment.Center
+        paragraphStyle.alignment = alignment
         paragraphStyle.lineSpacing = lineSpacing
+        
+        paragraphStyle.firstLineHeadIndent = 20
+        let screenSize: CGRect = UIScreen.mainScreen().bounds
+        let indent = CGFloat.abs(20)
+        paragraphStyle.headIndent = indent
+        paragraphStyle.tailIndent = screenSize.width - indent
+        
         return paragraphStyle
     }
     
