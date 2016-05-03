@@ -17,6 +17,7 @@
 		3B2037CA1CD4A63400A27644 /* Search.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3B2037C91CD4A63400A27644 /* Search.storyboard */; };
 		3B5A83281CD5934600BED97F /* ReadShowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B5A83271CD5934600BED97F /* ReadShowController.swift */; };
 		3B5A832B1CD62A5D00BED97F /* TextBit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B5A832A1CD62A5D00BED97F /* TextBit.swift */; };
+		3B6019D91CD871B90009C7E3 /* RubyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B6019D81CD871B90009C7E3 /* RubyView.swift */; };
 		3B7CF7191CD56BC5006ACED3 /* Read.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3B7CF7181CD56BC5006ACED3 /* Read.storyboard */; };
 		3B7CF71B1CD56CE8006ACED3 /* Favorite.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3B7CF71A1CD56CE8006ACED3 /* Favorite.storyboard */; };
 		3B7CF71D1CD571CF006ACED3 /* Option.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3B7CF71C1CD571CF006ACED3 /* Option.storyboard */; };
@@ -67,11 +68,12 @@
 		3B2037C91CD4A63400A27644 /* Search.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = Search.storyboard; path = app/storyboards/Search.storyboard; sourceTree = "<group>"; };
 		3B5A83271CD5934600BED97F /* ReadShowController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ReadShowController.swift; path = app/controllers/read/ReadShowController.swift; sourceTree = "<group>"; };
 		3B5A832A1CD62A5D00BED97F /* TextBit.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TextBit.swift; path = app/models/TextBit.swift; sourceTree = "<group>"; };
+		3B6019D81CD871B90009C7E3 /* RubyView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RubyView.swift; path = app/views/reads/RubyView.swift; sourceTree = "<group>"; };
 		3B7CF7181CD56BC5006ACED3 /* Read.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = Read.storyboard; path = app/storyboards/Read.storyboard; sourceTree = "<group>"; };
 		3B7CF71A1CD56CE8006ACED3 /* Favorite.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = Favorite.storyboard; path = app/storyboards/Favorite.storyboard; sourceTree = "<group>"; };
 		3B7CF71C1CD571CF006ACED3 /* Option.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = Option.storyboard; path = app/storyboards/Option.storyboard; sourceTree = "<group>"; };
 		3B7CF71F1CD572A8006ACED3 /* SearchIndexController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SearchIndexController.swift; path = app/controllers/search/SearchIndexController.swift; sourceTree = "<group>"; };
-		3B8EFA541CD8296B00C8D305 /* ImageAttachment.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ImageAttachment.swift; path = vendors/ImageAttachment.swift; sourceTree = "<group>"; };
+		3B8EFA541CD8296B00C8D305 /* ImageAttachment.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ImageAttachment.swift; path = vendors/ImageAttachment/ImageAttachment.swift; sourceTree = "<group>"; };
 		3B8EFA591CD834E100C8D305 /* ArtibutedArticle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ArtibutedArticle.swift; path = app/managers/attibuted_strings/ArtibutedArticle.swift; sourceTree = "<group>"; };
 		3B8EFA5C1CD838CE00C8D305 /* tha.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; name = tha.playground; path = playgrounds/tha.playground; sourceTree = "<group>"; };
 		3BD0107C1CD5783900FB9C2F /* Network.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Network.swift; path = app/managers/Network.swift; sourceTree = "<group>"; };
@@ -198,6 +200,14 @@
 			name = controllers;
 			sourceTree = "<group>";
 		};
+		3B22E46B1CD8E28C0032DDF1 /* ImageAttachment */ = {
+			isa = PBXGroup;
+			children = (
+				3B8EFA541CD8296B00C8D305 /* ImageAttachment.swift */,
+			);
+			name = ImageAttachment;
+			sourceTree = "<group>";
+		};
 		3B7CF71E1CD5726D006ACED3 /* search */ = {
 			isa = PBXGroup;
 			children = (
@@ -209,7 +219,7 @@
 		3B8EFA531CD8294E00C8D305 /* vendors */ = {
 			isa = PBXGroup;
 			children = (
-				3B8EFA541CD8296B00C8D305 /* ImageAttachment.swift */,
+				3B22E46B1CD8E28C0032DDF1 /* ImageAttachment */,
 			);
 			name = vendors;
 			sourceTree = "<group>";
@@ -234,6 +244,7 @@
 			isa = PBXGroup;
 			children = (
 				3BE0A89D1CD8184900C7A46E /* ReadIndexCell.swift */,
+				3B6019D81CD871B90009C7E3 /* RubyView.swift */,
 			);
 			name = reads;
 			sourceTree = "<group>";
@@ -503,6 +514,7 @@
 				3BE0A89E1CD8184900C7A46E /* ReadIndexCell.swift in Sources */,
 				3B5A83281CD5934600BED97F /* ReadShowController.swift in Sources */,
 				3B5A832B1CD62A5D00BED97F /* TextBit.swift in Sources */,
+				3B6019D91CD871B90009C7E3 /* RubyView.swift in Sources */,
 				3B7CF7201CD572A8006ACED3 /* SearchIndexController.swift in Sources */,
 				3BE0A8A41CD81DF200C7A46E /* Constants.swift in Sources */,
 				3B8EFA5A1CD834E100C8D305 /* ArtibutedArticle.swift in Sources */,
@@ -648,10 +660,13 @@
 			baseConfigurationReference = A528E3B8C0DC9E16FF74A8AE /* Pods-japanese-memo.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = "japanese-memo/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "leang.tha.japanese-memo";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Debug;
 		};
@@ -660,10 +675,13 @@
 			baseConfigurationReference = 7AAA4438477CF7C451756E8E /* Pods-japanese-memo.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = "japanese-memo/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "leang.tha.japanese-memo";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Release;
 		};

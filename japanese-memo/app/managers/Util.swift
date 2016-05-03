@@ -49,9 +49,10 @@ final class Util {
         }
     }
     
-    func displayAlertView(title:String?, message:String?, confirmText:String? = "OK", viewController:UIViewController) {
+    func displayAlertView(title:String?, message:String?, cancelText:String? = "Cancel",confirmText:String? = "OK", viewController:UIViewController) {
         let alert = UIAlertController(title: title, message: message, preferredStyle: UIAlertControllerStyle.Alert)
-        alert.addAction(UIAlertAction(title: confirmText, style: UIAlertActionStyle.Default, handler: nil))
+        alert.addAction(UIAlertAction(title: confirmText, style: .Default, handler: nil))
+        alert.addAction(UIAlertAction(title: cancelText, style: .Cancel, handler: nil))
         viewController.presentViewController(alert, animated: true, completion: nil)
     }
     
