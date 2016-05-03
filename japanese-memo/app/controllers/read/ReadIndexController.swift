@@ -17,8 +17,20 @@ class ReadIndexController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        // auto height for cells
         tableView.rowHeight = UITableViewAutomaticDimension
         tableView.estimatedRowHeight = 100.0
+        
+        // add refresh control
+        refreshControl = UIRefreshControl()
+        refreshControl!.addTarget(self, action: Selector(loadData()), forControlEvents: UIControlEvents.ValueChanged)
+        
+        // load the data from network
+        loadData()
+    }
+    
+    func refresh(sender:AnyObject) {
         loadData()
     }
 
@@ -61,6 +73,8 @@ class ReadIndexController: UITableViewController {
             else {
                 UtilManager.displayAlertView("Network Error", message: "An error has occurred", viewController: self)
             }
+            
+            self.refreshControl?.endRefreshing()
         })
     }
 

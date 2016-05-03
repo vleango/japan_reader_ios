@@ -49,6 +49,7 @@ final class Network {
             
             Alamofire.request(method, "\(Constants.app.apiUrl)\(url)", parameters: params, headers: header)
                 .responseJSON { response in
+                    self.isLoading = false
                     if let block = callback {
                         switch response.result {
                         case .Success:
