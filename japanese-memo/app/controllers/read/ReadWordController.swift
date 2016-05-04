@@ -29,7 +29,7 @@ class ReadWordController: UIViewController, UITextViewDelegate {
     }
 
     private func loadData() {
-        NetworkManager.translation(artibutedWord.bit.word) { (success, object) in
+        NetworkManager.translation(["search": ["query" : artibutedWord.bit.word]]) { (success, object) in
             if success {
                 if let rawJSON = object {
                     let json = JSON(rawJSON)
@@ -46,13 +46,14 @@ class ReadWordController: UIViewController, UITextViewDelegate {
     }
     
     @IBAction func learnMoreBtnClicked(sender: AnyObject) {
-        self.performSegueWithIdentifier(learnMoreSegue, sender: artibutedWord.bit.word)
+        self.performSegueWithIdentifier(learnMoreSegue, sender: nil)
     }
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if segue.identifier == learnMoreSegue {
             let searchVC = segue.destinationViewController as! SearchIndexController
-            searchVC.query = sender as? String
+            searchVC.entries = artibutedWord.entries
+            searchVC.searchBar.text = artibutedWord.bit.word
         }
     }
     

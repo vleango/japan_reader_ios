@@ -20,6 +20,9 @@
 		3B22E4751CD997300032DDF1 /* ArtibutedBase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B22E4741CD997300032DDF1 /* ArtibutedBase.swift */; };
 		3B22E4771CD9A4890032DDF1 /* Sense.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B22E4761CD9A4890032DDF1 /* Sense.swift */; };
 		3B22E47A1CD9A62A0032DDF1 /* Entry.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B22E4791CD9A62A0032DDF1 /* Entry.swift */; };
+		3B22E47E1CD9E6A00032DDF1 /* KEle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B22E47D1CD9E6A00032DDF1 /* KEle.swift */; };
+		3B22E4801CD9E7180032DDF1 /* REle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B22E47F1CD9E7180032DDF1 /* REle.swift */; };
+		3B239F361CD9EECF00EC0659 /* SearchShowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B239F351CD9EECF00EC0659 /* SearchShowController.swift */; };
 		3B5A83281CD5934600BED97F /* ReadShowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B5A83271CD5934600BED97F /* ReadShowController.swift */; };
 		3B5A832B1CD62A5D00BED97F /* TextBit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B5A832A1CD62A5D00BED97F /* TextBit.swift */; };
 		3B6019D91CD871B90009C7E3 /* RubyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B6019D81CD871B90009C7E3 /* RubyView.swift */; };
@@ -74,8 +77,11 @@
 		3B22E4701CD987B20032DDF1 /* ReadWordController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ReadWordController.swift; path = app/controllers/read/ReadWordController.swift; sourceTree = "<group>"; };
 		3B22E4721CD996CC0032DDF1 /* ArtibutedWord.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ArtibutedWord.swift; path = app/managers/attibuted_strings/ArtibutedWord.swift; sourceTree = "<group>"; };
 		3B22E4741CD997300032DDF1 /* ArtibutedBase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ArtibutedBase.swift; path = app/managers/attibuted_strings/ArtibutedBase.swift; sourceTree = "<group>"; };
-		3B22E4761CD9A4890032DDF1 /* Sense.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Sense.swift; path = app/models/Sense.swift; sourceTree = "<group>"; };
-		3B22E4791CD9A62A0032DDF1 /* Entry.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Entry.swift; path = app/models/Entry.swift; sourceTree = "<group>"; };
+		3B22E4761CD9A4890032DDF1 /* Sense.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Sense.swift; path = app/models/jdicts/Sense.swift; sourceTree = "<group>"; };
+		3B22E4791CD9A62A0032DDF1 /* Entry.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Entry.swift; path = app/models/jdicts/Entry.swift; sourceTree = "<group>"; };
+		3B22E47D1CD9E6A00032DDF1 /* KEle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = KEle.swift; path = app/models/jdicts/KEle.swift; sourceTree = "<group>"; };
+		3B22E47F1CD9E7180032DDF1 /* REle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = REle.swift; path = app/models/jdicts/REle.swift; sourceTree = "<group>"; };
+		3B239F351CD9EECF00EC0659 /* SearchShowController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SearchShowController.swift; path = app/controllers/search/SearchShowController.swift; sourceTree = "<group>"; };
 		3B5A83271CD5934600BED97F /* ReadShowController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ReadShowController.swift; path = app/controllers/read/ReadShowController.swift; sourceTree = "<group>"; };
 		3B5A832A1CD62A5D00BED97F /* TextBit.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TextBit.swift; path = app/models/TextBit.swift; sourceTree = "<group>"; };
 		3B6019D81CD871B90009C7E3 /* RubyView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RubyView.swift; path = app/views/reads/RubyView.swift; sourceTree = "<group>"; };
@@ -218,19 +224,22 @@
 			name = ImageAttachment;
 			sourceTree = "<group>";
 		};
-		3B22E4781CD9A58D0032DDF1 /* jdict */ = {
+		3B22E4781CD9A58D0032DDF1 /* jdicts */ = {
 			isa = PBXGroup;
 			children = (
-				3B22E4761CD9A4890032DDF1 /* Sense.swift */,
 				3B22E4791CD9A62A0032DDF1 /* Entry.swift */,
+				3B22E47D1CD9E6A00032DDF1 /* KEle.swift */,
+				3B22E47F1CD9E7180032DDF1 /* REle.swift */,
+				3B22E4761CD9A4890032DDF1 /* Sense.swift */,
 			);
-			name = jdict;
+			name = jdicts;
 			sourceTree = "<group>";
 		};
 		3B7CF71E1CD5726D006ACED3 /* search */ = {
 			isa = PBXGroup;
 			children = (
 				3B7CF71F1CD572A8006ACED3 /* SearchIndexController.swift */,
+				3B239F351CD9EECF00EC0659 /* SearchShowController.swift */,
 			);
 			name = search;
 			sourceTree = "<group>";
@@ -294,7 +303,7 @@
 		3BD010831CD5880300FB9C2F /* models */ = {
 			isa = PBXGroup;
 			children = (
-				3B22E4781CD9A58D0032DDF1 /* jdict */,
+				3B22E4781CD9A58D0032DDF1 /* jdicts */,
 				3BD010841CD5892F00FB9C2F /* Article.swift */,
 				3B5A832A1CD62A5D00BED97F /* TextBit.swift */,
 			);
@@ -529,11 +538,13 @@
 				3B22E47A1CD9A62A0032DDF1 /* Entry.swift in Sources */,
 				3BE0A8A01CD81D6B00C7A46E /* Util.swift in Sources */,
 				3BD010821CD5855900FB9C2F /* ReadIndexController.swift in Sources */,
+				3B22E4801CD9E7180032DDF1 /* REle.swift in Sources */,
 				3B2037C81CD4A57900A27644 /* MainTabBarController.swift in Sources */,
 				3BD010851CD5892F00FB9C2F /* Article.swift in Sources */,
 				3BE0A89B1CD812D200C7A46E /* TableViewImageCacher.swift in Sources */,
 				3B8EFA551CD8296B00C8D305 /* ImageAttachment.swift in Sources */,
 				3B2037941CD4A3AB00A27644 /* AppDelegate.swift in Sources */,
+				3B239F361CD9EECF00EC0659 /* SearchShowController.swift in Sources */,
 				3BD0107D1CD5783900FB9C2F /* Network.swift in Sources */,
 				3BE0A89E1CD8184900C7A46E /* ReadIndexCell.swift in Sources */,
 				3B22E4731CD996CC0032DDF1 /* ArtibutedWord.swift in Sources */,
@@ -542,6 +553,7 @@
 				3B6019D91CD871B90009C7E3 /* RubyView.swift in Sources */,
 				3B7CF7201CD572A8006ACED3 /* SearchIndexController.swift in Sources */,
 				3B22E4771CD9A4890032DDF1 /* Sense.swift in Sources */,
+				3B22E47E1CD9E6A00032DDF1 /* KEle.swift in Sources */,
 				3BE0A8A41CD81DF200C7A46E /* Constants.swift in Sources */,
 				3B22E4751CD997300032DDF1 /* ArtibutedBase.swift in Sources */,
 				3B8EFA5A1CD834E100C8D305 /* ArtibutedArticle.swift in Sources */,

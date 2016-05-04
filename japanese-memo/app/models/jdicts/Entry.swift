@@ -11,10 +11,20 @@ import SwiftyJSON
 
 class Entry {
     
+    var k_eles:[KEle] = []
+    var r_eles:[REle] = []
     var senses:[Sense] = []
     
     convenience init(json: JSON) {
         self.init()
+        let k_eleJson = json["k_eles"]
+        for (_, k_ele):(String, JSON) in k_eleJson {
+            self.k_eles.append(KEle.init(json: k_ele))
+        }
+        let r_eleJson = json["r_eles"]
+        for (_, r_ele):(String, JSON) in r_eleJson {
+            self.r_eles.append(REle.init(json: r_ele))
+        }
         let sensesJson = json["senses"]
         for (_, sense):(String, JSON) in sensesJson {
             self.senses.append(Sense.init(json: sense))

@@ -50,9 +50,9 @@ final class Network {
         execute(url, params:nil, callback: callback)
     }
     
-    func translation(query: String, callback: ((success:Bool, object:AnyObject?) -> Void)?) {
+    func translation(params:[String : AnyObject], callback: ((success:Bool, object:AnyObject?) -> Void)?) {
         let url = "searches"
-        execute(url, method: .POST, params:["search": ["query" : query]], callback: callback)
+        execute(url, method: .POST, params:params, callback: callback)
     }
     
     private func execute(
