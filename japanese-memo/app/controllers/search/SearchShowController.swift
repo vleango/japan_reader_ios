@@ -15,6 +15,10 @@ class SearchShowController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        // auto height for cells
+        tableView.rowHeight = UITableViewAutomaticDimension
+        tableView.estimatedRowHeight = 100.0
     }
 
     override func didReceiveMemoryWarning() {
@@ -57,19 +61,24 @@ class SearchShowController: UITableViewController {
         let cell = tableView.dequeueReusableCellWithIdentifier("ShowCell", forIndexPath: indexPath)
 
         var text = ""
+        var subtext = ""
         switch sections(rawValue: indexPath.section)! {
         case .k_eles:
             let k_ele = entry.k_eles[indexPath.row]
             text = k_ele.keb
+            subtext = k_ele.infsAndPrisAsString()
         case .r_eles:
             let r_ele = entry.r_eles[indexPath.row]
             text = r_ele.reb
+            subtext = r_ele.infsAndPrisAsString()
         case .senses:
             let sense = entry.senses[indexPath.row]
-            text = sense.text
+            text = sense.glossesAsString()
+            subtext = sense.infosAsString()
         }
         
         cell.textLabel?.text = text
+        cell.detailTextLabel?.text = subtext
         
         return cell
     }

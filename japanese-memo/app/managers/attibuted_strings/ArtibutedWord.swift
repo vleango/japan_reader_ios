@@ -58,11 +58,13 @@ class ArtibutedWord:ArtibutedBase {
                 for entry in entries {
                     var index = 1
                     for sense in entry.senses {
-                        let senseStr = "\(index): \(sense.text)\n"
+                        let text = sense.glossesAsString()
+                        let senseStr = "\(index): \(text)\n"
                         let attrStr = NSAttributedString(string: senseStr, attributes: attrs)
                         string.appendAttributedString(attrStr)
                         index += 1
                     }
+                    
                     // add horizontal line to separate entries
                     string.appendAttributedString(NSAttributedString(string: "ーーーーーーーー\n", attributes: attrs))
                     

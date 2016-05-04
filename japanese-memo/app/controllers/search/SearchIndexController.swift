@@ -95,7 +95,7 @@ class SearchIndexController: UITableViewController, UISearchBarDelegate {
         cell.textLabel?.attributedText = NSAttributedString(string: "\(k_eleText.joinWithSeparator(", "))「\(r_eleText.joinWithSeparator(", "))」")
         var senseText:[String] = []
         for sense in entry.senses {
-            senseText.append(sense.text)
+            senseText.append(sense.glossesAsString())
         }
         cell.detailTextLabel?.attributedText = NSAttributedString(string: senseText.joinWithSeparator(", "))
         
