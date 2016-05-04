@@ -10,10 +10,12 @@ import Foundation
 import UIKit
 import RealmSwift
 
-class ArtibutedArticle {
+class ArtibutedArticle:ArtibutedBase {
     
     var article:Article
     var image:UIImage?
+    
+    enum parts:String {case title, body}
     
     var attributedString:NSMutableAttributedString {
         get {
@@ -49,7 +51,7 @@ class ArtibutedArticle {
     
     private func titleString() -> NSMutableAttributedString {
         if enableFurigana == true && article.titleBits.count != 0 {
-            return BitStringFrom(article.title, bits: article.titleBits, attributes: attributes(paragraphStyle()))
+            return BitStringFrom(parts.title, text: article.title, bits: article.titleBits, attributes: attributes(paragraphStyle()))
         }
         else {
             return NSMutableAttributedString(
@@ -61,7 +63,7 @@ class ArtibutedArticle {
     
     private func bodyString() -> NSMutableAttributedString {
         if enableFurigana == true && article.bodyBits.count != 0 {
-            return BitStringFrom(article.body, bits: article.bodyBits, attributes: attributes(paragraphStyle(.Justified)))
+            return BitStringFrom(parts.body, text: article.body, bits: article.bodyBits, attributes: attributes(paragraphStyle(.Justified)))
         }
         else {
             return NSMutableAttributedString(
@@ -72,46 +74,15 @@ class ArtibutedArticle {
     }
     
     // string from bits
-    private func BitStringFrom(text:String, bits: List<TextBit>, attributes: [String : AnyObject]?) -> NSMutableAttributedString {
+    private func BitStringFrom(type:parts, text:String, bits: List<TextBit>, attributes: [String : AnyObject]?) -> NSMutableAttributedString {
         let string = NSMutableAttributedString.init(string: text, attributes: attributes)
         for index in 0 ..< bits.count {
             let bit = bits[index]
             if (bit.furigana) != "" {
-                string.addAttribute(NSLinkAttributeName, value: "http://thaleang.com/\(index)", range: NSMakeRange(bit.position, bit.word.characters.count))
+                string.addAttribute(NSLinkAttributeName, value: "http://\(type)/\(index)", range: NSMakeRange(bit.position, bit.word.characters.count))
             }
         }
         return string
-    }
-    
-    // returns the number of new_lines as attributedString
-    private func newLine(value: Int32 = 1) -> NSAttributedString {
-        var newLineStrs = ""
-        for _ in 1...value { newLineStrs += "\n" }
-        return NSAttributedString.init(string: newLineStrs)
-    }
-    
-    // default attributes
-    private func attributes(paragraphStyle: NSMutableParagraphStyle = NSMutableParagraphStyle()) -> [String : AnyObject]? {
-        let font = UIFont.init(name: "Hiragino Sans W3", size: 24.0)
-        return [
-            NSFontAttributeName: font!,
-            NSParagraphStyleAttributeName : paragraphStyle
-        ]
-    }
-    
-    // centered NSParagraph with lineSpacing option
-    private func paragraphStyle(alignment:NSTextAlignment = .Center, lineSpacing:CGFloat = 0.0) -> NSMutableParagraphStyle {
-        let paragraphStyle = NSMutableParagraphStyle()
-        paragraphStyle.alignment = alignment
-        paragraphStyle.lineSpacing = lineSpacing
-        
-        paragraphStyle.firstLineHeadIndent = 20
-        let screenSize: CGRect = UIScreen.mainScreen().bounds
-        let indent = CGFloat.abs(20)
-        paragraphStyle.headIndent = indent
-        paragraphStyle.tailIndent = screenSize.width - indent
-        
-        return paragraphStyle
     }
     
 }

@@ -42,6 +42,11 @@ final class Network {
         execute(url, params:nil, callback: callback)
     }
     
+    func translation(query: String, callback: ((success:Bool, object:AnyObject?) -> Void)?) {
+        let url = "searches"
+        execute(url, method: .POST, params:["search": ["query" : query]], callback: callback)
+    }
+    
     private func execute(
         url:String,
         method:Alamofire.Method = .GET,

@@ -163,11 +163,52 @@
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
                     <connections>
                         <outlet property="textView" destination="qTU-LV-BIm" id="2mc-WC-v5H"/>
+                        <segue destination="cOM-sm-d0L" kind="popoverPresentation" identifier="sToReadWordSegue" popoverAnchorView="qTU-LV-BIm" id="Rl2-7Q-XNx">
+                            <popoverArrowDirection key="popoverArrowDirection" up="YES" down="YES" left="YES" right="YES"/>
+                        </segue>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="81R-CK-hFm" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1401.5" y="535.5"/>
+        </scene>
+        <!--Read Word Controller-->
+        <scene sceneID="mCL-cW-dgW">
+            <objects>
+                <viewController id="cOM-sm-d0L" customClass="ReadWordController" customModule="japanese_memo" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="neT-g8-agf"/>
+                        <viewControllerLayoutGuide type="bottom" id="7zB-i6-ITC"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="JgP-2s-3Wh">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="Loading..." textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="to5-8K-i0i">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="to5-8K-i0i" firstAttribute="leading" secondItem="JgP-2s-3Wh" secondAttribute="leading" id="F0l-rJ-Cwt"/>
+                            <constraint firstItem="to5-8K-i0i" firstAttribute="top" secondItem="neT-g8-agf" secondAttribute="bottom" id="FpV-gT-z2V"/>
+                            <constraint firstItem="to5-8K-i0i" firstAttribute="bottom" secondItem="7zB-i6-ITC" secondAttribute="top" id="bme-vs-wYX"/>
+                            <constraint firstAttribute="trailing" secondItem="to5-8K-i0i" secondAttribute="trailing" id="kXL-CX-V7A"/>
+                        </constraints>
+                    </view>
+                    <nil key="simulatedStatusBarMetrics"/>
+                    <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+                    <size key="freeformSize" width="375" height="667"/>
+                    <connections>
+                        <outlet property="textView" destination="to5-8K-i0i" id="d7O-xa-3O1"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="mVx-1d-Pbw" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1914.5" y="535.5"/>
         </scene>
     </scenes>
     <resources>
