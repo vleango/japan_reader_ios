@@ -11,6 +11,7 @@ import SwiftyJSON
 
 class ReadIndexController: UITableViewController {
 
+    @IBOutlet weak var segmentedControl: UISegmentedControl!
     var articles = [Article]()
     let showSegue = "sToReadShowSegue"
     let tableViewImageCache = TableViewImageCacher.init()
@@ -50,9 +51,11 @@ class ReadIndexController: UITableViewController {
     
     // MARK: - Network
     private func loadData() {
-        NetworkManager.reads({ (success, object) -> Void in
+        let selectedType = Article.articleTypes(rawValue: segmentedControl.selectedSegmentIndex)!
+        NetworkManager.reads(selectedType, callback: { (success, object) -> Void in
             if success {
                 if let rawJSON = object {
+                    self.articles.removeAll() // clean up the data holder
                     let json = JSON(rawJSON)
                     let articlesJson = json["articles"]
                     for (_, article):(String, JSON) in articlesJson {
@@ -110,4 +113,8 @@ class ReadIndexController: UITableViewController {
         self.performSegueWithIdentifier(showSegue, sender: articles[indexPath.row])
     }
 
+    @IBAction func segmentedControlValueChanged(sender: UISegmentedControl) {
+        loadData()
+    }
+    
 }

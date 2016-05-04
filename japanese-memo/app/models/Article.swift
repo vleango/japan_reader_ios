@@ -12,6 +12,8 @@ import SwiftyJSON
 
 class Article: Object {
     
+    enum articleTypes:Int { case all, easy, normal }
+    
     struct constants {
         static let id = "id"
         static let provider = "provider"

@@ -32,8 +32,16 @@ final class Network {
         execute(url, method: .POST, params:params, callback: callback)
     }
     
-    func reads(callback: ((success:Bool, object:AnyObject?) -> Void)?) {
-        let url = "articles"
+    func reads(type:Article.articleTypes = .all, callback: ((success:Bool, object:AnyObject?) -> Void)?) {
+        var url = "articles"
+        switch type {
+        case .all: break
+        case .easy:
+            url = url.stringByAppendingString("/easys")
+        case .normal:
+            url = url.stringByAppendingString("/normals")
+        }
+        
         execute(url, params:nil, callback: callback)
     }
     

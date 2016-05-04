@@ -94,10 +94,14 @@
                                 <segment title="Easy"/>
                                 <segment title="Normal"/>
                             </segments>
+                            <connections>
+                                <action selector="segmentedControlValueChanged:" destination="ASa-fe-9P1" eventType="valueChanged" id="nc9-so-NU0"/>
+                            </connections>
                         </segmentedControl>
                     </navigationItem>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
                     <connections>
+                        <outlet property="segmentedControl" destination="oHx-gK-mc1" id="a5v-wY-DZM"/>
                         <segue destination="hRe-On-kgE" kind="show" identifier="sToReadShowSegue" id="isr-oj-GeC"/>
                     </connections>
                 </tableViewController>
