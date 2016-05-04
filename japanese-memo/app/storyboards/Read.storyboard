@@ -189,18 +189,36 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="Loading..." textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="to5-8K-i0i">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="623"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
+                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="q6f-gE-BtD">
+                                <rect key="frame" x="0.0" y="623" width="375" height="44"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="44" id="1DP-4U-63a"/>
+                                </constraints>
+                                <items>
+                                    <barButtonItem systemItem="flexibleSpace" id="5Z6-SZ-sLM"/>
+                                    <barButtonItem title="Learn more" id="au5-mO-Swm">
+                                        <connections>
+                                            <action selector="learnMoreBtnClicked:" destination="cOM-sm-d0L" id="Etp-Ec-niW"/>
+                                        </connections>
+                                    </barButtonItem>
+                                    <barButtonItem systemItem="flexibleSpace" id="lYk-CM-OIM"/>
+                                </items>
+                            </toolbar>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="q6f-gE-BtD" firstAttribute="bottom" secondItem="7zB-i6-ITC" secondAttribute="top" id="4fr-YI-bcm"/>
+                            <constraint firstItem="q6f-gE-BtD" firstAttribute="leading" secondItem="to5-8K-i0i" secondAttribute="leading" id="8Es-dO-n03"/>
                             <constraint firstItem="to5-8K-i0i" firstAttribute="leading" secondItem="JgP-2s-3Wh" secondAttribute="leading" id="F0l-rJ-Cwt"/>
                             <constraint firstItem="to5-8K-i0i" firstAttribute="top" secondItem="neT-g8-agf" secondAttribute="bottom" id="FpV-gT-z2V"/>
-                            <constraint firstItem="to5-8K-i0i" firstAttribute="bottom" secondItem="7zB-i6-ITC" secondAttribute="top" id="bme-vs-wYX"/>
+                            <constraint firstItem="q6f-gE-BtD" firstAttribute="trailing" secondItem="to5-8K-i0i" secondAttribute="trailing" id="JZR-eL-nEe"/>
                             <constraint firstAttribute="trailing" secondItem="to5-8K-i0i" secondAttribute="trailing" id="kXL-CX-V7A"/>
+                            <constraint firstItem="q6f-gE-BtD" firstAttribute="top" secondItem="to5-8K-i0i" secondAttribute="bottom" id="tLM-YW-hja"/>
                         </constraints>
                     </view>
                     <nil key="simulatedStatusBarMetrics"/>
@@ -208,9 +226,11 @@
                     <size key="freeformSize" width="375" height="667"/>
                     <connections>
                         <outlet property="textView" destination="to5-8K-i0i" id="d7O-xa-3O1"/>
+                        <segue destination="1Uo-zi-10T" kind="unwind" identifier="sToExitSearchVC" unwindAction="unwindToSearchVC:" id="hn4-hd-evj"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="mVx-1d-Pbw" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="1Uo-zi-10T" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="1914.5" y="535.5"/>
         </scene>

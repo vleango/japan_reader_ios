@@ -9,14 +9,16 @@
 import UIKit
 import SwiftyJSON
 
-class ReadWordController: UIViewController {
+class ReadWordController: UIViewController, UITextViewDelegate {
     
     var artibutedWord:ArtibutedWord!
     @IBOutlet weak var textView: UITextView!
+    let learnMoreSegue = "sToExitSearchVC"
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.preferredContentSize = CGSizeMake(200, 100)
+        textView.delegate = self
+        self.preferredContentSize = CGSizeMake(200, 200)
         textView.attributedText = artibutedWord.attributedString
         loadData()
     }
@@ -40,6 +42,36 @@ class ReadWordController: UIViewController {
                 self.artibutedWord.showSense = true
                 self.textView.attributedText = self.artibutedWord.attributedString
             }
+        }
+    }
+    
+    @IBAction func learnMoreBtnClicked(sender: AnyObject) {
+        self.performSegueWithIdentifier(learnMoreSegue, sender: artibutedWord.bit.word)
+    }
+    
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        if segue.identifier == learnMoreSegue {
+            let searchVC = segue.destinationViewController as! SearchIndexController
+            searchVC.query = sender as? String
+        }
+    }
+    
+    // Mark - TextView Delegate Methods
+    
+    // Disables scroll so that the textView isn't in the middle after the text is loaded
+    override func viewWillAppear(animated: Bool) {
+        textView.scrollEnabled = false
+    }
+    
+    // Reenables scrolling for viewWillAppear purpose
+    override func viewDidAppear(animated: Bool) {
+        textView.scrollEnabled = true
+    }
+    
+    // reload the attributed string (since bounds needs to be recalculated)
+    override func viewWillTransitionToSize(size: CGSize, withTransitionCoordinator coordinator: UIViewControllerTransitionCoordinator) {
+        coordinator.animateAlongsideTransition(nil) { (UIViewControllerTransitionCoordinatorContext) in
+            self.textView.attributedText = self.artibutedWord.attributedString
         }
     }
 
