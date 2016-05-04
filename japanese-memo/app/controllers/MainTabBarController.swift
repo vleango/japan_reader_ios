@@ -14,13 +14,13 @@ class MainTabBarController: UITabBarController {
         static let search =     (storyboard: "Search",      identifier: "SearchNavVC")
         static let read =       (storyboard: "Read",        identifier: "ReadNavVC")
         static let favorite =   (storyboard: "Favorite",    identifier: "FavoriteNavVC")
-        static let option =   (storyboard: "Option",    identifier: "OptionNavVC")
+        static let settings =   (storyboard: "Setting",     identifier: "SettingNavVC")
     }
     
     let searchVC = UIStoryboard.init(name: storyboards.search.storyboard, bundle: nil).instantiateViewControllerWithIdentifier(storyboards.search.identifier)
     let readVC = UIStoryboard.init(name: storyboards.read.storyboard, bundle: nil).instantiateViewControllerWithIdentifier(storyboards.read.identifier)
     let favoriteVC = UIStoryboard.init(name: storyboards.favorite.storyboard, bundle: nil).instantiateViewControllerWithIdentifier(storyboards.favorite.identifier)
-    let optionVC = UIStoryboard.init(name: storyboards.option.storyboard, bundle: nil).instantiateViewControllerWithIdentifier(storyboards.option.identifier)
+    let settingsVC = UIStoryboard.init(name: storyboards.settings.storyboard, bundle: nil).instantiateViewControllerWithIdentifier(storyboards.settings.identifier)
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -35,7 +35,7 @@ class MainTabBarController: UITabBarController {
     
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
-        self.setViewControllers([searchVC, readVC, favoriteVC, optionVC], animated: true)
+        self.setViewControllers([readVC, searchVC, favoriteVC, settingsVC], animated: true)
     }
 
 }

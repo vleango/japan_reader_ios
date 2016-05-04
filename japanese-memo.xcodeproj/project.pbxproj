@@ -44,7 +44,7 @@
 		3B6019D91CD871B90009C7E3 /* RubyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B6019D81CD871B90009C7E3 /* RubyView.swift */; };
 		3B7CF7191CD56BC5006ACED3 /* Read.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3B7CF7181CD56BC5006ACED3 /* Read.storyboard */; };
 		3B7CF71B1CD56CE8006ACED3 /* Favorite.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3B7CF71A1CD56CE8006ACED3 /* Favorite.storyboard */; };
-		3B7CF71D1CD571CF006ACED3 /* Option.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3B7CF71C1CD571CF006ACED3 /* Option.storyboard */; };
+		3B7CF71D1CD571CF006ACED3 /* Setting.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3B7CF71C1CD571CF006ACED3 /* Setting.storyboard */; };
 		3B7CF7201CD572A8006ACED3 /* SearchIndexController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B7CF71F1CD572A8006ACED3 /* SearchIndexController.swift */; };
 		3B8EFA551CD8296B00C8D305 /* ImageAttachment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B8EFA541CD8296B00C8D305 /* ImageAttachment.swift */; };
 		3B8EFA5A1CD834E100C8D305 /* ArtibutedArticle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B8EFA591CD834E100C8D305 /* ArtibutedArticle.swift */; };
@@ -119,7 +119,7 @@
 		3B6019D81CD871B90009C7E3 /* RubyView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RubyView.swift; path = app/views/reads/RubyView.swift; sourceTree = "<group>"; };
 		3B7CF7181CD56BC5006ACED3 /* Read.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = Read.storyboard; path = app/storyboards/Read.storyboard; sourceTree = "<group>"; };
 		3B7CF71A1CD56CE8006ACED3 /* Favorite.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = Favorite.storyboard; path = app/storyboards/Favorite.storyboard; sourceTree = "<group>"; };
-		3B7CF71C1CD571CF006ACED3 /* Option.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = Option.storyboard; path = app/storyboards/Option.storyboard; sourceTree = "<group>"; };
+		3B7CF71C1CD571CF006ACED3 /* Setting.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = Setting.storyboard; path = app/storyboards/Setting.storyboard; sourceTree = "<group>"; };
 		3B7CF71F1CD572A8006ACED3 /* SearchIndexController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SearchIndexController.swift; path = app/controllers/search/SearchIndexController.swift; sourceTree = "<group>"; };
 		3B8EFA541CD8296B00C8D305 /* ImageAttachment.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ImageAttachment.swift; path = vendors/ImageAttachment/ImageAttachment.swift; sourceTree = "<group>"; };
 		3B8EFA591CD834E100C8D305 /* ArtibutedArticle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ArtibutedArticle.swift; path = app/managers/attibuted_strings/ArtibutedArticle.swift; sourceTree = "<group>"; };
@@ -233,7 +233,7 @@
 				3B2037C91CD4A63400A27644 /* Search.storyboard */,
 				3B7CF7181CD56BC5006ACED3 /* Read.storyboard */,
 				3B7CF71A1CD56CE8006ACED3 /* Favorite.storyboard */,
-				3B7CF71C1CD571CF006ACED3 /* Option.storyboard */,
+				3B7CF71C1CD571CF006ACED3 /* Setting.storyboard */,
 			);
 			name = storyboards;
 			sourceTree = "<group>";
@@ -510,7 +510,7 @@
 				3B2037CA1CD4A63400A27644 /* Search.storyboard in Resources */,
 				3B7CF7191CD56BC5006ACED3 /* Read.storyboard in Resources */,
 				3B20379B1CD4A3AB00A27644 /* Main.storyboard in Resources */,
-				3B7CF71D1CD571CF006ACED3 /* Option.storyboard in Resources */,
+				3B7CF71D1CD571CF006ACED3 /* Setting.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

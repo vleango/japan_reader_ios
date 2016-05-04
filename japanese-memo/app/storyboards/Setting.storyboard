@@ -5,11 +5,11 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
     </dependencies>
     <scenes>
-        <!--Options-->
+        <!--Settings-->
         <scene sceneID="bip-RJ-YJc">
             <objects>
-                <navigationController storyboardIdentifier="OptionNavVC" automaticallyAdjustsScrollViewInsets="NO" useStoryboardIdentifierAsRestorationIdentifier="YES" id="Kpq-VJ-7sN" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Options" image="first" id="MD5-I4-paP"/>
+                <navigationController storyboardIdentifier="SettingNavVC" automaticallyAdjustsScrollViewInsets="NO" useStoryboardIdentifierAsRestorationIdentifier="YES" id="Kpq-VJ-7sN" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Settings" image="setting" id="MD5-I4-paP"/>
                     <toolbarItems/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
@@ -58,6 +58,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="first" width="30" height="30"/>
+        <image name="setting" width="25" height="25"/>
     </resources>
 </document>
