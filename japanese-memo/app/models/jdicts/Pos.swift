@@ -12,10 +12,16 @@ import SwiftyJSON
 class Pos {
     
     var text:String!
+    var localized_text:String!
     
     convenience init(json: JSON) {
         self.init()
         self.text = json["text"].stringValue
+        self.localized_text = json["localized_text"].stringValue
+    }
+    
+    func toString() -> String {
+        return self.localized_text
     }
 
 }

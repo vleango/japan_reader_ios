@@ -83,44 +83,25 @@ class Sense {
     
     func infosAsString() -> String {
         var arr:[String] = []
-        for item in ants {
-            arr.append(item.text)
-        }
-        
+
         for item in dials {
-            arr.append(item.text)
+            arr.append(item.toString())
         }
         
         for item in fields {
-            arr.append(item.text)
-        }
-        
-        for item in lsources {
-            arr.append(item.text)
+            arr.append(item.toString())
         }
         
         for item in miscs {
-            arr.append(item.text)
+            arr.append(item.toString())
         }
         
         for item in poses {
-            arr.append(item.text)
+            arr.append(item.toString())
         }
         
         for item in s_infs {
-            arr.append(item.text)
-        }
-        
-        for item in stagks {
-            arr.append(item.text)
-        }
-        
-        for item in stagrs {
-            arr.append(item.text)
-        }
-        
-        for item in xrefs {
-            arr.append(item.text)
+            arr.append(item.toString())
         }
 
         return arr.joinWithSeparator(", ")

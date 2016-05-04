@@ -17,5 +17,9 @@ class Stagk {
         self.init()
         self.text = json["text"].stringValue
     }
+    
+    func toString() -> String {
+        return self.text
+    }
 
 }

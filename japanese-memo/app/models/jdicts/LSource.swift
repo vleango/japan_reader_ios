@@ -23,5 +23,9 @@ class LSource {
         self.ls_wasei   = json["ls_wasei"].boolValue
         self.text       = json["text"].stringValue
     }
+    
+    func toString() -> String {
+        return self.text
+    }
 
 }

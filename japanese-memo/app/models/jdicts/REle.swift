@@ -43,10 +43,10 @@ class REle {
     func infsAndPrisAsString() -> String {
         var arr:[String] = []
         for re_inf in re_infs {
-            arr.append(re_inf.text)
+            arr.append(re_inf.toString())
         }
         for re_pri in re_pris {
-            arr.append(re_pri.text)
+            arr.append(re_pri.toString())
         }
         return Array(Set(arr)).joinWithSeparator(", ")
     }
