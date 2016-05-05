@@ -29,7 +29,7 @@ final class Network {
     
     func search(params:[String : AnyObject], callback: ((success:Bool, object:AnyObject?) -> Void)?) {
         let url = "searches"
-        execute(url, method: .POST, params:params, callback: callback)
+        execute(url, method: .POST, params:addLang(params), callback: callback)
     }
     
     func reads(type:Article.articleTypes = .all, params:[String : AnyObject], callback: ((success:Bool, object:AnyObject?) -> Void)?) {
@@ -52,7 +52,18 @@ final class Network {
     
     func translation(params:[String : AnyObject], callback: ((success:Bool, object:AnyObject?) -> Void)?) {
         let url = "searches"
-        execute(url, method: .POST, params:params, callback: callback)
+        execute(url, method: .POST, params:addLang(params), callback: callback)
+    }
+    
+    func availableLanguages(callback: ((success:Bool, object:AnyObject?) -> Void)?) {
+        let url = "settings/languages"
+        execute(url, method: .GET, params:nil, callback: callback)
+    }
+    
+    private func addLang(params:[String:AnyObject]) -> [String:AnyObject] {
+      var paramsWithLang = params
+      paramsWithLang["search[lang]"] = Default.getLanguage().id
+    return paramsWithLang
     }
     
     private func execute(

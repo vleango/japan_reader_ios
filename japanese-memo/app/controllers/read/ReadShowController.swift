@@ -107,15 +107,4 @@ class ReadShowController: UIViewController, UITextViewDelegate, UIPopoverPresent
 
         return false
     }
-
-    // Toggle furigana
-    @IBAction func switchedChanged(enableFurigana: UISwitch) {
-        if enableFurigana.on {
-            artibutedArticle.enableFurigana = true
-        }
-        else {
-            artibutedArticle.enableFurigana = false
-        }
-        textView.attributedText = artibutedArticle.attributedString
-    }
 }

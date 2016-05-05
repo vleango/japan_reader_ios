@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3B090BD31CDAD172006CAB26 /* SettingIndexController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B090BD21CDAD172006CAB26 /* SettingIndexController.swift */; };
+		3B090BD51CDAD234006CAB26 /* SettingLanguageController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B090BD41CDAD234006CAB26 /* SettingLanguageController.swift */; };
+		3B090BD71CDAD8A8006CAB26 /* Language.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B090BD61CDAD8A8006CAB26 /* Language.swift */; };
 		3B2037941CD4A3AB00A27644 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B2037931CD4A3AB00A27644 /* AppDelegate.swift */; };
 		3B20379B1CD4A3AB00A27644 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3B2037991CD4A3AB00A27644 /* Main.storyboard */; };
 		3B20379D1CD4A3AB00A27644 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3B20379C1CD4A3AB00A27644 /* Assets.xcassets */; };
@@ -48,6 +51,7 @@
 		3B7CF7201CD572A8006ACED3 /* SearchIndexController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B7CF71F1CD572A8006ACED3 /* SearchIndexController.swift */; };
 		3B8EFA551CD8296B00C8D305 /* ImageAttachment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B8EFA541CD8296B00C8D305 /* ImageAttachment.swift */; };
 		3B8EFA5A1CD834E100C8D305 /* ArtibutedArticle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B8EFA591CD834E100C8D305 /* ArtibutedArticle.swift */; };
+		3B8F02F31CDADBBB00E41A90 /* UserDefault.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B8F02F21CDADBBB00E41A90 /* UserDefault.swift */; };
 		3BD0107D1CD5783900FB9C2F /* Network.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BD0107C1CD5783900FB9C2F /* Network.swift */; };
 		3BD010821CD5855900FB9C2F /* ReadIndexController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BD010811CD5855900FB9C2F /* ReadIndexController.swift */; };
 		3BD010851CD5892F00FB9C2F /* Article.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BD010841CD5892F00FB9C2F /* Article.swift */; };
@@ -76,6 +80,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		3B090BD21CDAD172006CAB26 /* SettingIndexController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SettingIndexController.swift; path = app/controllers/setting/SettingIndexController.swift; sourceTree = "<group>"; };
+		3B090BD41CDAD234006CAB26 /* SettingLanguageController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SettingLanguageController.swift; path = app/controllers/setting/SettingLanguageController.swift; sourceTree = "<group>"; };
+		3B090BD61CDAD8A8006CAB26 /* Language.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Language.swift; path = app/models/Language.swift; sourceTree = "<group>"; };
 		3B2037901CD4A3AB00A27644 /* japanese-memo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "japanese-memo.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		3B2037931CD4A3AB00A27644 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		3B20379A1CD4A3AB00A27644 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -124,6 +131,7 @@
 		3B8EFA541CD8296B00C8D305 /* ImageAttachment.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ImageAttachment.swift; path = vendors/ImageAttachment/ImageAttachment.swift; sourceTree = "<group>"; };
 		3B8EFA591CD834E100C8D305 /* ArtibutedArticle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ArtibutedArticle.swift; path = app/managers/attibuted_strings/ArtibutedArticle.swift; sourceTree = "<group>"; };
 		3B8EFA5C1CD838CE00C8D305 /* tha.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; name = tha.playground; path = playgrounds/tha.playground; sourceTree = "<group>"; };
+		3B8F02F21CDADBBB00E41A90 /* UserDefault.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UserDefault.swift; path = app/managers/UserDefault.swift; sourceTree = "<group>"; };
 		3BD0107C1CD5783900FB9C2F /* Network.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Network.swift; path = app/managers/Network.swift; sourceTree = "<group>"; };
 		3BD010811CD5855900FB9C2F /* ReadIndexController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ReadIndexController.swift; path = app/controllers/read/ReadIndexController.swift; sourceTree = "<group>"; };
 		3BD010841CD5892F00FB9C2F /* Article.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Article.swift; path = app/models/Article.swift; sourceTree = "<group>"; };
@@ -169,6 +177,15 @@
 				7AAA4438477CF7C451756E8E /* Pods-japanese-memo.release.xcconfig */,
 			);
 			name = Pods;
+			sourceTree = "<group>";
+		};
+		3B090BD11CDAD14A006CAB26 /* setting */ = {
+			isa = PBXGroup;
+			children = (
+				3B090BD21CDAD172006CAB26 /* SettingIndexController.swift */,
+				3B090BD41CDAD234006CAB26 /* SettingLanguageController.swift */,
+			);
+			name = setting;
 			sourceTree = "<group>";
 		};
 		3B2037871CD4A3AB00A27644 = {
@@ -243,6 +260,7 @@
 			children = (
 				3BD0107E1CD584FC00FB9C2F /* read */,
 				3B7CF71E1CD5726D006ACED3 /* search */,
+				3B090BD11CDAD14A006CAB26 /* setting */,
 				3B2037C71CD4A57900A27644 /* MainTabBarController.swift */,
 			);
 			name = controllers;
@@ -334,6 +352,7 @@
 				3BD0107C1CD5783900FB9C2F /* Network.swift */,
 				3BE0A89A1CD812D200C7A46E /* TableViewImageCacher.swift */,
 				3BE0A89F1CD81D6B00C7A46E /* Util.swift */,
+				3B8F02F21CDADBBB00E41A90 /* UserDefault.swift */,
 			);
 			name = managers;
 			sourceTree = "<group>";
@@ -354,6 +373,7 @@
 				3B22E4781CD9A58D0032DDF1 /* jdicts */,
 				3BD010841CD5892F00FB9C2F /* Article.swift */,
 				3B5A832A1CD62A5D00BED97F /* TextBit.swift */,
+				3B090BD61CDAD8A8006CAB26 /* Language.swift */,
 			);
 			name = models;
 			sourceTree = "<group>";
@@ -586,6 +606,7 @@
 				3B239F461CD9F40800EC0659 /* Misc.swift in Sources */,
 				3B22E47A1CD9A62A0032DDF1 /* Entry.swift in Sources */,
 				3BE0A8A01CD81D6B00C7A46E /* Util.swift in Sources */,
+				3B090BD71CDAD8A8006CAB26 /* Language.swift in Sources */,
 				3BD010821CD5855900FB9C2F /* ReadIndexController.swift in Sources */,
 				3B22E4801CD9E7180032DDF1 /* REle.swift in Sources */,
 				3B2037C81CD4A57900A27644 /* MainTabBarController.swift in Sources */,
@@ -600,6 +621,7 @@
 				3B239F4A1CD9F43B00EC0659 /* ReInf.swift in Sources */,
 				3B239F561CD9F4AC00EC0659 /* Xref.swift in Sources */,
 				3B239F4C1CD9F44C00EC0659 /* RePri.swift in Sources */,
+				3B090BD31CDAD172006CAB26 /* SettingIndexController.swift in Sources */,
 				3B22E4731CD996CC0032DDF1 /* ArtibutedWord.swift in Sources */,
 				3B5A83281CD5934600BED97F /* ReadShowController.swift in Sources */,
 				3B5A832B1CD62A5D00BED97F /* TextBit.swift in Sources */,
@@ -609,6 +631,7 @@
 				3B7CF7201CD572A8006ACED3 /* SearchIndexController.swift in Sources */,
 				3B22E4771CD9A4890032DDF1 /* Sense.swift in Sources */,
 				3B239F3C1CD9F38E00EC0659 /* Field.swift in Sources */,
+				3B090BD51CDAD234006CAB26 /* SettingLanguageController.swift in Sources */,
 				3B239F481CD9F41A00EC0659 /* Pos.swift in Sources */,
 				3B239F3E1CD9F3B800EC0659 /* Gloss.swift in Sources */,
 				3B239F421CD9F3DF00EC0659 /* KePri.swift in Sources */,
@@ -622,6 +645,7 @@
 				3B239F541CD9F49F00EC0659 /* Stagr.swift in Sources */,
 				3B239F521CD9F48E00EC0659 /* Stagk.swift in Sources */,
 				3B22E4711CD987B20032DDF1 /* ReadWordController.swift in Sources */,
+				3B8F02F31CDADBBB00E41A90 /* UserDefault.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
