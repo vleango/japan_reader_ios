@@ -23,7 +23,7 @@ class ReadIndexController: UITableViewController {
         
         // auto height for cells
         tableView.rowHeight = UITableViewAutomaticDimension
-        tableView.estimatedRowHeight = 100.0
+        tableView.estimatedRowHeight = 160.0
         
         // configure infinite scrolling
         configureInfiniteScroll()

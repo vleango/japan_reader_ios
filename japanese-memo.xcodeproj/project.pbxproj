@@ -247,8 +247,8 @@
 			isa = PBXGroup;
 			children = (
 				3B2037991CD4A3AB00A27644 /* Main.storyboard */,
-				3B2037C91CD4A63400A27644 /* Search.storyboard */,
 				3B7CF7181CD56BC5006ACED3 /* Read.storyboard */,
+				3B2037C91CD4A63400A27644 /* Search.storyboard */,
 				3B7CF71A1CD56CE8006ACED3 /* Favorite.storyboard */,
 				3B7CF71C1CD571CF006ACED3 /* Setting.storyboard */,
 			);
