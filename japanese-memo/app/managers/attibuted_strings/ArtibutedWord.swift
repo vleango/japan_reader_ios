@@ -48,12 +48,11 @@ class ArtibutedWord:ArtibutedBase {
     private func sensesString() -> NSMutableAttributedString {
         
         let string = NSMutableAttributedString.init()
+        let attrs = attributes(
+            paragraphStyle(.Left),
+            font: UIFont.init(name: "Hiragino Sans W3", size: 12.0)
+        )
         if showSense {
-            let attrs = attributes(
-                paragraphStyle(.Left),
-                font: UIFont.init(name: "Hiragino Sans W3", size: 12.0)
-            )
-            
             if entries.count > 0 {
                 for entry in entries {
                     var index = 1
@@ -74,6 +73,10 @@ class ArtibutedWord:ArtibutedBase {
                 let attrStr = NSAttributedString(string: "not found", attributes: attrs)
                 string.appendAttributedString(attrStr)
             }
+        }
+        else {
+            let attrStr = NSAttributedString(string: "loading...", attributes: attrs)
+            string.appendAttributedString(attrStr)
         }
 
         return string
