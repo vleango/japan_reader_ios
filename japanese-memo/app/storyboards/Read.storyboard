@@ -3,6 +3,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
@@ -45,9 +46,6 @@
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="title" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hJN-Lv-fIt">
                                             <rect key="frame" x="96" y="8" width="271" height="21"/>
-                                            <constraints>
-                                                <constraint firstAttribute="width" constant="271" id="oxx-4Z-bWV"/>
-                                            </constraints>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
@@ -55,19 +53,18 @@
                                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="vuv-J2-dVM">
                                             <rect key="frame" x="8" y="8" width="80" height="80"/>
                                             <constraints>
-                                                <constraint firstAttribute="height" constant="80" id="OFz-Au-lju"/>
-                                                <constraint firstAttribute="width" constant="80" id="U7M-Wj-gbG"/>
+                                                <constraint firstAttribute="width" secondItem="vuv-J2-dVM" secondAttribute="height" multiplier="1:1" id="2bm-pJ-PMc"/>
+                                                <constraint firstAttribute="height" constant="80" id="l0x-61-EGs"/>
                                             </constraints>
                                         </imageView>
                                     </subviews>
                                     <constraints>
-                                        <constraint firstAttribute="bottomMargin" secondItem="vuv-J2-dVM" secondAttribute="bottom" constant="3" id="EW8-bD-J7O"/>
-                                        <constraint firstAttribute="topMargin" secondItem="vuv-J2-dVM" secondAttribute="top" id="RFO-BO-yCx"/>
-                                        <constraint firstItem="hJN-Lv-fIt" firstAttribute="leading" secondItem="vuv-J2-dVM" secondAttribute="trailing" constant="8" symbolic="YES" id="VfQ-nx-u6v"/>
-                                        <constraint firstItem="hJN-Lv-fIt" firstAttribute="trailing" secondItem="WhI-gZ-WFt" secondAttribute="trailingMargin" id="Y2H-rv-5QO"/>
-                                        <constraint firstAttribute="leadingMargin" secondItem="vuv-J2-dVM" secondAttribute="leading" id="ZuV-4x-qXu"/>
-                                        <constraint firstAttribute="bottomMargin" relation="greaterThanOrEqual" secondItem="hJN-Lv-fIt" secondAttribute="bottom" id="gXO-88-EWE"/>
-                                        <constraint firstItem="hJN-Lv-fIt" firstAttribute="top" secondItem="vuv-J2-dVM" secondAttribute="top" id="zgM-sD-01T"/>
+                                        <constraint firstAttribute="trailingMargin" secondItem="hJN-Lv-fIt" secondAttribute="trailing" id="90i-hE-Nzp"/>
+                                        <constraint firstAttribute="leadingMargin" secondItem="vuv-J2-dVM" secondAttribute="leading" id="JBV-BT-bmP"/>
+                                        <constraint firstAttribute="topMargin" secondItem="vuv-J2-dVM" secondAttribute="top" id="eN8-rB-b7k"/>
+                                        <constraint firstItem="hJN-Lv-fIt" firstAttribute="top" secondItem="vuv-J2-dVM" secondAttribute="top" id="t5z-SE-nJG"/>
+                                        <constraint firstAttribute="bottomMargin" secondItem="vuv-J2-dVM" secondAttribute="bottom" constant="3" id="wvz-2h-l6Q"/>
+                                        <constraint firstItem="hJN-Lv-fIt" firstAttribute="leading" secondItem="vuv-J2-dVM" secondAttribute="trailing" constant="8" id="ybd-kv-s0o"/>
                                     </constraints>
                                 </tableViewCellContentView>
                                 <connections>

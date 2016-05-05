@@ -86,27 +86,8 @@ class SearchIndexController: UITableViewController, UISearchBarDelegate {
     }
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier("searchCell", forIndexPath: indexPath)
-        
-        let entry = entries[indexPath.row]
-        
-        var k_eleText:[String] = []
-        for k_ele in entry.k_eles {
-            k_eleText.append(k_ele.keb)
-        }
-        
-        var r_eleText:[String] = []
-        for r_ele in entry.r_eles {
-            r_eleText.append(r_ele.reb)
-        }
-        
-        cell.textLabel?.attributedText = NSAttributedString(string: "\(k_eleText.joinWithSeparator(", "))「\(r_eleText.joinWithSeparator(", "))」")
-        var senseText:[String] = []
-        for sense in entry.senses {
-            senseText.append(sense.glossesAsString())
-        }
-        cell.detailTextLabel?.attributedText = NSAttributedString(string: senseText.joinWithSeparator(", "))
-        
+        let cell = tableView.dequeueReusableCellWithIdentifier("searchCell", forIndexPath: indexPath) as! SearchCell
+        cell.configureCell(entries[indexPath.row])
         return cell
     }
     
