@@ -188,6 +188,12 @@
                                 </constraints>
                                 <items>
                                     <barButtonItem systemItem="flexibleSpace" id="5Z6-SZ-sLM"/>
+                                    <barButtonItem title="Close" id="9pS-eg-ppX">
+                                        <connections>
+                                            <action selector="closeBtnClicked:" destination="cOM-sm-d0L" id="R47-Y1-tNd"/>
+                                        </connections>
+                                    </barButtonItem>
+                                    <barButtonItem systemItem="flexibleSpace" id="cKX-Rx-Dgh"/>
                                     <barButtonItem title="Learn more" id="au5-mO-Swm">
                                         <connections>
                                             <action selector="learnMoreBtnClicked:" destination="cOM-sm-d0L" id="Etp-Ec-niW"/>

@@ -75,5 +75,9 @@ class ReadWordController: UIViewController, UITextViewDelegate {
             self.textView.attributedText = self.artibutedWord.attributedString
         }
     }
+    
+    @IBAction func closeBtnClicked(sender: AnyObject) {
+        self.dismissViewControllerAnimated(true, completion: nil)
+    }
 
 }
