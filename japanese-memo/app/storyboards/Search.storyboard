@@ -135,6 +135,9 @@
                             <outlet property="delegate" destination="izz-4D-6LL" id="NUZ-dB-fPM"/>
                         </connections>
                     </tableView>
+                    <navigationItem key="navigationItem" id="jhz-o8-XKl">
+                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="TBE-dr-PSv"/>
+                    </navigationItem>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Yno-rg-Lak" userLabel="First Responder" sceneMemberID="firstResponder"/>

@@ -15,10 +15,12 @@ class Entry {
     var r_eles:[REle] = []
     var senses:[Sense] = []
     
+    var id:Int!
     var priority:Int?
     
     convenience init(json: JSON) {
         self.init()
+        self.id = json["id"].intValue
         self.priority = json["priority"].int
         let k_eleJson = json["k_eles"]
         for (_, k_ele):(String, JSON) in k_eleJson {
