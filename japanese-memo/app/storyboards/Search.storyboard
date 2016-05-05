@@ -54,13 +54,13 @@
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="751" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fRN-HD-aIe">
                                             <rect key="frame" x="15" y="5" width="327" height="20"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="16"/>
-                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Subtitle" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jif-Td-xnl">
                                             <rect key="frame" x="15" y="25" width="327" height="14"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="11"/>
-                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                     </subviews>
@@ -100,34 +100,45 @@
         <scene sceneID="8IS-X2-uB3">
             <objects>
                 <tableViewController id="izz-4D-6LL" customClass="SearchShowController" customModule="japanese_memo" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="default" rowHeight="44" sectionHeaderHeight="18" sectionFooterHeight="18" id="Baf-63-UnV">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="default" rowHeight="60" sectionHeaderHeight="18" sectionFooterHeight="18" id="Baf-63-UnV">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="calibratedRGB"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="ShowCell" textLabel="lwr-Ux-3jd" detailTextLabel="YuN-fB-eyp" style="IBUITableViewCellStyleSubtitle" id="VoV-CF-ls8">
-                                <rect key="frame" x="0.0" y="114" width="375" height="44"/>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="searchSubtitleCell" rowHeight="60" id="5HZ-NE-EqN" customClass="SubtitleCell" customModule="japanese_memo" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="114" width="375" height="60"/>
                                 <autoresizingMask key="autoresizingMask"/>
-                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="VoV-CF-ls8" id="45u-AG-q9b">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="5HZ-NE-EqN" id="1Eg-Bk-Hqy">
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="59"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="lwr-Ux-3jd">
-                                            <rect key="frame" x="15" y="5" width="32" height="20"/>
-                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="252" verticalCompressionResistancePriority="751" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Fpc-80-RWT">
+                                            <rect key="frame" x="15" y="13" width="352" height="20"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                             <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Subtitle" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="YuN-fB-eyp">
-                                            <rect key="frame" x="15" y="25" width="41" height="14"/>
-                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Subtitle" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gxS-VH-4PJ">
+                                            <rect key="frame" x="15" y="33" width="352" height="14"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="11"/>
                                             <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                     </subviews>
+                                    <constraints>
+                                        <constraint firstItem="Fpc-80-RWT" firstAttribute="top" secondItem="1Eg-Bk-Hqy" secondAttribute="topMargin" constant="5" id="3I1-vb-boc"/>
+                                        <constraint firstAttribute="bottomMargin" secondItem="gxS-VH-4PJ" secondAttribute="bottom" constant="4" id="A8r-zy-eZb"/>
+                                        <constraint firstAttribute="trailingMargin" secondItem="Fpc-80-RWT" secondAttribute="trailing" id="DjS-zH-TEg"/>
+                                        <constraint firstAttribute="trailingMargin" secondItem="gxS-VH-4PJ" secondAttribute="trailing" id="EO1-5e-OxR"/>
+                                        <constraint firstItem="gxS-VH-4PJ" firstAttribute="top" secondItem="Fpc-80-RWT" secondAttribute="bottom" id="QR3-z8-FVB"/>
+                                        <constraint firstItem="Fpc-80-RWT" firstAttribute="leading" secondItem="1Eg-Bk-Hqy" secondAttribute="leadingMargin" constant="7" id="Zst-tE-V7j"/>
+                                        <constraint firstItem="gxS-VH-4PJ" firstAttribute="leading" secondItem="1Eg-Bk-Hqy" secondAttribute="leadingMargin" constant="7" id="eyP-2S-bnN"/>
+                                    </constraints>
                                 </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="subtitleLabel" destination="gxS-VH-4PJ" id="fvu-dR-Ojo"/>
+                                    <outlet property="titleLabel" destination="Fpc-80-RWT" id="Sn0-lE-7sh"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>

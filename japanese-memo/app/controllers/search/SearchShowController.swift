@@ -58,27 +58,26 @@ class SearchShowController: UITableViewController {
     }
 
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier("ShowCell", forIndexPath: indexPath)
+        let cell = tableView.dequeueReusableCellWithIdentifier("searchSubtitleCell", forIndexPath: indexPath) as! SubtitleCell
 
-        var text = ""
-        var subtext = ""
+        var title = ""
+        var subtitle = ""
         switch sections(rawValue: indexPath.section)! {
         case .k_eles:
             let k_ele = entry.k_eles[indexPath.row]
-            text = k_ele.keb
-            subtext = k_ele.infsAndPrisAsString()
+            title = k_ele.keb
+            subtitle = k_ele.infsAndPrisAsString()
         case .r_eles:
             let r_ele = entry.r_eles[indexPath.row]
-            text = r_ele.reb
-            subtext = r_ele.infsAndPrisAsString()
+            title = r_ele.reb
+            subtitle = r_ele.infsAndPrisAsString()
         case .senses:
             let sense = entry.senses[indexPath.row]
-            text = sense.glossesAsString()
-            subtext = sense.infosAsString()
+            title = sense.glossesAsString()
+            subtitle = sense.infosAsString()
         }
         
-        cell.textLabel?.text = text
-        cell.detailTextLabel?.text = subtext
+        cell.configureCell(title, subtitle: subtitle)
         
         return cell
     }
