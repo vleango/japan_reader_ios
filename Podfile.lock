@@ -6,16 +6,19 @@ PODS:
   - RealmSwift (0.100.0):
     - Realm (= 0.100.0)
   - SwiftyJSON (2.3.2)
+  - UIScrollView-InfiniteScroll (0.7.3)
 
 DEPENDENCIES:
   - Alamofire (~> 3.0)
   - RealmSwift (~> 0.100.0)
   - SwiftyJSON (~> 2.3.1)
+  - UIScrollView-InfiniteScroll
 
 SPEC CHECKSUMS:
   Alamofire: 369bc67b6f5ac33ded3648d7bd21c5bfb91c2ecc
   Realm: b13b548e712d28a66678970c45cd245ebb94ba3b
   RealmSwift: 1bb0ba2ceaa06b65d740b4f91bfa06e3fd1b805c
   SwiftyJSON: 04ccea08915aa0109039157c7974cf0298da292a
+  UIScrollView-InfiniteScroll: b6c7d6d155dca7f9c5dd43813ecffeb301b3d50c
 
 COCOAPODS: 0.39.0

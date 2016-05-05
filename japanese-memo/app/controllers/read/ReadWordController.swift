@@ -53,7 +53,7 @@ class ReadWordController: UIViewController, UITextViewDelegate {
         if segue.identifier == learnMoreSegue {
             let searchVC = segue.destinationViewController as! SearchIndexController
             searchVC.entries = artibutedWord.entries
-            searchVC.searchBar.text = artibutedWord.bit.word
+            searchVC.searchBarTextFromSearchVC = artibutedWord.bit.word
         }
     }
     

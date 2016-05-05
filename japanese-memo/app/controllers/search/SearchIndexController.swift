@@ -14,10 +14,15 @@ class SearchIndexController: UITableViewController, UISearchBarDelegate {
     
     @IBOutlet weak var searchBar: UISearchBar!
     var entries:[Entry] = []
+    var searchBarTextFromSearchVC:String?
     let showSegue = "sToSearchShowSegue"
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        if let searchBarText = searchBarTextFromSearchVC {
+            searchBar.text = searchBarText
+        }
         
         // auto height for cells
         tableView.rowHeight = UITableViewAutomaticDimension
@@ -30,6 +35,9 @@ class SearchIndexController: UITableViewController, UISearchBarDelegate {
     }
     
     @IBAction func unwindToSearchVC(segue: UIStoryboardSegue) {
+        if searchBar != nil {
+            searchBar.text = searchBarTextFromSearchVC
+        }
         self.tableView.reloadData()
     }
     

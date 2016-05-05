@@ -88,10 +88,12 @@ if [[ "$CONFIGURATION" == "Debug" ]]; then
   install_framework "Pods-japanese-memo/Realm.framework"
   install_framework "Pods-japanese-memo/RealmSwift.framework"
   install_framework "Pods-japanese-memo/SwiftyJSON.framework"
+  install_framework "Pods-japanese-memo/UIScrollView_InfiniteScroll.framework"
 fi
 if [[ "$CONFIGURATION" == "Release" ]]; then
   install_framework "Pods-japanese-memo/Alamofire.framework"
   install_framework "Pods-japanese-memo/Realm.framework"
   install_framework "Pods-japanese-memo/RealmSwift.framework"
   install_framework "Pods-japanese-memo/SwiftyJSON.framework"
+  install_framework "Pods-japanese-memo/UIScrollView_InfiniteScroll.framework"
 fi

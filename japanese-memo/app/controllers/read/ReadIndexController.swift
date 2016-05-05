@@ -8,6 +8,7 @@
 
 import UIKit
 import SwiftyJSON
+import UIScrollView_InfiniteScroll
 
 class ReadIndexController: UITableViewController {
 
@@ -15,6 +16,7 @@ class ReadIndexController: UITableViewController {
     var articles = [Article]()
     let showSegue = "sToReadShowSegue"
     let tableViewImageCache = TableViewImageCacher.init()
+    var nextPage:Int?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -22,6 +24,9 @@ class ReadIndexController: UITableViewController {
         // auto height for cells
         tableView.rowHeight = UITableViewAutomaticDimension
         tableView.estimatedRowHeight = 100.0
+        
+        // configure infinite scrolling
+        configureInfiniteScroll()
         
         // add refresh control
         // TODO: add refreshed time at to attributed string
@@ -33,6 +38,7 @@ class ReadIndexController: UITableViewController {
     }
     
     func refresh(sender:AnyObject) {
+        nextPage = nil
         loadData()
     }
 
@@ -49,18 +55,41 @@ class ReadIndexController: UITableViewController {
         }
     }
     
+    private func configureInfiniteScroll() {
+        tableView.addInfiniteScrollWithHandler { (scrollView) -> Void in
+            let tableView = scrollView as! UITableView
+            self.loadData(tableView)
+        }
+    }
+    
     // MARK: - Network
-    private func loadData() {
+    private func loadData(infiniteScrollView:UITableView? = nil) {
         let selectedType = Article.articleTypes(rawValue: segmentedControl.selectedSegmentIndex)!
-        NetworkManager.reads(selectedType, callback: { (success, object) -> Void in
+        
+        var params:[String : AnyObject] = [:]
+        if let validNextPage = nextPage {
+            params["page"] = validNextPage
+        }
+        
+        NetworkManager.reads(selectedType, params: params, callback: { (success, object) -> Void in
+            
+            // stop spinning if this is passed in
+            if let validInfiniteScrollView = infiniteScrollView {
+                validInfiniteScrollView.finishInfiniteScroll()
+            }
+            
             if success {
                 if let rawJSON = object {
-                    self.articles.removeAll() // clean up the data holder
+                    if infiniteScrollView == nil {
+                        self.articles.removeAll() // clean up the data holder
+                    }
                     let json = JSON(rawJSON)
                     let articlesJson = json["articles"]
                     for (_, article):(String, JSON) in articlesJson {
                         self.articles.append(Article.init(json: article))
                     }
+                    
+                    self.nextPage = (json["page"].intValue) + 1
                     self.tableView.reloadData()
 
                     let articleImageURLs = self.articles.map({article in article.image_url})
@@ -114,6 +143,9 @@ class ReadIndexController: UITableViewController {
     }
 
     @IBAction func segmentedControlValueChanged(sender: UISegmentedControl) {
+        nextPage = nil
+        articles.removeAll()
+        tableView.reloadData()
         loadData()
     }
     

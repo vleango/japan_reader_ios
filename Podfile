@@ -5,6 +5,7 @@ target 'japanese-memo' do
   pod 'Alamofire', '~> 3.0'
   pod 'SwiftyJSON', '~> 2.3.1'
   pod 'RealmSwift', '~> 0.100.0'
+  pod 'UIScrollView-InfiniteScroll', '~> 0.7.3'
 end
 
 target 'japanese-memoTests' do

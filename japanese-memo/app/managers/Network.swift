@@ -32,7 +32,7 @@ final class Network {
         execute(url, method: .POST, params:params, callback: callback)
     }
     
-    func reads(type:Article.articleTypes = .all, callback: ((success:Bool, object:AnyObject?) -> Void)?) {
+    func reads(type:Article.articleTypes = .all, params:[String : AnyObject], callback: ((success:Bool, object:AnyObject?) -> Void)?) {
         var url = "articles"
         switch type {
         case .all: break
@@ -42,7 +42,7 @@ final class Network {
             url = url.stringByAppendingString("/normals")
         }
         
-        execute(url, params:nil, callback: callback)
+        execute(url, params:params, callback: callback)
     }
     
     func read(articleId: String, callback: ((success:Bool, object:AnyObject?) -> Void)?) {
