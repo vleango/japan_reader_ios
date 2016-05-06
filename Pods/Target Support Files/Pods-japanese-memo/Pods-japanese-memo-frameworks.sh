@@ -85,6 +85,10 @@ strip_invalid_archs() {
 
 if [[ "$CONFIGURATION" == "Debug" ]]; then
   install_framework "Pods-japanese-memo/Alamofire.framework"
+  install_framework "Pods-japanese-memo/Bolts.framework"
+  install_framework "Pods-japanese-memo/FBSDKCoreKit.framework"
+  install_framework "Pods-japanese-memo/FBSDKLoginKit.framework"
+  install_framework "Pods-japanese-memo/FBSDKShareKit.framework"
   install_framework "Pods-japanese-memo/Realm.framework"
   install_framework "Pods-japanese-memo/RealmSwift.framework"
   install_framework "Pods-japanese-memo/SwiftyJSON.framework"
@@ -92,6 +96,10 @@ if [[ "$CONFIGURATION" == "Debug" ]]; then
 fi
 if [[ "$CONFIGURATION" == "Release" ]]; then
   install_framework "Pods-japanese-memo/Alamofire.framework"
+  install_framework "Pods-japanese-memo/Bolts.framework"
+  install_framework "Pods-japanese-memo/FBSDKCoreKit.framework"
+  install_framework "Pods-japanese-memo/FBSDKLoginKit.framework"
+  install_framework "Pods-japanese-memo/FBSDKShareKit.framework"
   install_framework "Pods-japanese-memo/Realm.framework"
   install_framework "Pods-japanese-memo/RealmSwift.framework"
   install_framework "Pods-japanese-memo/SwiftyJSON.framework"

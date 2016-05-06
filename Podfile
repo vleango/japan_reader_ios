@@ -6,6 +6,10 @@ target 'japanese-memo' do
   pod 'SwiftyJSON', '~> 2.3.1'
   pod 'RealmSwift', '~> 0.100.0'
   pod 'UIScrollView-InfiniteScroll', '~> 0.7.3'
+  pod 'Bolts', '~> 1.7.0'
+  pod 'FBSDKCoreKit', '~> 4.11.0'
+  pod 'FBSDKShareKit', '~> 4.11.0'
+  pod 'FBSDKLoginKit', '~> 4.11.0'
 end
 
 target 'japanese-memoTests' do
