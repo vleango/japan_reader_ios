@@ -7,17 +7,35 @@
 //
 
 import UIKit
+import FBSDKLoginKit
 
 class SettingIndexController: UITableViewController {
 
+    enum sections:Int { case language, facebook }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        self.tableView.separatorColor = UIColor.clearColor()
     }
     
     override func viewDidAppear(animated: Bool) {
         // Set Default Language
-        let languageCell = tableView.cellForRowAtIndexPath(NSIndexPath.init(forRow: 0, inSection: 0))
+        let languageCell = tableView.cellForRowAtIndexPath(NSIndexPath.init(forRow: 0, inSection: sections.language.rawValue))
         languageCell?.textLabel?.text = Default.getLanguage().name
+        
+        // Facebook Login Button
+        let loginButton:FBSDKLoginButton = {
+            let button = FBSDKLoginButton()
+            //button.readPermissions = ["email", "public_profile"]
+            return button
+        }()
+        if let loginCell = tableView.cellForRowAtIndexPath(NSIndexPath(forRow: 0, inSection: sections.facebook.rawValue)) {
+            let size = loginCell.frame.size
+            loginButton.center = CGPointMake(size.width/2, size.height/2)
+            loginCell.addSubview(loginButton)
+        }
+        
         tableView.reloadData()
     }
 

@@ -7,18 +7,33 @@
 //
 
 import UIKit
+import SwiftyJSON
 
 class SearchShowController: UITableViewController {
 
+    @IBOutlet weak var saveBtn: UIBarButtonItem!
     var entry:Entry!
     private enum sections:Int { case k_eles, r_eles, senses }
+    private enum saveBtnStates:String { case Save, Unsave }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+
         // auto height for cells
         tableView.rowHeight = UITableViewAutomaticDimension
         tableView.estimatedRowHeight = 100.0
+    }
+    
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(animated)
+        if entry.savedEntry {
+            // if the entry was saved, then we do remove
+            self.saveBtn.title = saveBtnStates.Unsave.rawValue
+        }
+        else {
+            // if the entry was NOT saved, then we do save
+            self.saveBtn.title = saveBtnStates.Save.rawValue
+        }
     }
 
     override func didReceiveMemoryWarning() {
@@ -82,4 +97,24 @@ class SearchShowController: UITableViewController {
         return cell
     }
 
+    @IBAction func SaveBtnClicked(sender: AnyObject) {
+        let toggle = saveBtn.title == saveBtnStates.Save.rawValue
+        LoginManager.toggleEntry(toggle, entry: entry, fromViewController: self) { (success, object) in
+            if success {
+                if let rawJSON = object {
+                    let json = JSON(rawJSON)
+                    if json["status"].stringValue == "create" {
+                        // entry saved
+                        self.saveBtn.title = saveBtnStates.Unsave.rawValue
+                        self.entry.savedEntry = true
+                    }
+                    else {
+                        // entry removed
+                        self.saveBtn.title = saveBtnStates.Save.rawValue
+                        self.entry.savedEntry = false
+                    }
+                }
+            }
+        }
+    }
 }

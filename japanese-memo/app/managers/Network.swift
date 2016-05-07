@@ -32,6 +32,13 @@ final class Network {
         execute(url, method: .POST, params:addLang(params), callback: callback)
     }
     
+    // Setting Lang to the params
+    private func addLang(params:[String:AnyObject]) -> [String:AnyObject] {
+        var paramsWithLang = params
+        paramsWithLang["search[lang]"] = Default.getLanguage().id
+        return paramsWithLang
+    }
+    
     func reads(type:Article.articleTypes = .all, params:[String : AnyObject], callback: ((success:Bool, object:AnyObject?) -> Void)?) {
         var url = "articles"
         switch type {
@@ -60,12 +67,6 @@ final class Network {
         execute(url, method: .GET, params:nil, callback: callback)
     }
     
-    private func addLang(params:[String:AnyObject]) -> [String:AnyObject] {
-      var paramsWithLang = params
-      paramsWithLang["search[lang]"] = Default.getLanguage().id
-    return paramsWithLang
-    }
-    
     private func execute(
         url:String,
         method:Alamofire.Method = .GET,
@@ -75,7 +76,10 @@ final class Network {
         if isLoading == false {
             isLoading = true
             var header:[String: String]?
-            
+            if let userID = LoginManager.AccessTokenUserId() {
+                header = ["AUTHORIZATION" : "Bearer \(userID)"]
+            }
+
             Alamofire.request(method, "\(Constants.app.apiUrl)\(url)", parameters: params, headers: header)
                 .responseJSON { response in
                     self.isLoading = false
@@ -89,9 +93,22 @@ final class Network {
                         }
                     }
             }
-            
         }
         
+    }
+    
+    // MARK - Special Conditioned Methods
+    
+    // should not be called on it's own, should use LoginManager.saveEntry
+    func saveEntry(params:[String : AnyObject], callback: ((success:Bool, object:AnyObject?) -> Void)?) {
+        let url = "users/entries"
+        execute(url, method: .POST, params: params, callback: callback)
+    }
+    
+    // should not be called on it's own, should use LoginManager.removeEntry
+    func removeEntry(entry:Entry, callback: ((success:Bool, object:AnyObject?) -> Void)?) {
+        let url = "users/entries/\(entry.id)"
+        execute(url, method: .DELETE, params: nil, callback: callback)
     }
     
 }

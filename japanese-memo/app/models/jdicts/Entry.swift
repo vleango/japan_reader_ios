@@ -17,11 +17,13 @@ class Entry {
     
     var id:Int!
     var priority:Int?
+    var savedEntry:Bool = false
     
     convenience init(json: JSON) {
         self.init()
         self.id = json["id"].intValue
         self.priority = json["priority"].int
+        self.savedEntry = json["saved_entry"].boolValue
         let k_eleJson = json["k_eles"]
         for (_, k_ele):(String, JSON) in k_eleJson {
             self.k_eles.append(KEle.init(json: k_ele))
