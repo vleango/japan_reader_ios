@@ -3,6 +3,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
         <!--Navigation Controller-->
@@ -26,22 +27,49 @@
             </objects>
             <point key="canvasLocation" x="334.5" y="535.5"/>
         </scene>
-        <!--Table View Controller-->
+        <!--Favorite Index Controller-->
         <scene sceneID="xkM-6E-IJW">
             <objects>
-                <tableViewController id="oqw-uz-N5n" sceneMemberID="viewController">
+                <tableViewController id="oqw-uz-N5n" customClass="FavoriteIndexController" customModule="japanese_memo" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="ekI-8Z-Wdy">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="EdN-Nx-4mc">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="favoritesSubtitleCell" rowHeight="44" id="hZb-kc-aBI" customClass="SearchCell" customModule="japanese_memo" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="92" width="375" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
-                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="EdN-Nx-4mc" id="8Jv-2d-H3Y">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="hZb-kc-aBI" id="Wfy-xS-9WB">
+                                    <rect key="frame" x="0.0" y="0.0" width="342" height="43"/>
                                     <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="751" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bZi-Xk-fTI">
+                                            <rect key="frame" x="15" y="5" width="327" height="20"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Subtitle" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eg1-q9-TRh">
+                                            <rect key="frame" x="15" y="25" width="327" height="14"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="11"/>
+                                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstItem="bZi-Xk-fTI" firstAttribute="top" secondItem="Wfy-xS-9WB" secondAttribute="topMargin" constant="-3" id="FW8-Kz-7zW"/>
+                                        <constraint firstAttribute="bottomMargin" secondItem="eg1-q9-TRh" secondAttribute="bottom" constant="-4" id="Z7S-dJ-jMd"/>
+                                        <constraint firstItem="bZi-Xk-fTI" firstAttribute="leading" secondItem="Wfy-xS-9WB" secondAttribute="leadingMargin" constant="7" id="jBi-EF-rWh"/>
+                                        <constraint firstAttribute="trailingMargin" secondItem="bZi-Xk-fTI" secondAttribute="trailing" constant="-8" id="o4c-8U-556"/>
+                                        <constraint firstItem="eg1-q9-TRh" firstAttribute="leading" secondItem="Wfy-xS-9WB" secondAttribute="leadingMargin" constant="7" id="os3-l0-UT5"/>
+                                        <constraint firstItem="eg1-q9-TRh" firstAttribute="top" secondItem="bZi-Xk-fTI" secondAttribute="bottom" id="qjv-4p-MqA"/>
+                                        <constraint firstAttribute="trailingMargin" secondItem="eg1-q9-TRh" secondAttribute="trailing" constant="-8" id="tn4-ya-RkQ"/>
+                                    </constraints>
                                 </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="subtitleLabel" destination="eg1-q9-TRh" id="nEm-MC-LQ3"/>
+                                    <outlet property="titleLabel" destination="bZi-Xk-fTI" id="hsu-hL-Qlg"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>

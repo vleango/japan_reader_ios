@@ -33,10 +33,15 @@ final class Network {
     }
     
     // Setting Lang to the params
-    private func addLang(params:[String:AnyObject]) -> [String:AnyObject] {
-        var paramsWithLang = params
-        paramsWithLang["search[lang]"] = Default.getLanguage().id
-        return paramsWithLang
+    private func addLang(params:[String:AnyObject]?) -> [String:AnyObject] {
+        if let validParams = params {
+            var paramsWithLang = validParams
+            paramsWithLang["search[lang]"] = Default.getLanguage().id
+            return paramsWithLang
+        }
+        else {
+            return ["lang": Default.getLanguage().id]
+        }
     }
     
     func reads(type:Article.articleTypes = .all, params:[String : AnyObject], callback: ((success:Bool, object:AnyObject?) -> Void)?) {
@@ -60,6 +65,11 @@ final class Network {
     func translation(params:[String : AnyObject], callback: ((success:Bool, object:AnyObject?) -> Void)?) {
         let url = "searches"
         execute(url, method: .POST, params:addLang(params), callback: callback)
+    }
+    
+    func favorites(callback: ((success:Bool, object:AnyObject?) -> Void)?) {
+        let url = "users/entries"
+        execute(url, params: addLang(nil), callback: callback)
     }
     
     func availableLanguages(callback: ((success:Bool, object:AnyObject?) -> Void)?) {
