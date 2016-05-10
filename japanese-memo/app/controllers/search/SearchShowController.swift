@@ -26,13 +26,28 @@ class SearchShowController: UITableViewController {
     
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
-        if entry.savedEntry {
-            // if the entry was saved, then we do remove
-            self.saveBtn.title = saveBtnStates.Unsave.rawValue
-        }
-        else {
-            // if the entry was NOT saved, then we do save
-            self.saveBtn.title = saveBtnStates.Save.rawValue
+
+        // need to resync with app
+        let params:[String:AnyObject] = [
+            "user[resource_type]" : "Jdict::Entry",
+            "user[resource_id]" : entry.id
+        ]
+        NetworkManager.isFavorite(params) { (success, object) in
+            if success {
+                if let rawJSON = object {
+                    let json = JSON(rawJSON)
+                    let favoriteJson = json["favorite"]
+                    self.entry.favoriteId = favoriteJson["id"].int
+                    if self.entry.favoriteId != nil {
+                        // if the entry was saved, then we do remove
+                        self.saveBtn.title = saveBtnStates.Unsave.rawValue
+                    }
+                    else {
+                        // if the entry was NOT saved, then we do save
+                        self.saveBtn.title = saveBtnStates.Save.rawValue
+                    }
+                }
+            }
         }
     }
 
@@ -106,12 +121,10 @@ class SearchShowController: UITableViewController {
                     if json["status"].stringValue == "create" {
                         // entry saved
                         self.saveBtn.title = saveBtnStates.Unsave.rawValue
-                        self.entry.savedEntry = true
                     }
                     else {
                         // entry removed
                         self.saveBtn.title = saveBtnStates.Save.rawValue
-                        self.entry.savedEntry = false
                     }
                 }
             }

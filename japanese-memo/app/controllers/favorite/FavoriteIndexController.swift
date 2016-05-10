@@ -43,6 +43,8 @@ class FavoriteIndexController: UITableViewController {
     // MARK: - Network
     func loadData() {
         NetworkManager.favorites { (success, object) in
+            self.entries.removeAll()
+            self.articles.removeAll()
             if success {
                 self.entries.removeAll()
                 if let rawJSON = object {
@@ -98,7 +100,7 @@ class FavoriteIndexController: UITableViewController {
         case .search:
             return entries.count
         case .read:
-            return entries.count
+            return articles.count
         }
     }
     

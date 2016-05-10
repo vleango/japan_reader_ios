@@ -51,11 +51,34 @@ final class Login {
         canPerformAction(fromViewController) { (success) in
             if success {
                 if save {
-                    let params = ["user[entry]": String(entry.id)]
+                    let params = [
+                        "user[resource_id]": String(entry.id),
+                        "user[resource_type]": "Jdict::Entry"
+                    ]
                     NetworkManager.saveEntry(params, callback: callback)
                 }
                 else {
                     NetworkManager.removeEntry(entry, callback: callback)
+                }
+            }
+            else if let validCallback = callback {
+                validCallback(success: false, object: nil)
+            }
+        }
+    }
+    
+    func toggleArticle(save:Bool, article:Article, fromViewController:UIViewController, callback: ((success:Bool, object:AnyObject?) -> Void)?) {
+        canPerformAction(fromViewController) { (success) in
+            if success {
+                if save {
+                    let params = [
+                        "user[resource_id]": String(article.id),
+                        "user[resource_type]": "JpReader::Article"
+                    ]
+                    NetworkManager.saveArticle(params, callback: callback)
+                }
+                else {
+                    NetworkManager.removeArticle(article, callback: callback)
                 }
             }
             else if let validCallback = callback {

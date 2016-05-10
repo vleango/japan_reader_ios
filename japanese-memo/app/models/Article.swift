@@ -27,6 +27,7 @@ class Article: Object {
         static let title_bits = "title_bits"
         static let subtitle_bits = "subtitle_bits"
         static let body_bits = "body_bits"
+        static let favorite_id = "favorite_id"
     }
     
     dynamic var id = ""
@@ -38,6 +39,7 @@ class Article: Object {
     dynamic var title = ""
     dynamic var subtitle = ""
     dynamic var body = ""
+    dynamic var favoriteId = 0
     
     let titleBits = List<TextBit>()
     let subtitleBits = List<TextBit>()
@@ -51,6 +53,10 @@ class Article: Object {
         self.title = json[Article.constants.title].stringValue
         self.subtitle = json[Article.constants.subtitle].stringValue
         self.body = json[Article.constants.body].stringValue
+        
+        if let validFavoriteId = json[Article.constants.favorite_id].int {
+            self.favoriteId = validFavoriteId
+        }
         
         let titleBitsArray = json[Article.constants.title_bits].arrayValue
         for bit in titleBitsArray {

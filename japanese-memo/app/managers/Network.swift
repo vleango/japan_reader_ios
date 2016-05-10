@@ -72,6 +72,11 @@ final class Network {
         execute(url, params: addLang(nil), callback: callback)
     }
     
+    func isFavorite(params:[String:AnyObject], callback: ((success:Bool, object:AnyObject?) -> Void)?) {
+        let url = "users/favorites/contains"
+        execute(url, params: params, callback: callback)
+    }
+    
     func availableLanguages(callback: ((success:Bool, object:AnyObject?) -> Void)?) {
         let url = "settings/languages"
         execute(url, method: .GET, params:nil, callback: callback)
@@ -117,7 +122,19 @@ final class Network {
     
     // should not be called on it's own, should use LoginManager.removeEntry
     func removeEntry(entry:Entry, callback: ((success:Bool, object:AnyObject?) -> Void)?) {
-        let url = "users/favorites/\(entry.id)"
+        let url = "users/favorites/\(entry.favoriteId!)"
+        execute(url, method: .DELETE, params: nil, callback: callback)
+    }
+    
+    // should not be called on it's own, should use LoginManager.saveEntry
+    func saveArticle(params:[String : AnyObject], callback: ((success:Bool, object:AnyObject?) -> Void)?) {
+        let url = "users/articles"
+        execute(url, method: .POST, params: params, callback: callback)
+    }
+    
+    // should not be called on it's own, should use LoginManager.removeEntry
+    func removeArticle(article:Article, callback: ((success:Bool, object:AnyObject?) -> Void)?) {
+        let url = "users/favorites/\(article.favoriteId)"
         execute(url, method: .DELETE, params: nil, callback: callback)
     }
     

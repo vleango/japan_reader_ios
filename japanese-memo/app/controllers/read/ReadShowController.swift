@@ -11,17 +11,18 @@ import SwiftyJSON
 
 class ReadShowController: UIViewController, UITextViewDelegate, UIPopoverPresentationControllerDelegate {
 
-    var artibutedArticle:ArtibutedArticle!
     @IBOutlet weak var textView: UITextView!
+    @IBOutlet weak var saveBtn: UIBarButtonItem!
+    var artibutedArticle:ArtibutedArticle!
     private let wordSegue = "sToReadWordSegue"
     
     enum wordKeys:String { case textBit, rect }
+    private enum saveBtnStates:String { case Save, Unsave }
 
     override func viewDidLoad() {
         super.viewDidLoad()
         textView.delegate = self
         textView.attributedText = artibutedArticle.attributedString
-        loadData()
     }
     
     override func didReceiveMemoryWarning() {
@@ -32,6 +33,7 @@ class ReadShowController: UIViewController, UITextViewDelegate, UIPopoverPresent
     // Disables scroll so that the textView isn't in the middle after the text is loaded
     override func viewWillAppear(animated: Bool) {
         textView.scrollEnabled = false
+        loadData()
     }
     
     // Reenables scrolling for viewWillAppear purpose
@@ -75,8 +77,33 @@ class ReadShowController: UIViewController, UITextViewDelegate, UIPopoverPresent
         NetworkManager.read(artibutedArticle.article.id) { (success, object) in
             if success {
                 if let rawJSON = object {
-                    self.artibutedArticle.article = Article.init(json: JSON(rawJSON))
+                    let json = JSON(rawJSON)
+                    self.artibutedArticle.article = Article.init(json: json)
+
+                    // need to resync with app
+                    self.artibutedArticle.article.favoriteId = json["favorite_id"].intValue
+                    if self.artibutedArticle.article.favoriteId != 0 {
+                        // if the entry was saved, then we do remove
+                        self.saveBtn.title = saveBtnStates.Unsave.rawValue
+                    }
+                    else {
+                        // if the entry was NOT saved, then we do save
+                        self.saveBtn.title = saveBtnStates.Save.rawValue
+                    }
+                    
+                    // set because translations are ready
                     self.textView.attributedText = self.artibutedArticle.attributedString
+                    
+                    if let validURL = self.artibutedArticle.article.image_url {
+                        NetworkManager.downloadImage(validURL, callback: { (image) -> Void in
+                            if let downloadedImage = image {
+                                self.artibutedArticle.image = downloadedImage
+                            }
+                            
+                            // reset because the image is ready
+                            self.textView.attributedText = self.artibutedArticle.attributedString
+                        })
+                    }
                 }
             }
         }
@@ -107,4 +134,24 @@ class ReadShowController: UIViewController, UITextViewDelegate, UIPopoverPresent
 
         return false
     }
+    
+    @IBAction func saveBtnClicked(sender: AnyObject) {
+        let toggle = saveBtn.title == saveBtnStates.Save.rawValue
+        LoginManager.toggleArticle(toggle, article: artibutedArticle.article, fromViewController: self) { (success, object) in
+            if success {
+                if let rawJSON = object {
+                    let json = JSON(rawJSON)
+                    if json["status"].stringValue == "create" {
+                        // entry saved
+                        self.saveBtn.title = saveBtnStates.Unsave.rawValue
+                    }
+                    else {
+                        // entry removed
+                        self.saveBtn.title = saveBtnStates.Save.rawValue
+                    }
+                }
+            }
+        }
+    }
+    
 }
