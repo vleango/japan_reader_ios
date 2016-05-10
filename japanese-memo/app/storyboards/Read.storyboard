@@ -37,7 +37,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="artileCell" rowHeight="100" id="Jeo-IJ-9Ak" customClass="ReadIndexCell" customModule="japanese_memo" customModuleProvider="target">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="articleCell" rowHeight="100" id="Jeo-IJ-9Ak" customClass="ReadIndexCell" customModule="japanese_memo" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="92" width="375" height="100"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Jeo-IJ-9Ak" id="WhI-gZ-WFt">
@@ -106,7 +106,7 @@
         <!--Read Show Controller-->
         <scene sceneID="sMd-yu-4Kr">
             <objects>
-                <viewController id="hRe-On-kgE" customClass="ReadShowController" customModule="japanese_memo" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="readShowController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="hRe-On-kgE" customClass="ReadShowController" customModule="japanese_memo" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="CWa-7e-BtY"/>
                         <viewControllerLayoutGuide type="bottom" id="Xgh-Mz-Jkn"/>
@@ -144,7 +144,9 @@
                             <constraint firstItem="qTU-LV-BIm" firstAttribute="leading" secondItem="zed-TZ-RJp" secondAttribute="leadingMargin" constant="-20" id="vcP-0b-XKU"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="voa-x3-VLa"/>
+                    <navigationItem key="navigationItem" id="voa-x3-VLa">
+                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="yfH-fd-g7g"/>
+                    </navigationItem>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
                     <connections>
                         <outlet property="textView" destination="qTU-LV-BIm" id="2mc-WC-v5H"/>

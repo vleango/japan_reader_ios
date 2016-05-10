@@ -123,7 +123,7 @@ class ReadIndexController: UITableViewController {
     }
 
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier("artileCell", forIndexPath: indexPath) as! ReadIndexCell
+        let cell = tableView.dequeueReusableCellWithIdentifier("articleCell", forIndexPath: indexPath) as! ReadIndexCell
         
         let article = articles[indexPath.row]
         cell.configureCell(article)

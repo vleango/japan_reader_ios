@@ -99,7 +99,7 @@
         <!--Search Show Controller-->
         <scene sceneID="8IS-X2-uB3">
             <objects>
-                <tableViewController id="izz-4D-6LL" customClass="SearchShowController" customModule="japanese_memo" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController storyboardIdentifier="searchShowController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="izz-4D-6LL" customClass="SearchShowController" customModule="japanese_memo" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="default" rowHeight="60" sectionHeaderHeight="18" sectionFooterHeight="18" id="Baf-63-UnV">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

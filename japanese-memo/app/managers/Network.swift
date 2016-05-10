@@ -68,7 +68,7 @@ final class Network {
     }
     
     func favorites(callback: ((success:Bool, object:AnyObject?) -> Void)?) {
-        let url = "users/entries"
+        let url = "users/favorites"
         execute(url, params: addLang(nil), callback: callback)
     }
     
@@ -117,7 +117,7 @@ final class Network {
     
     // should not be called on it's own, should use LoginManager.removeEntry
     func removeEntry(entry:Entry, callback: ((success:Bool, object:AnyObject?) -> Void)?) {
-        let url = "users/entries/\(entry.id)"
+        let url = "users/favorites/\(entry.id)"
         execute(url, method: .DELETE, params: nil, callback: callback)
     }
     
