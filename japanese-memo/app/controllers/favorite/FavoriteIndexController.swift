@@ -8,10 +8,9 @@
 
 import UIKit
 import SwiftyJSON
+import DZNEmptyDataSet
 
-// TODO: pretty much the same as SearchIndex but without the Searchbar...
-
-class FavoriteIndexController: UITableViewController {
+class FavoriteIndexController: UITableViewController, DZNEmptyDataSetSource, DZNEmptyDataSetDelegate {
 
     var entries:[Entry] = []
     var articles:[Article] = []
@@ -28,6 +27,9 @@ class FavoriteIndexController: UITableViewController {
         tableView.rowHeight = UITableViewAutomaticDimension
         tableView.estimatedRowHeight = 160.0
         
+        self.tableView.emptyDataSetSource = self
+        self.tableView.emptyDataSetDelegate = self
+        self.tableView.tableFooterView = UIView()
     }
     
     override func viewWillAppear(animated: Bool) {
@@ -92,7 +94,11 @@ class FavoriteIndexController: UITableViewController {
     // MARK: - Table view data source
 
     override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
-        return 2
+        var sectionCount = 0
+        if entries.count > 0 || articles.count > 0 {
+            sectionCount = 2
+        }
+        return sectionCount
     }
 
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -150,6 +156,37 @@ class FavoriteIndexController: UITableViewController {
             sender = articles[indexPath.row]
         }
         performSegueWithIdentifier(identifier, sender: sender)
+    }
+    
+    
+    
+    // MARK: - DZNEmptyDataSet Methods
+    
+//    func imageForEmptyDataSet(scrollView: UIScrollView!) -> UIImage! {
+//        return UIImage(named: "empty")
+//    }
+    
+    func titleForEmptyDataSet(scrollView: UIScrollView!) -> NSAttributedString! {
+        let attrs = [
+            NSFontAttributeName: UIFont.boldSystemFontOfSize(18),
+            NSForegroundColorAttributeName: UIColor.darkGrayColor()
+        ]
+        
+        return NSAttributedString(string: "No Favorites found...", attributes: attrs)
+    }
+    
+    func descriptionForEmptyDataSet(scrollView: UIScrollView!) -> NSAttributedString! {
+        let paragraph = NSMutableParagraphStyle()
+        paragraph.lineBreakMode = NSLineBreakMode.ByWordWrapping
+        paragraph.alignment = NSTextAlignment.Center
+        
+        let attrs = [
+            NSFontAttributeName: UIFont.systemFontOfSize(14),
+            NSForegroundColorAttributeName: UIColor.lightGrayColor(),
+            NSParagraphStyleAttributeName: paragraph
+        ]
+        
+        return NSAttributedString(string: "The articles that you read, or the new words that you learn can be saved for later use. Click on the upper-right Save button when you found something that you link.", attributes: attrs)
     }
     
 }

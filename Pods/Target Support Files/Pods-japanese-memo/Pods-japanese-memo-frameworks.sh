@@ -86,6 +86,7 @@ strip_invalid_archs() {
 if [[ "$CONFIGURATION" == "Debug" ]]; then
   install_framework "Pods-japanese-memo/Alamofire.framework"
   install_framework "Pods-japanese-memo/Bolts.framework"
+  install_framework "Pods-japanese-memo/DZNEmptyDataSet.framework"
   install_framework "Pods-japanese-memo/FBSDKCoreKit.framework"
   install_framework "Pods-japanese-memo/FBSDKLoginKit.framework"
   install_framework "Pods-japanese-memo/FBSDKShareKit.framework"
@@ -97,6 +98,7 @@ fi
 if [[ "$CONFIGURATION" == "Release" ]]; then
   install_framework "Pods-japanese-memo/Alamofire.framework"
   install_framework "Pods-japanese-memo/Bolts.framework"
+  install_framework "Pods-japanese-memo/DZNEmptyDataSet.framework"
   install_framework "Pods-japanese-memo/FBSDKCoreKit.framework"
   install_framework "Pods-japanese-memo/FBSDKLoginKit.framework"
   install_framework "Pods-japanese-memo/FBSDKShareKit.framework"

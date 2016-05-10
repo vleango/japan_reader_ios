@@ -62,6 +62,8 @@ class SearchIndexController: UITableViewController, UISearchBarDelegate {
         NetworkManager.search(["search": ["query" : query]]) { (success, object) in
             if success {
                 self.entries.removeAll()
+                self.searchBar.resignFirstResponder()
+                
                 if let rawJSON = object {
                     let json = JSON(rawJSON)
                     let entriesJson = json["entries"]
