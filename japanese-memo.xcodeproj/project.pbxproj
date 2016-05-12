@@ -43,6 +43,7 @@
 		3B239F541CD9F49F00EC0659 /* Stagr.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B239F531CD9F49F00EC0659 /* Stagr.swift */; };
 		3B239F561CD9F4AC00EC0659 /* Xref.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B239F551CD9F4AC00EC0659 /* Xref.swift */; };
 		3B2FD6111CDCD209006116B6 /* Login.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B2FD6101CDCD209006116B6 /* Login.swift */; };
+		3B3436031CE21CD6001DEB36 /* SearchNewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B3436021CE21CD6001DEB36 /* SearchNewController.swift */; };
 		3B5A83281CD5934600BED97F /* ReadShowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B5A83271CD5934600BED97F /* ReadShowController.swift */; };
 		3B5A832B1CD62A5D00BED97F /* TextBit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B5A832A1CD62A5D00BED97F /* TextBit.swift */; };
 		3B6019D91CD871B90009C7E3 /* RubyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B6019D81CD871B90009C7E3 /* RubyView.swift */; };
@@ -126,6 +127,7 @@
 		3B239F531CD9F49F00EC0659 /* Stagr.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Stagr.swift; path = app/models/jdicts/Stagr.swift; sourceTree = "<group>"; };
 		3B239F551CD9F4AC00EC0659 /* Xref.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Xref.swift; path = app/models/jdicts/Xref.swift; sourceTree = "<group>"; };
 		3B2FD6101CDCD209006116B6 /* Login.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Login.swift; path = app/managers/Login.swift; sourceTree = "<group>"; };
+		3B3436021CE21CD6001DEB36 /* SearchNewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SearchNewController.swift; path = app/controllers/search/SearchNewController.swift; sourceTree = "<group>"; };
 		3B5A83271CD5934600BED97F /* ReadShowController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ReadShowController.swift; path = app/controllers/read/ReadShowController.swift; sourceTree = "<group>"; };
 		3B5A832A1CD62A5D00BED97F /* TextBit.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TextBit.swift; path = app/models/TextBit.swift; sourceTree = "<group>"; };
 		3B6019D81CD871B90009C7E3 /* RubyView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RubyView.swift; path = app/views/reads/RubyView.swift; sourceTree = "<group>"; };
@@ -313,6 +315,7 @@
 			children = (
 				3B7CF71F1CD572A8006ACED3 /* SearchIndexController.swift */,
 				3B239F351CD9EECF00EC0659 /* SearchShowController.swift */,
+				3B3436021CE21CD6001DEB36 /* SearchNewController.swift */,
 			);
 			name = search;
 			sourceTree = "<group>";
@@ -664,6 +667,7 @@
 				3B22E4731CD996CC0032DDF1 /* ArtibutedWord.swift in Sources */,
 				3B5A83281CD5934600BED97F /* ReadShowController.swift in Sources */,
 				3B5A832B1CD62A5D00BED97F /* TextBit.swift in Sources */,
+				3B3436031CE21CD6001DEB36 /* SearchNewController.swift in Sources */,
 				3B239F381CD9F36100EC0659 /* Ant.swift in Sources */,
 				3B6019D91CD871B90009C7E3 /* RubyView.swift in Sources */,
 				3B239F3A1CD9F37D00EC0659 /* Dial.swift in Sources */,

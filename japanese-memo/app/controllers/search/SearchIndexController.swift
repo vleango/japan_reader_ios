@@ -8,14 +8,15 @@
 
 import UIKit
 import SwiftyJSON
+import DZNEmptyDataSet
 
-
-class SearchIndexController: UITableViewController, UISearchBarDelegate {
+class SearchIndexController: UITableViewController, UISearchBarDelegate, DZNEmptyDataSetSource, DZNEmptyDataSetDelegate {
     
     @IBOutlet weak var searchBar: UISearchBar!
     var entries:[Entry] = []
     var searchBarTextFromSearchVC:String?
     let showSegue = "sToSearchShowSegue"
+    let newSegue = "sToEntryNewVC"
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -27,6 +28,17 @@ class SearchIndexController: UITableViewController, UISearchBarDelegate {
         // auto height for cells
         tableView.rowHeight = UITableViewAutomaticDimension
         tableView.estimatedRowHeight = 100.0
+    }
+    
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        if self.tableView.emptyDataSetSource == nil {
+            
+            // DZNEmptyDataSet init
+            self.tableView.emptyDataSetSource = self
+            self.tableView.emptyDataSetDelegate = self
+            self.tableView.reloadData()
+        }
     }
 
     override func didReceiveMemoryWarning() {
@@ -45,6 +57,11 @@ class SearchIndexController: UITableViewController, UISearchBarDelegate {
         if segue.identifier == showSegue {
             let showVC = segue.destinationViewController as! SearchShowController
             showVC.entry = sender as! Entry
+        }
+        else if segue.identifier == newSegue {
+            let navVC = segue.destinationViewController as! UINavigationController
+            let newVC = navVC.topViewController as! SearchNewController
+            newVC.title = sender as? String
         }
     }
     
@@ -79,10 +96,6 @@ class SearchIndexController: UITableViewController, UISearchBarDelegate {
 
     // MARK: - Table view data source
 
-    override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
-        return 1
-    }
-
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return entries.count
     }
@@ -96,6 +109,46 @@ class SearchIndexController: UITableViewController, UISearchBarDelegate {
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         self.tableView.deselectRowAtIndexPath(indexPath, animated: true)
         self.performSegueWithIdentifier(showSegue, sender: entries[indexPath.row])
+    }
+    
+    // MARK: - DZNEmptyDataSet Methods
+    
+    func emptyDataSetShouldDisplay(scrollView: UIScrollView!) -> Bool {
+        return searchBar.text != ""
+    }
+    
+    func titleForEmptyDataSet(scrollView: UIScrollView!) -> NSAttributedString! {
+        let attrs = [
+            NSFontAttributeName: UIFont.boldSystemFontOfSize(18),
+            NSForegroundColorAttributeName: UIColor.darkGrayColor()
+        ]
+        
+        return NSAttributedString(string: "Nothing Found...", attributes: attrs)
+    }
+    
+    func descriptionForEmptyDataSet(scrollView: UIScrollView!) -> NSAttributedString! {
+        let paragraph = NSMutableParagraphStyle()
+        paragraph.lineBreakMode = NSLineBreakMode.ByWordWrapping
+        paragraph.alignment = NSTextAlignment.Center
+        
+        let attrs = [
+            NSFontAttributeName: UIFont.systemFontOfSize(14),
+            NSForegroundColorAttributeName: UIColor.lightGrayColor(),
+            NSParagraphStyleAttributeName: paragraph
+        ]
+        
+        return NSAttributedString(string: "The dictionary did not find anything matching your search. Would you like to add a new entry?", attributes: attrs)
+    }
+    
+    func buttonTitleForEmptyDataSet(scrollView: UIScrollView!, forState state: UIControlState) -> NSAttributedString! {
+        let attrs = [
+            NSForegroundColorAttributeName: UIColor.blueColor()
+        ]
+        return NSAttributedString(string: "Add New", attributes: attrs)
+    }
+    
+    func emptyDataSetDidTapButton(scrollView: UIScrollView!) {
+        performSegueWithIdentifier(newSegue, sender: searchBar.text)
     }
 
 }

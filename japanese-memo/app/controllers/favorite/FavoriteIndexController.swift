@@ -26,10 +26,6 @@ class FavoriteIndexController: UITableViewController, DZNEmptyDataSetSource, DZN
         // auto height for cells
         tableView.rowHeight = UITableViewAutomaticDimension
         tableView.estimatedRowHeight = 160.0
-        
-        self.tableView.emptyDataSetSource = self
-        self.tableView.emptyDataSetDelegate = self
-        self.tableView.tableFooterView = UIView()
     }
     
     override func viewWillAppear(animated: Bool) {
@@ -40,6 +36,19 @@ class FavoriteIndexController: UITableViewController, DZNEmptyDataSetSource, DZN
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    
+    @IBAction func unwindToFavoriteIndexVC(segue: UIStoryboardSegue) { }
+    
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        if self.tableView.emptyDataSetSource == nil {
+            
+            // DZNEmptyDataSet init
+            self.tableView.emptyDataSetSource = self
+            self.tableView.emptyDataSetDelegate = self
+            self.tableView.reloadData()
+        }
     }
     
     // MARK: - Network
@@ -161,11 +170,7 @@ class FavoriteIndexController: UITableViewController, DZNEmptyDataSetSource, DZN
     
     
     // MARK: - DZNEmptyDataSet Methods
-    
-//    func imageForEmptyDataSet(scrollView: UIScrollView!) -> UIImage! {
-//        return UIImage(named: "empty")
-//    }
-    
+
     func titleForEmptyDataSet(scrollView: UIScrollView!) -> NSAttributedString! {
         let attrs = [
             NSFontAttributeName: UIFont.boldSystemFontOfSize(18),

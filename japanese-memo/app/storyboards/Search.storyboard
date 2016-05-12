@@ -90,6 +90,7 @@
                     <connections>
                         <outlet property="searchBar" destination="POH-pv-GB1" id="cbS-82-m13"/>
                         <segue destination="izz-4D-6LL" kind="show" identifier="sToSearchShowSegue" id="dNV-K5-5fO"/>
+                        <segue destination="mNN-GV-WNP" kind="presentation" identifier="sToEntryNewVC" id="gHk-1r-q2p"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="w5m-Hc-sIM" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -161,6 +162,60 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Yno-rg-Lak" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1355.5" y="535.5"/>
+        </scene>
+        <!--Search New Controller-->
+        <scene sceneID="Lrc-oE-Bgx">
+            <objects>
+                <tableViewController id="GSc-sS-3rt" customClass="SearchNewController" customModule="japanese_memo" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="default" rowHeight="44" sectionHeaderHeight="18" sectionFooterHeight="18" id="9dc-OK-Bk8">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="Ij9-s5-joN">
+                                <rect key="frame" x="0.0" y="114" width="375" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Ij9-s5-joN" id="LPG-zA-CWx">
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="GSc-sS-3rt" id="qOc-KG-lTs"/>
+                            <outlet property="delegate" destination="GSc-sS-3rt" id="Nqj-HJ-BK7"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" id="Fo5-jt-fag">
+                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="Vob-2C-65T">
+                            <connections>
+                                <segue destination="5Z4-va-od9" kind="unwind" unwindAction="unwindToSearchVC:" id="2mN-tu-RPz"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="YfT-dr-6Oz" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="5Z4-va-od9" userLabel="Exit" sceneMemberID="exit"/>
+            </objects>
+            <point key="canvasLocation" x="1937.5" y="1383.5"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="Ri1-fs-h3j">
+            <objects>
+                <navigationController id="mNN-GV-WNP" sceneMemberID="viewController">
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="QoF-cv-1g7">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="GSc-sS-3rt" kind="relationship" relationship="rootViewController" id="Zle-4G-pTA"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="yJW-Vn-IC7" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1355.5" y="1383.5"/>
         </scene>
     </scenes>
 </document>
