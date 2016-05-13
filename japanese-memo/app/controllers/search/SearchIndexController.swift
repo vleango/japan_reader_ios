@@ -17,6 +17,7 @@ class SearchIndexController: UITableViewController, UISearchBarDelegate, DZNEmpt
     var searchBarTextFromSearchVC:String?
     let showSegue = "sToSearchShowSegue"
     let newSegue = "sToEntryNewVC"
+    let activityIndicator = UIActivityIndicatorView()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -25,6 +26,11 @@ class SearchIndexController: UITableViewController, UISearchBarDelegate, DZNEmpt
             searchBar.text = searchBarText
         }
         
+        // set activityIndicator to NavItem
+        activityIndicator.activityIndicatorViewStyle = .White
+        let activityItem = UIBarButtonItem.init(customView: activityIndicator)
+        navigationItem.setLeftBarButtonItem(activityItem, animated: true)
+
         // auto height for cells
         tableView.rowHeight = UITableViewAutomaticDimension
         tableView.estimatedRowHeight = 100.0
@@ -79,6 +85,7 @@ class SearchIndexController: UITableViewController, UISearchBarDelegate, DZNEmpt
     }
     
     private func search(query:String) {
+        activityIndicator.startAnimating()
         NetworkManager.search(["search": ["query" : query]]) { (success, object) in
             if success {
                 self.entries.removeAll()
@@ -94,6 +101,8 @@ class SearchIndexController: UITableViewController, UISearchBarDelegate, DZNEmpt
                 
                 self.tableView.reloadData()
             }
+            
+            self.activityIndicator.stopAnimating()
         }
     }
 
