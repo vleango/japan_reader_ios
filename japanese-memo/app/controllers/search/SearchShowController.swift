@@ -121,6 +121,7 @@ class SearchShowController: UITableViewController {
                     if json["status"].stringValue == "create" {
                         // entry saved
                         self.saveBtn.title = saveBtnStates.Unsave.rawValue
+                        self.entry.favoriteId = json["favorite_id"].stringValue
                     }
                     else {
                         if json["user_generated"].boolValue {

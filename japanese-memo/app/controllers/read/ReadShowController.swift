@@ -143,6 +143,7 @@ class ReadShowController: UIViewController, UITextViewDelegate, UIPopoverPresent
                     if json["status"].stringValue == "create" {
                         // entry saved
                         self.saveBtn.title = saveBtnStates.Unsave.rawValue
+                        self.artibutedArticle.article.favoriteId = json["favorite_id"].stringValue
                     }
                     else {
                         // entry removed
