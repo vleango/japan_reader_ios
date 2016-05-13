@@ -27,7 +27,7 @@
             </objects>
             <point key="canvasLocation" x="334.5" y="535.5"/>
         </scene>
-        <!--Search Index Controller-->
+        <!--Search-->
         <scene sceneID="Ktn-0J-2ey">
             <objects>
                 <tableViewController id="rKq-Kb-Mcm" customClass="SearchIndexController" customModule="japanese_memo" customModuleProvider="target" sceneMemberID="viewController">
@@ -85,7 +85,7 @@
                             <outlet property="delegate" destination="rKq-Kb-Mcm" id="g5E-FH-J7c"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" id="KQv-Gk-obg"/>
+                    <navigationItem key="navigationItem" title="Search" id="KQv-Gk-obg"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
                     <connections>
                         <outlet property="searchBar" destination="POH-pv-GB1" id="cbS-82-m13"/>

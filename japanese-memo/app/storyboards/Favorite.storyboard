@@ -28,7 +28,7 @@
             </objects>
             <point key="canvasLocation" x="334.5" y="535.5"/>
         </scene>
-        <!--Favorite Index Controller-->
+        <!--Favorites-->
         <scene sceneID="xkM-6E-IJW">
             <objects>
                 <tableViewController id="oqw-uz-N5n" customClass="FavoriteIndexController" customModule="japanese_memo" customModuleProvider="target" sceneMemberID="viewController">
@@ -113,7 +113,7 @@
                             <outlet property="delegate" destination="oqw-uz-N5n" id="XEE-be-GGv"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" id="yi7-27-tQA"/>
+                    <navigationItem key="navigationItem" title="Favorites" id="yi7-27-tQA"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
                     <connections>
                         <segue destination="jlN-3K-pCD" kind="show" identifier="sToSearchShowSegue" id="tUB-35-fxt"/>

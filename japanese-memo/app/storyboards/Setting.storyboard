@@ -26,7 +26,7 @@
             </objects>
             <point key="canvasLocation" x="334.5" y="535.5"/>
         </scene>
-        <!--Setting Index Controller-->
+        <!--Settings-->
         <scene sceneID="R8C-53-01Z">
             <objects>
                 <tableViewController id="XPy-Mw-DEa" customClass="SettingIndexController" customModule="japanese_memo" customModuleProvider="target" sceneMemberID="viewController">
@@ -79,7 +79,7 @@
                             <outlet property="delegate" destination="XPy-Mw-DEa" id="ZA4-fd-o5k"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" id="Cqk-Eh-P8B"/>
+                    <navigationItem key="navigationItem" title="Settings" id="Cqk-Eh-P8B"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="JNa-k3-biq" userLabel="First Responder" sceneMemberID="firstResponder"/>
