@@ -21,6 +21,10 @@ class ReadIndexController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        // Hide on swipe configs
+        navigationController?.hidesBarsOnSwipe = true
+        navigationController?.hidesBarsWhenKeyboardAppears = true
+        
         // auto height for cells
         tableView.rowHeight = UITableViewAutomaticDimension
         tableView.estimatedRowHeight = 160.0
@@ -35,6 +39,11 @@ class ReadIndexController: UITableViewController {
         
         // load the data from network
         loadData()
+    }
+    
+    // used with hidesBarsOnSwipe
+    override func prefersStatusBarHidden() -> Bool {
+        return navigationController?.navigationBarHidden ?? false
     }
     
     func refresh(sender:AnyObject) {
