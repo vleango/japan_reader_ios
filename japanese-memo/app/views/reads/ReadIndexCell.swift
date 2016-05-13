@@ -12,10 +12,18 @@ class ReadIndexCell: UITableViewCell {
 
     @IBOutlet weak var coverImageView: UIImageView!
     @IBOutlet weak var titleLabel: UILabel!
+    @IBOutlet weak var subtitleLabel: UILabel!
     var article:Article!
     
     func configureCell(article: Article) {
         self.article = article
         titleLabel.text = article.title
+        
+        var subtitle = article.provider
+        let date = UtilManager.dateFromString(article.published_date)
+        if let validDate = date {
+            subtitle += " | \(UtilManager.stringFromDate(validDate, format: "yyyy-MM-dd hh:mm"))"
+        }
+        subtitleLabel.text = subtitle
     }
 }
