@@ -33,7 +33,6 @@ class ReadIndexController: UITableViewController {
         configureInfiniteScroll()
         
         // add refresh control
-        // TODO: add refreshed time at to attributed string
         refreshControl = UIRefreshControl()
         refreshControl!.addTarget(self, action: #selector(ReadIndexController.refresh(_:)), forControlEvents: UIControlEvents.ValueChanged)
         
@@ -88,6 +87,9 @@ class ReadIndexController: UITableViewController {
             }
             
             if success {
+                
+                self.refreshControl?.attributedTitle = NSAttributedString.init(string: UtilManager.stringFromDate(NSDate.init(), format: "yyyy-MM-dd HH:mm"))
+                
                 if let rawJSON = object {
                     if infiniteScrollView == nil {
                         self.articles.removeAll() // clean up the data holder
