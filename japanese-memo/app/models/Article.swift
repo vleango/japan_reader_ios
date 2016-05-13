@@ -86,4 +86,13 @@ class Article: Object {
         }
         return strings.joinWithSeparator("")
     }
+    
+    func prettyPublishedDate(format:String = "yy-MM-dd hh:mm") -> String? {
+        var string:String?
+        let date = UtilManager.dateFromString(published_date)
+        if let validDate = date {
+            string = UtilManager.stringFromDate(validDate, format: format)
+        }
+        return string
+    }
 }

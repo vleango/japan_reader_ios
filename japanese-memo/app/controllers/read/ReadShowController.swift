@@ -119,6 +119,11 @@ class ReadShowController: UIViewController, UITextViewDelegate, UIPopoverPresent
         let index = Int(URL.lastPathComponent!)
         var sender = [String: AnyObject]()
         
+        // Check if real source
+        if (URL.host! != ArtibutedArticle.parts.title.rawValue) && (URL.host! != ArtibutedArticle.parts.body.rawValue) {
+            return true
+        }
+        
         switch ArtibutedArticle.parts(rawValue: URL.host!)! {
         case .title:
             sender[wordKeys.textBit.rawValue] = artibutedArticle.article.titleBits[index!]

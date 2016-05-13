@@ -20,9 +20,8 @@ class ReadIndexCell: UITableViewCell {
         titleLabel.text = article.title
         
         var subtitle = article.provider
-        let date = UtilManager.dateFromString(article.published_date)
-        if let validDate = date {
-            subtitle += " | \(UtilManager.stringFromDate(validDate, format: "yyyy-MM-dd hh:mm"))"
+        if let validPublishedDate = article.prettyPublishedDate() {
+            subtitle += " | \(validPublishedDate)"
         }
         subtitleLabel.text = subtitle
     }

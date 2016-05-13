@@ -24,6 +24,9 @@ class ArtibutedArticle:ArtibutedBase {
             string.appendAttributedString(newLine(2))
             string.appendAttributedString(titleString())
             string.appendAttributedString(newLine(2))
+            string.appendAttributedString(publishedString())
+            string.appendAttributedString(sourceString())
+            string.appendAttributedString(newLine(3))
             string.appendAttributedString(bodyString())
             return string
         }
@@ -58,6 +61,25 @@ class ArtibutedArticle:ArtibutedBase {
             )
         }
     }
+    
+    private func publishedString() -> NSMutableAttributedString {
+        let string = NSMutableAttributedString.init()
+        if let validPublishedDate = article.prettyPublishedDate() {
+            let attrs = attributes(paragraphStyle(), font: UIFont.systemFontOfSize(14))
+            string.appendAttributedString(NSAttributedString.init(string: validPublishedDate, attributes: attrs))
+            string.appendAttributedString(newLine(2))
+        }
+        return string
+    }
+    
+    private func sourceString() -> NSMutableAttributedString {
+        let text = "Source"
+        let attrs = attributes(paragraphStyle(), font: UIFont.systemFontOfSize(14))
+        let string = NSMutableAttributedString.init(string: text, attributes: attrs)
+        string.addAttribute(NSLinkAttributeName, value: article.source, range: NSMakeRange(0, text.characters.count))
+        return string
+    }
+    
     
     private func bodyString() -> NSMutableAttributedString {
         if article.bodyBits.count != 0 {
