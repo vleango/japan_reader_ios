@@ -38,4 +38,28 @@ class Entry {
         }
     }
     
+    func kElesAsString(separator:String = ", ") -> String {
+        var k_eleText:[String] = []
+        for k_ele in k_eles {
+            k_eleText.append(k_ele.keb)
+        }
+        return k_eleText.joinWithSeparator(separator)
+    }
+    
+    func rEleAsString(separator:String = ", ") -> String {
+        var r_eleText:[String] = []
+        for r_ele in r_eles {
+            r_eleText.append(r_ele.reb)
+        }
+        return r_eleText.joinWithSeparator(separator)
+    }
+    
+    func glossAsString(separator:String = ", ") -> String {
+        var senseText:[String] = []
+        for sense in senses {
+            senseText.append(sense.glossesAsString())
+        }
+        return senseText.joinWithSeparator(separator)
+    }
+    
 }

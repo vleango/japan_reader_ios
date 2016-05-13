@@ -17,8 +17,6 @@ class ArtibutedWord:ArtibutedBase {
     var attributedString:NSMutableAttributedString {
         get {
             let string = NSMutableAttributedString.init()
-            string.appendAttributedString(headerString())
-            string.appendAttributedString(newLine(2))
             string.appendAttributedString(sensesString())
             return string
         }
@@ -32,16 +30,17 @@ class ArtibutedWord:ArtibutedBase {
     }
     
     // Mark - private methods
-    
-    private func headerString() -> NSMutableAttributedString {
+
+    private func headerString(kanji:String, reading:String) -> NSMutableAttributedString {
         let string = NSMutableAttributedString(
-            string: "\(bit.word)「\(bit.furigana!)」",
+            string: "\(kanji)「\(reading)」",
             attributes: attributes(
                 paragraphStyle(.Left),
                 font: UIFont.init(name: "Hiragino Sans W3", size: 18.0)
             )
         )
-        string.addAttribute(NSFontAttributeName, value: UIFont.boldSystemFontOfSize(20), range: NSMakeRange(0, bit.word.characters.count))
+        string.addAttribute(NSFontAttributeName, value: UIFont.boldSystemFontOfSize(20), range: NSMakeRange(0, kanji.characters.count))
+        string.appendAttributedString(newLine(2))
         return string
     }
     
@@ -56,6 +55,10 @@ class ArtibutedWord:ArtibutedBase {
             if entries.count > 0 {
                 for entry in entries {
                     var index = 1
+
+                    let header = headerString(entry.kElesAsString(), reading: entry.rEleAsString())
+                    string.appendAttributedString(header)
+                    
                     for sense in entry.senses {
                         let text = sense.glossesAsString()
                         let senseStr = "\(index): \(text)\n"
@@ -66,19 +69,25 @@ class ArtibutedWord:ArtibutedBase {
                     
                     // add horizontal line to separate entries
                     string.appendAttributedString(NSAttributedString(string: "ーーーーーーーー\n", attributes: attrs))
-                    
                 }
             }
             else {
-                let attrStr = NSAttributedString(string: "not found", attributes: attrs)
-                string.appendAttributedString(attrStr)
+                string.appendAttributedString(defaultString("not found", attrs: attrs))
             }
         }
         else {
-            let attrStr = NSAttributedString(string: "loading...", attributes: attrs)
-            string.appendAttributedString(attrStr)
+            string.appendAttributedString(defaultString(attrs: attrs))
         }
 
+        return string
+    }
+    
+    private func defaultString(msg:String = "loading...", attrs:[String : AnyObject]?) -> NSMutableAttributedString {
+        let string = NSMutableAttributedString.init()
+        let header = headerString(bit.word, reading: bit.furigana!)
+        string.appendAttributedString(header)
+        let attrStr = NSAttributedString(string: msg, attributes: attrs)
+        string.appendAttributedString(attrStr)
         return string
     }
     
