@@ -36,11 +36,11 @@ final class Network {
     private func addLang(params:[String:AnyObject]?) -> [String:AnyObject] {
         if let validParams = params {
             var paramsWithLang = validParams
-            paramsWithLang["search[lang]"] = Default.getLanguage().id
+            paramsWithLang["search[lang]"] = UserDefault.getLanguage().id
             return paramsWithLang
         }
         else {
-            return ["lang": Default.getLanguage().id]
+            return ["lang": UserDefault.getLanguage().id]
         }
     }
     
@@ -80,6 +80,11 @@ final class Network {
     func availableLanguages(callback: ((success:Bool, object:AnyObject?) -> Void)?) {
         let url = "settings/languages"
         execute(url, method: .GET, params:nil, callback: callback)
+    }
+    
+    func createEntry(params:[String : AnyObject], callback: ((success:Bool, object:AnyObject?) -> Void)?) {
+        let url = "users/entries"
+        execute(url, method: .POST, params:params, callback:callback)
     }
     
     private func execute(

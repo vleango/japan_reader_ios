@@ -61,7 +61,7 @@ class SettingLanguageController: UITableViewController {
         let language = languages[indexPath.row]
         cell.textLabel?.text = language.name
         
-        if language.isEqual(Default.getLanguage()) {
+        if language.isEqual(UserDefault.getLanguage()) {
             cell.accessoryType = .Checkmark
         }
         else {
@@ -73,7 +73,7 @@ class SettingLanguageController: UITableViewController {
     
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         tableView.deselectRowAtIndexPath(indexPath, animated: true)
-        Default.setLanguage(languages[indexPath.row])
+        UserDefault.setLanguage(languages[indexPath.row])
         self.navigationController?.popViewControllerAnimated(true)
     }
 

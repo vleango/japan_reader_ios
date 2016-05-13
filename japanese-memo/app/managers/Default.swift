@@ -1,5 +1,5 @@
 //
-//  UserDefault.swift
+//  Default.swift
 //  japanese-memo
 //
 //  Created by Tha Leang on 5/5/16.
@@ -9,9 +9,9 @@
 import Foundation
 import UIKit
 
-let Default = UserDefault()
+let UserDefault = Default()
 
-final class UserDefault {
+final class Default {
     
     struct constants {
         static let languageName = "language_name"
@@ -22,8 +22,8 @@ final class UserDefault {
     let defaultLanguage = (id: "eng", name: "English")
     
     func getLanguage() -> Language {
-        let languageName = defaults.objectForKey(UserDefault.constants.languageName)
-        let languageId = defaults.objectForKey(UserDefault.constants.languageId)
+        let languageName = defaults.objectForKey(Default.constants.languageName)
+        let languageId = defaults.objectForKey(Default.constants.languageId)
         
         if languageName != nil && languageId != nil {
             return Language.init(id: languageId! as! String, name: languageName! as! String)
@@ -36,8 +36,8 @@ final class UserDefault {
     }
     
     func setLanguage(language:Language) {
-        defaults.setObject(language.name, forKey: UserDefault.constants.languageName)
-        defaults.setObject(language.id, forKey: UserDefault.constants.languageId)
+        defaults.setObject(language.name, forKey: Default.constants.languageName)
+        defaults.setObject(language.id, forKey: Default.constants.languageId)
     }
     
     

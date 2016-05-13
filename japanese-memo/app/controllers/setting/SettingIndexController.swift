@@ -22,7 +22,7 @@ class SettingIndexController: UITableViewController {
     override func viewDidAppear(animated: Bool) {
         // Set Default Language
         let languageCell = tableView.cellForRowAtIndexPath(NSIndexPath.init(forRow: 0, inSection: sections.language.rawValue))
-        languageCell?.textLabel?.text = Default.getLanguage().name
+        languageCell?.textLabel?.text = UserDefault.getLanguage().name
         
         // Facebook Login Button
         let loginButton:FBSDKLoginButton = {

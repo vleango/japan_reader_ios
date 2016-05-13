@@ -123,8 +123,13 @@ class SearchShowController: UITableViewController {
                         self.saveBtn.title = saveBtnStates.Unsave.rawValue
                     }
                     else {
-                        // entry removed
-                        self.saveBtn.title = saveBtnStates.Save.rawValue
+                        if json["user_generated"].boolValue {
+                            self.navigationController?.popViewControllerAnimated(true)
+                        }
+                        else {
+                            // entry removed
+                            self.saveBtn.title = saveBtnStates.Save.rawValue
+                        }
                     }
                 }
             }
