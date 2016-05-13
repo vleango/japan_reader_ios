@@ -72,39 +72,49 @@
                                     <outlet property="titleLabel" destination="bZi-Xk-fTI" id="hsu-hL-Qlg"/>
                                 </connections>
                             </tableViewCell>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="favoriteArticleCell" rowHeight="100" id="eQe-Nu-eFV" customClass="ReadIndexCell" customModule="japanese_memo" customModuleProvider="target">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="favoriteArticleCell" rowHeight="100" id="qNX-FC-qBq" customClass="ReadIndexCell" customModule="japanese_memo" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="136" width="375" height="100"/>
                                 <autoresizingMask key="autoresizingMask"/>
-                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="eQe-Nu-eFV" id="8D0-Sa-odr">
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="qNX-FC-qBq" id="ts8-Iz-nfK">
                                     <rect key="frame" x="0.0" y="0.0" width="375" height="99"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="title" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Xos-Np-Ifn">
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="title" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="w1e-1c-BaM">
                                             <rect key="frame" x="96" y="8" width="271" height="21"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="dVQ-Jo-Wre">
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="fEk-Yp-xJg">
                                             <rect key="frame" x="8" y="8" width="80" height="80"/>
                                             <constraints>
-                                                <constraint firstAttribute="width" secondItem="dVQ-Jo-Wre" secondAttribute="height" multiplier="1:1" id="2R0-zT-Xh5"/>
-                                                <constraint firstAttribute="height" constant="80" id="Nol-wN-qyP"/>
+                                                <constraint firstAttribute="height" constant="80" id="N32-XN-4ng"/>
+                                                <constraint firstAttribute="width" secondItem="fEk-Yp-xJg" secondAttribute="height" multiplier="1:1" id="yOI-W1-vZ6"/>
                                             </constraints>
                                         </imageView>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Provider | Date" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hXU-78-OYH">
+                                            <rect key="frame" x="96" y="30" width="271" height="15"/>
+                                            <fontDescription key="fontDescription" type="system" weight="thin" pointSize="12"/>
+                                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
                                     </subviews>
                                     <constraints>
-                                        <constraint firstAttribute="bottomMargin" secondItem="dVQ-Jo-Wre" secondAttribute="bottom" constant="3" id="1pl-8H-eN9"/>
-                                        <constraint firstAttribute="leadingMargin" secondItem="dVQ-Jo-Wre" secondAttribute="leading" id="EgK-Yb-wDH"/>
-                                        <constraint firstItem="Xos-Np-Ifn" firstAttribute="leading" secondItem="dVQ-Jo-Wre" secondAttribute="trailing" constant="8" id="bgB-7a-eI5"/>
-                                        <constraint firstAttribute="trailingMargin" secondItem="Xos-Np-Ifn" secondAttribute="trailing" id="gie-mU-phY"/>
-                                        <constraint firstAttribute="topMargin" secondItem="dVQ-Jo-Wre" secondAttribute="top" id="m1o-b3-jvm"/>
-                                        <constraint firstItem="Xos-Np-Ifn" firstAttribute="top" secondItem="dVQ-Jo-Wre" secondAttribute="top" id="sgr-Ou-XBs"/>
+                                        <constraint firstAttribute="trailingMargin" secondItem="hXU-78-OYH" secondAttribute="trailing" id="0U2-7c-3c7"/>
+                                        <constraint firstAttribute="trailingMargin" secondItem="w1e-1c-BaM" secondAttribute="trailing" id="1XE-N3-kZn"/>
+                                        <constraint firstAttribute="topMargin" secondItem="fEk-Yp-xJg" secondAttribute="top" id="HPy-ca-qdw"/>
+                                        <constraint firstAttribute="bottomMargin" secondItem="fEk-Yp-xJg" secondAttribute="bottom" constant="3" id="KxI-OC-ONf"/>
+                                        <constraint firstItem="hXU-78-OYH" firstAttribute="top" secondItem="w1e-1c-BaM" secondAttribute="bottom" constant="1" id="bwr-hR-HQH"/>
+                                        <constraint firstItem="hXU-78-OYH" firstAttribute="leading" secondItem="fEk-Yp-xJg" secondAttribute="trailing" constant="8" id="hZq-Sk-ugb"/>
+                                        <constraint firstItem="w1e-1c-BaM" firstAttribute="leading" secondItem="fEk-Yp-xJg" secondAttribute="trailing" constant="8" id="iCs-hA-Ysp"/>
+                                        <constraint firstAttribute="leadingMargin" secondItem="fEk-Yp-xJg" secondAttribute="leading" id="q9B-72-8ze"/>
+                                        <constraint firstItem="w1e-1c-BaM" firstAttribute="top" secondItem="fEk-Yp-xJg" secondAttribute="top" id="ql2-yG-F6I"/>
                                     </constraints>
                                 </tableViewCellContentView>
                                 <connections>
-                                    <outlet property="coverImageView" destination="dVQ-Jo-Wre" id="AH1-Is-WvM"/>
-                                    <outlet property="titleLabel" destination="Xos-Np-Ifn" id="rbc-eb-Qma"/>
+                                    <outlet property="coverImageView" destination="fEk-Yp-xJg" id="R0X-gZ-AUl"/>
+                                    <outlet property="subtitleLabel" destination="hXU-78-OYH" id="hyy-w7-h93"/>
+                                    <outlet property="titleLabel" destination="w1e-1c-BaM" id="GBZ-cR-7qM"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
