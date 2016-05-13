@@ -64,7 +64,9 @@
 		3BE0A89E1CD8184900C7A46E /* ReadIndexCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BE0A89D1CD8184900C7A46E /* ReadIndexCell.swift */; };
 		3BE0A8A01CD81D6B00C7A46E /* Util.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BE0A89F1CD81D6B00C7A46E /* Util.swift */; };
 		3BE0A8A41CD81DF200C7A46E /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BE0A8A31CD81DF200C7A46E /* Constants.swift */; };
+		90CDC1E98F9D99DE347463F0 /* Pods_japanese_memoTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 44E732B5CCCEF9C2C245FA7A /* Pods_japanese_memoTests.framework */; };
 		E7A3C80C91467FE3135CF04F /* Pods_japanese_memo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FBFB8910F33022AA45A8BB03 /* Pods_japanese_memo.framework */; };
+		EB500851D3DB459F4A4A57B5 /* Pods_japanese_memoUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 88B1727296DB345585C82AB4 /* Pods_japanese_memoUITests.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -85,6 +87,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		1D1013781C4C71E4915D6AFA /* Pods-japanese-memoTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-japanese-memoTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-japanese-memoTests/Pods-japanese-memoTests.debug.xcconfig"; sourceTree = "<group>"; };
 		3B090BD21CDAD172006CAB26 /* SettingIndexController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SettingIndexController.swift; path = app/controllers/setting/SettingIndexController.swift; sourceTree = "<group>"; };
 		3B090BD41CDAD234006CAB26 /* SettingLanguageController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SettingLanguageController.swift; path = app/controllers/setting/SettingLanguageController.swift; sourceTree = "<group>"; };
 		3B090BD61CDAD8A8006CAB26 /* Language.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Language.swift; path = app/models/Language.swift; sourceTree = "<group>"; };
@@ -149,8 +152,13 @@
 		3BE0A89D1CD8184900C7A46E /* ReadIndexCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ReadIndexCell.swift; path = app/views/reads/ReadIndexCell.swift; sourceTree = "<group>"; };
 		3BE0A89F1CD81D6B00C7A46E /* Util.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Util.swift; path = app/managers/Util.swift; sourceTree = "<group>"; };
 		3BE0A8A31CD81DF200C7A46E /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Constants.swift; path = config/Constants.swift; sourceTree = "<group>"; };
+		44E732B5CCCEF9C2C245FA7A /* Pods_japanese_memoTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_japanese_memoTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		5D62ADE6D56CFA1F319B1D39 /* Pods-japanese-memoUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-japanese-memoUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-japanese-memoUITests/Pods-japanese-memoUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		7AAA4438477CF7C451756E8E /* Pods-japanese-memo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-japanese-memo.release.xcconfig"; path = "Pods/Target Support Files/Pods-japanese-memo/Pods-japanese-memo.release.xcconfig"; sourceTree = "<group>"; };
+		856E3311C906FB36844A528B /* Pods-japanese-memoUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-japanese-memoUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-japanese-memoUITests/Pods-japanese-memoUITests.release.xcconfig"; sourceTree = "<group>"; };
+		88B1727296DB345585C82AB4 /* Pods_japanese_memoUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_japanese_memoUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A528E3B8C0DC9E16FF74A8AE /* Pods-japanese-memo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-japanese-memo.debug.xcconfig"; path = "Pods/Target Support Files/Pods-japanese-memo/Pods-japanese-memo.debug.xcconfig"; sourceTree = "<group>"; };
+		B958BE882E7838197710ED5E /* Pods-japanese-memoTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-japanese-memoTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-japanese-memoTests/Pods-japanese-memoTests.release.xcconfig"; sourceTree = "<group>"; };
 		FBFB8910F33022AA45A8BB03 /* Pods_japanese_memo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_japanese_memo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -167,6 +175,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				90CDC1E98F9D99DE347463F0 /* Pods_japanese_memoTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -174,6 +183,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EB500851D3DB459F4A4A57B5 /* Pods_japanese_memoUITests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -185,6 +195,10 @@
 			children = (
 				A528E3B8C0DC9E16FF74A8AE /* Pods-japanese-memo.debug.xcconfig */,
 				7AAA4438477CF7C451756E8E /* Pods-japanese-memo.release.xcconfig */,
+				1D1013781C4C71E4915D6AFA /* Pods-japanese-memoTests.debug.xcconfig */,
+				B958BE882E7838197710ED5E /* Pods-japanese-memoTests.release.xcconfig */,
+				5D62ADE6D56CFA1F319B1D39 /* Pods-japanese-memoUITests.debug.xcconfig */,
+				856E3311C906FB36844A528B /* Pods-japanese-memoUITests.release.xcconfig */,
 			);
 			name = Pods;
 			sourceTree = "<group>";
@@ -450,6 +464,8 @@
 			isa = PBXGroup;
 			children = (
 				FBFB8910F33022AA45A8BB03 /* Pods_japanese_memo.framework */,
+				44E732B5CCCEF9C2C245FA7A /* Pods_japanese_memoTests.framework */,
+				88B1727296DB345585C82AB4 /* Pods_japanese_memoUITests.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -461,12 +477,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 3B2037BA1CD4A3AB00A27644 /* Build configuration list for PBXNativeTarget "japanese-memo" */;
 			buildPhases = (
-				F16FEC4B97609CD810BAD5AE /* Check Pods Manifest.lock */,
+				F16FEC4B97609CD810BAD5AE /* 📦 Check Pods Manifest.lock */,
 				3B20378C1CD4A3AB00A27644 /* Sources */,
 				3B20378D1CD4A3AB00A27644 /* Frameworks */,
 				3B20378E1CD4A3AB00A27644 /* Resources */,
-				DF460CF1A4D1DD63E39CED60 /* Embed Pods Frameworks */,
-				C435C594835D89AB011BF026 /* Copy Pods Resources */,
+				DF460CF1A4D1DD63E39CED60 /* 📦 Embed Pods Frameworks */,
+				C435C594835D89AB011BF026 /* 📦 Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -481,9 +497,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 3B2037BD1CD4A3AB00A27644 /* Build configuration list for PBXNativeTarget "japanese-memoTests" */;
 			buildPhases = (
+				5DC876B89B3302A900E291E5 /* 📦 Check Pods Manifest.lock */,
 				3B2037A21CD4A3AB00A27644 /* Sources */,
 				3B2037A31CD4A3AB00A27644 /* Frameworks */,
 				3B2037A41CD4A3AB00A27644 /* Resources */,
+				776839A1D7590CA4F12A67CA /* 📦 Embed Pods Frameworks */,
+				0FFD29EB51E2DC9BF030D71D /* 📦 Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -499,9 +518,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 3B2037C01CD4A3AB00A27644 /* Build configuration list for PBXNativeTarget "japanese-memoUITests" */;
 			buildPhases = (
+				13D744FCEB1E3068A077B639 /* 📦 Check Pods Manifest.lock */,
 				3B2037AD1CD4A3AB00A27644 /* Sources */,
 				3B2037AE1CD4A3AB00A27644 /* Frameworks */,
 				3B2037AF1CD4A3AB00A27644 /* Resources */,
+				28E93543BBF11BE23A329557 /* 📦 Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -591,14 +612,89 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		C435C594835D89AB011BF026 /* Copy Pods Resources */ = {
+		0FFD29EB51E2DC9BF030D71D /* 📦 Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "Copy Pods Resources";
+			name = "📦 Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-japanese-memoTests/Pods-japanese-memoTests-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		13D744FCEB1E3068A077B639 /* 📦 Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "📦 Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		28E93543BBF11BE23A329557 /* 📦 Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "📦 Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-japanese-memoUITests/Pods-japanese-memoUITests-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		5DC876B89B3302A900E291E5 /* 📦 Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "📦 Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		776839A1D7590CA4F12A67CA /* 📦 Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "📦 Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-japanese-memoTests/Pods-japanese-memoTests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		C435C594835D89AB011BF026 /* 📦 Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "📦 Copy Pods Resources";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -606,14 +702,14 @@
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-japanese-memo/Pods-japanese-memo-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		DF460CF1A4D1DD63E39CED60 /* Embed Pods Frameworks */ = {
+		DF460CF1A4D1DD63E39CED60 /* 📦 Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "Embed Pods Frameworks";
+			name = "📦 Embed Pods Frameworks";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -621,14 +717,14 @@
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-japanese-memo/Pods-japanese-memo-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		F16FEC4B97609CD810BAD5AE /* Check Pods Manifest.lock */ = {
+		F16FEC4B97609CD810BAD5AE /* 📦 Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "Check Pods Manifest.lock";
+			name = "📦 Check Pods Manifest.lock";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -861,6 +957,7 @@
 		};
 		3B2037BE1CD4A3AB00A27644 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 1D1013781C4C71E4915D6AFA /* Pods-japanese-memoTests.debug.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				INFOPLIST_FILE = "japanese-memoTests/Info.plist";
@@ -873,6 +970,7 @@
 		};
 		3B2037BF1CD4A3AB00A27644 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = B958BE882E7838197710ED5E /* Pods-japanese-memoTests.release.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				INFOPLIST_FILE = "japanese-memoTests/Info.plist";
@@ -885,6 +983,7 @@
 		};
 		3B2037C11CD4A3AB00A27644 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 5D62ADE6D56CFA1F319B1D39 /* Pods-japanese-memoUITests.debug.xcconfig */;
 			buildSettings = {
 				INFOPLIST_FILE = "japanese-memoUITests/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
@@ -896,6 +995,7 @@
 		};
 		3B2037C21CD4A3AB00A27644 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 856E3311C906FB36844A528B /* Pods-japanese-memoUITests.release.xcconfig */;
 			buildSettings = {
 				INFOPLIST_FILE = "japanese-memoUITests/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";

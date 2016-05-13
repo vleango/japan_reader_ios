@@ -10,7 +10,8 @@ target 'japanese-memo' do
   pod 'FBSDKCoreKit', '~> 4.11.0'
   pod 'FBSDKShareKit', '~> 4.11.0'
   pod 'FBSDKLoginKit', '~> 4.11.0'
-  pod 'DZNEmptyDataSet' '~> 1.8'
+  pod 'DZNEmptyDataSet', '~> 1.8'
+  pod 'JGProgressHUD', '~> 1.3.1'
 end
 
 target 'japanese-memoTests' do
