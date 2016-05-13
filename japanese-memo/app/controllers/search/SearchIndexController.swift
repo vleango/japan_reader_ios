@@ -28,6 +28,9 @@ class SearchIndexController: UITableViewController, UISearchBarDelegate, DZNEmpt
         // auto height for cells
         tableView.rowHeight = UITableViewAutomaticDimension
         tableView.estimatedRowHeight = 100.0
+        
+        // DZNEmptyDataSet hide footer lines
+        self.tableView.tableFooterView = UIView()
     }
     
     override func viewDidLayoutSubviews() {

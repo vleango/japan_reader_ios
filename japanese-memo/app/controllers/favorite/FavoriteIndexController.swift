@@ -26,6 +26,9 @@ class FavoriteIndexController: UITableViewController, DZNEmptyDataSetSource, DZN
         // auto height for cells
         tableView.rowHeight = UITableViewAutomaticDimension
         tableView.estimatedRowHeight = 160.0
+        
+        // DZNEmptyDataSet hide footer lines
+        self.tableView.tableFooterView = UIView()
     }
     
     override func viewWillAppear(animated: Bool) {
@@ -43,10 +46,10 @@ class FavoriteIndexController: UITableViewController, DZNEmptyDataSetSource, DZN
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
         if self.tableView.emptyDataSetSource == nil {
-            
             // DZNEmptyDataSet init
             self.tableView.emptyDataSetSource = self
             self.tableView.emptyDataSetDelegate = self
+            self.tableView.tableFooterView = UIView()
             self.tableView.reloadData()
         }
     }

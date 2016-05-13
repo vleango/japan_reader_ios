@@ -37,8 +37,8 @@ class SearchShowController: UITableViewController {
                 if let rawJSON = object {
                     let json = JSON(rawJSON)
                     let favoriteJson = json["favorite"]
-                    self.entry.favoriteId = favoriteJson["id"].int
-                    if self.entry.favoriteId != nil {
+                    self.entry.favoriteId = favoriteJson["id"].stringValue
+                    if self.entry.favoriteId != "" {
                         // if the entry was saved, then we do remove
                         self.saveBtn.title = saveBtnStates.Unsave.rawValue
                     }
@@ -82,7 +82,7 @@ class SearchShowController: UITableViewController {
         case .r_eles:
             title = "Reading"
         case .senses:
-            title = "Meaning"
+            title = "Definition"
         }
         return title
     }

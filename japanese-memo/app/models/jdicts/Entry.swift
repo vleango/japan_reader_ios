@@ -15,15 +15,15 @@ class Entry {
     var r_eles:[REle] = []
     var senses:[Sense] = []
     
-    var id:Int!
+    var id:String!
     var priority:Int?
-    var favoriteId:Int?
+    var favoriteId:String = ""
     
     convenience init(json: JSON) {
         self.init()
-        self.id = json["id"].intValue
+        self.id = json["id"].stringValue
         self.priority = json["priority"].int
-        self.favoriteId = json["favorite_id"].int
+        self.favoriteId = json["favorite_id"].stringValue
         let k_eleJson = json["k_eles"]
         for (_, k_ele):(String, JSON) in k_eleJson {
             self.k_eles.append(KEle.init(json: k_ele))

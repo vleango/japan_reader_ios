@@ -55,10 +55,10 @@ final class Login {
                         "user[resource_id]": String(entry.id),
                         "user[resource_type]": "Jdict::Entry"
                     ]
-                    NetworkManager.saveEntry(params, callback: callback)
+                    NetworkManager.addFavorite(params, callback: callback)
                 }
                 else {
-                    NetworkManager.removeEntry(entry, callback: callback)
+                    NetworkManager.removeFavorite(entry.favoriteId, callback: callback)
                 }
             }
             else if let validCallback = callback {
@@ -75,10 +75,10 @@ final class Login {
                         "user[resource_id]": String(article.id),
                         "user[resource_type]": "JpReader::Article"
                     ]
-                    NetworkManager.saveArticle(params, callback: callback)
+                    NetworkManager.addFavorite(params, callback: callback)
                 }
                 else {
-                    NetworkManager.removeArticle(article, callback: callback)
+                    NetworkManager.removeFavorite(article.favoriteId, callback: callback)
                 }
             }
             else if let validCallback = callback {

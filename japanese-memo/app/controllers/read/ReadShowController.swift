@@ -81,8 +81,7 @@ class ReadShowController: UIViewController, UITextViewDelegate, UIPopoverPresent
                     self.artibutedArticle.article = Article.init(json: json)
 
                     // need to resync with app
-                    self.artibutedArticle.article.favoriteId = json["favorite_id"].intValue
-                    if self.artibutedArticle.article.favoriteId != 0 {
+                    if self.artibutedArticle.article.favoriteId != "" {
                         // if the entry was saved, then we do remove
                         self.saveBtn.title = saveBtnStates.Unsave.rawValue
                     }

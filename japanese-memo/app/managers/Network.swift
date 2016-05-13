@@ -114,28 +114,15 @@ final class Network {
     
     // MARK - Special Conditioned Methods
     
-    // should not be called on it's own, should use LoginManager.saveEntry
-    func saveEntry(params:[String : AnyObject], callback: ((success:Bool, object:AnyObject?) -> Void)?) {
-        let url = "users/entries"
+    // should not be called on it's own, should use LoginManager.addEntry / .addArticle
+    func addFavorite(params:[String : AnyObject], callback: ((success:Bool, object:AnyObject?) -> Void)?) {
+        let url = "users/favorites"
         execute(url, method: .POST, params: params, callback: callback)
     }
     
-    // should not be called on it's own, should use LoginManager.removeEntry
-    func removeEntry(entry:Entry, callback: ((success:Bool, object:AnyObject?) -> Void)?) {
-        let url = "users/favorites/\(entry.favoriteId!)"
+    // should not be called on it's own, should use LoginManager.removeEntry / .removeArticle
+    func removeFavorite(resourceId:String, callback: ((success:Bool, object:AnyObject?) -> Void)?) {
+        let url = "users/favorites/\(resourceId)"
         execute(url, method: .DELETE, params: nil, callback: callback)
     }
-    
-    // should not be called on it's own, should use LoginManager.saveEntry
-    func saveArticle(params:[String : AnyObject], callback: ((success:Bool, object:AnyObject?) -> Void)?) {
-        let url = "users/articles"
-        execute(url, method: .POST, params: params, callback: callback)
-    }
-    
-    // should not be called on it's own, should use LoginManager.removeEntry
-    func removeArticle(article:Article, callback: ((success:Bool, object:AnyObject?) -> Void)?) {
-        let url = "users/favorites/\(article.favoriteId)"
-        execute(url, method: .DELETE, params: nil, callback: callback)
-    }
-    
 }
