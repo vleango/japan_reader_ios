@@ -134,9 +134,12 @@ class ReadIndexController: UITableViewController {
     }
 
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier("articleCell", forIndexPath: indexPath) as! ReadIndexCell
         
         let article = articles[indexPath.row]
+        
+        let identifier = article.image_url == "" ? "articleNoCoverCell" : "articleCell"
+        let cell = tableView.dequeueReusableCellWithIdentifier(identifier, forIndexPath: indexPath) as! ReadIndexCell
+        
         cell.configureCell(article)
 
         if let validURL = article.image_url {

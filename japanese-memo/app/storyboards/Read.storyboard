@@ -82,6 +82,41 @@
                                     <outlet property="titleLabel" destination="hJN-Lv-fIt" id="It3-CX-6Nw"/>
                                 </connections>
                             </tableViewCell>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="articleNoCoverCell" rowHeight="86" id="Cpk-NM-DUv" customClass="ReadIndexCell" customModule="japanese_memo" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="192" width="375" height="86"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Cpk-NM-DUv" id="H6k-Ud-ic5">
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="85"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="title" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gmd-45-n2z">
+                                            <rect key="frame" x="16" y="24" width="351" height="21"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Provider | Date" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oHv-Pm-8CE">
+                                            <rect key="frame" x="16" y="46" width="351" height="15"/>
+                                            <fontDescription key="fontDescription" type="system" weight="thin" pointSize="12"/>
+                                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstItem="gmd-45-n2z" firstAttribute="leading" secondItem="oHv-Pm-8CE" secondAttribute="leading" id="Qid-qe-jEg"/>
+                                        <constraint firstItem="oHv-Pm-8CE" firstAttribute="top" secondItem="gmd-45-n2z" secondAttribute="bottom" constant="1" id="Qph-io-LgC"/>
+                                        <constraint firstAttribute="bottomMargin" secondItem="oHv-Pm-8CE" secondAttribute="bottom" constant="16" id="YRr-EQ-8U9"/>
+                                        <constraint firstItem="gmd-45-n2z" firstAttribute="top" secondItem="H6k-Ud-ic5" secondAttribute="topMargin" constant="16" id="anc-BE-kbC"/>
+                                        <constraint firstItem="gmd-45-n2z" firstAttribute="leading" secondItem="H6k-Ud-ic5" secondAttribute="leadingMargin" constant="8" id="lnL-Y4-uGR"/>
+                                        <constraint firstItem="gmd-45-n2z" firstAttribute="trailing" secondItem="oHv-Pm-8CE" secondAttribute="trailing" id="mmL-gf-6Ln"/>
+                                        <constraint firstItem="gmd-45-n2z" firstAttribute="trailing" secondItem="H6k-Ud-ic5" secondAttribute="trailingMargin" id="nQw-s0-m3I"/>
+                                    </constraints>
+                                </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="subtitleLabel" destination="oHv-Pm-8CE" id="p9c-6I-poZ"/>
+                                    <outlet property="titleLabel" destination="gmd-45-n2z" id="hij-R7-CWV"/>
+                                </connections>
+                            </tableViewCell>
                         </prototypes>
                         <connections>
                             <outlet property="dataSource" destination="ASa-fe-9P1" id="hNB-cX-Qlh"/>
