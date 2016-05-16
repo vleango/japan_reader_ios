@@ -9,8 +9,9 @@
 import UIKit
 import SwiftyJSON
 import UIScrollView_InfiniteScroll
+import DZNEmptyDataSet
 
-class ReadIndexController: UITableViewController {
+class ReadIndexController: UITableViewController, DZNEmptyDataSetSource, DZNEmptyDataSetDelegate {
 
     @IBOutlet weak var segmentedControl: UISegmentedControl!
     var articles = [Article]()
@@ -28,6 +29,11 @@ class ReadIndexController: UITableViewController {
         // auto height for cells
         tableView.rowHeight = UITableViewAutomaticDimension
         tableView.estimatedRowHeight = 160.0
+        
+        // DZNEmptyDataSet init
+        self.tableView.emptyDataSetSource = self
+        self.tableView.emptyDataSetDelegate = self
+        self.tableView.tableFooterView = UIView()
         
         // configure infinite scrolling
         configureInfiniteScroll()
@@ -122,6 +128,13 @@ class ReadIndexController: UITableViewController {
             self.refreshControl?.endRefreshing()
         })
     }
+    
+    @IBAction func segmentedControlValueChanged(sender: UISegmentedControl) {
+        nextPage = nil
+        articles.removeAll()
+        tableView.reloadData()
+        loadData()
+    }
 
     // MARK: - Table view data source
 
@@ -155,12 +168,30 @@ class ReadIndexController: UITableViewController {
         self.tableView.deselectRowAtIndexPath(indexPath, animated: true)
         self.performSegueWithIdentifier(showSegue, sender: articles[indexPath.row])
     }
-
-    @IBAction func segmentedControlValueChanged(sender: UISegmentedControl) {
-        nextPage = nil
-        articles.removeAll()
-        tableView.reloadData()
-        loadData()
+    
+    // MARK: - DZNEmptyDataSet Methods
+    
+    func titleForEmptyDataSet(scrollView: UIScrollView!) -> NSAttributedString! {
+        let attrs = [
+            NSFontAttributeName: UIFont.boldSystemFontOfSize(18),
+            NSForegroundColorAttributeName: UIColor.darkGrayColor()
+        ]
+        
+        return NSAttributedString(string: "No articles found...", attributes: attrs)
+    }
+    
+    func descriptionForEmptyDataSet(scrollView: UIScrollView!) -> NSAttributedString! {
+        let paragraph = NSMutableParagraphStyle()
+        paragraph.lineBreakMode = NSLineBreakMode.ByWordWrapping
+        paragraph.alignment = NSTextAlignment.Center
+        
+        let attrs = [
+            NSFontAttributeName: UIFont.systemFontOfSize(14),
+            NSForegroundColorAttributeName: UIColor.lightGrayColor(),
+            NSParagraphStyleAttributeName: paragraph
+        ]
+        
+        return NSAttributedString(string: "No articles have been posted in this section yet. If you or know someone who would like to help this project by contributing articles, please contact us.", attributes: attrs)
     }
     
 }
