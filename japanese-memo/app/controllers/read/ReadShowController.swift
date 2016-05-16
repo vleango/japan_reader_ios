@@ -30,10 +30,10 @@ class ReadShowController: UIViewController, UITextViewDelegate, UIPopoverPresent
         // Dispose of any resources that can be recreated.
     }
     
-    // used with hidesBarsOnSwipe
-    override func prefersStatusBarHidden() -> Bool {
-        return navigationController?.navigationBarHidden ?? false
-    }
+//    // used with hidesBarsOnSwipe
+//    override func prefersStatusBarHidden() -> Bool {
+//        return navigationController?.navigationBarHidden ?? false
+//    }
     
     // Disables scroll so that the textView isn't in the middle after the text is loaded
     override func viewWillAppear(animated: Bool) {
