@@ -97,17 +97,18 @@ class ReadShowController: UIViewController, UITextViewDelegate, UIPopoverPresent
                     
                     // set because translations are ready
                     self.textView.attributedText = self.artibutedArticle.attributedString
-                    
-                    if let validURL = self.artibutedArticle.article.image_url {
-                        NetworkManager.downloadImage(validURL, callback: { (image) -> Void in
-                            if let downloadedImage = image {
-                                self.artibutedArticle.image = downloadedImage
+
+                    for articleImage in self.artibutedArticle.article.images {
+                        NetworkManager.downloadImage(articleImage.url, callback: { (image) in
+
+                            if let index = self.artibutedArticle.article.images.indexOf(articleImage) {
+                                self.artibutedArticle.images[index] = image
+                                // reset because the image is ready
+                                self.textView.attributedText = self.artibutedArticle.attributedString
                             }
-                            
-                            // reset because the image is ready
-                            self.textView.attributedText = self.artibutedArticle.attributedString
                         })
                     }
+                    
                 }
             }
         }

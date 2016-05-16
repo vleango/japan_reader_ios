@@ -4,6 +4,11 @@ import Cocoa
 
 var str = "Hello, playground"
 
-for index in 1...5 {
-    print(str)
+let length = 6
+
+var string = ""
+for index in 1...length {
+    string += " "
 }
+
+string

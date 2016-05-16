@@ -17,11 +17,11 @@ class TextBit: Object {
     dynamic var position = 0
     
     
-    convenience init(bits:JSON) {
+    convenience init(json:JSON) {
         self.init()
-        self.word        = bits["word"].stringValue
-        self.furigana    = bits["furigana"].stringValue
-        self.position    = bits["position"].intValue
+        self.word        = json["word"].stringValue
+        self.furigana    = json["furigana"].stringValue
+        self.position    = json["position"].intValue
     }
     
 }

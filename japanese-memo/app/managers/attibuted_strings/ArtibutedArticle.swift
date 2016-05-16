@@ -13,15 +13,17 @@ import RealmSwift
 class ArtibutedArticle:ArtibutedBase {
     
     var article:Article
-    var image:UIImage?
+    var coverImage:UIImage?
     
     enum parts:String {case title, body}
+    
+    // index of articleImage / image
+    var images:[Int:UIImage?] = Dictionary()
     
     var attributedString:NSMutableAttributedString {
         get {
             let string = NSMutableAttributedString.init()
-            //string.appendAttributedString(imageString())
-            //string.appendAttributedString(newLine(2))
+            string.appendAttributedString(newLine(1))
             string.appendAttributedString(titleString())
             string.appendAttributedString(newLine(2))
             string.appendAttributedString(publishedString())
@@ -32,14 +34,14 @@ class ArtibutedArticle:ArtibutedBase {
         }
     }
     
-    init(article: Article, image:UIImage?) {
+    init(article: Article, coverImage:UIImage?) {
         self.article = article
-        self.image = image
+        self.coverImage = coverImage
     }
     
     // MARK - private methods
     
-    private func imageString() -> NSMutableAttributedString {
+    private func imageString(image:UIImage?, extraLength:Int) -> NSMutableAttributedString {
         var string = NSMutableAttributedString.init()
         if let validImage = image {
             let attachment = ImageAttachment.init(validImage, reduction: 0.8)
@@ -47,6 +49,12 @@ class ArtibutedArticle:ArtibutedBase {
             image.addAttribute(NSParagraphStyleAttributeName, value: paragraphStyle(), range: NSMakeRange(0, 1))
             string = image
         }
+        
+        // adding extra length
+        var extra = ""
+        for _ in 1...extraLength-1 { extra += " " }
+        
+        string.appendAttributedString(NSAttributedString.init(string: extra)) // need to add extra spaces because it replaces <%0%> -1
         return string
     }
     
@@ -80,10 +88,17 @@ class ArtibutedArticle:ArtibutedBase {
         return string
     }
     
-    
     private func bodyString() -> NSMutableAttributedString {
         if article.bodyBits.count != 0 {
-            return BitStringFrom(parts.body, text: article.body, bits: article.bodyBits, attributes: attributes(paragraphStyle(.Natural)))
+            let string = BitStringFrom(parts.body, text: article.body, bits: article.bodyBits, attributes: attributes(paragraphStyle(.Natural)))
+            for index in images.keys {
+                if let image = images[index] {
+                    let articleImage = article.images[index]
+                    string.replaceCharactersInRange(articleImage.range, withAttributedString: imageString(image, extraLength: articleImage.length))
+                }
+            }
+            
+            return string
         }
         else {
             return NSMutableAttributedString(

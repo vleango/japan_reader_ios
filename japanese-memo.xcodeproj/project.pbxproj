@@ -56,6 +56,7 @@
 		3B8EFA551CD8296B00C8D305 /* ImageAttachment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B8EFA541CD8296B00C8D305 /* ImageAttachment.swift */; };
 		3B8EFA5A1CD834E100C8D305 /* ArtibutedArticle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B8EFA591CD834E100C8D305 /* ArtibutedArticle.swift */; };
 		3B8F02F31CDADBBB00E41A90 /* Default.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B8F02F21CDADBBB00E41A90 /* Default.swift */; };
+		3B9057141CE98D5100111EB5 /* ArticleImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B9057131CE98D5100111EB5 /* ArticleImage.swift */; };
 		3BD0107D1CD5783900FB9C2F /* Network.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BD0107C1CD5783900FB9C2F /* Network.swift */; };
 		3BD010821CD5855900FB9C2F /* ReadIndexController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BD010811CD5855900FB9C2F /* ReadIndexController.swift */; };
 		3BD010851CD5892F00FB9C2F /* Article.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BD010841CD5892F00FB9C2F /* Article.swift */; };
@@ -144,6 +145,7 @@
 		3B8EFA591CD834E100C8D305 /* ArtibutedArticle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ArtibutedArticle.swift; path = app/managers/attibuted_strings/ArtibutedArticle.swift; sourceTree = "<group>"; };
 		3B8EFA5C1CD838CE00C8D305 /* tha.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; name = tha.playground; path = playgrounds/tha.playground; sourceTree = "<group>"; };
 		3B8F02F21CDADBBB00E41A90 /* Default.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Default.swift; path = app/managers/Default.swift; sourceTree = "<group>"; };
+		3B9057131CE98D5100111EB5 /* ArticleImage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ArticleImage.swift; path = app/models/ArticleImage.swift; sourceTree = "<group>"; };
 		3BD0107C1CD5783900FB9C2F /* Network.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Network.swift; path = app/managers/Network.swift; sourceTree = "<group>"; };
 		3BD010811CD5855900FB9C2F /* ReadIndexController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ReadIndexController.swift; path = app/controllers/read/ReadIndexController.swift; sourceTree = "<group>"; };
 		3BD010841CD5892F00FB9C2F /* Article.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Article.swift; path = app/models/Article.swift; sourceTree = "<group>"; };
@@ -416,6 +418,7 @@
 				3BD010841CD5892F00FB9C2F /* Article.swift */,
 				3B5A832A1CD62A5D00BED97F /* TextBit.swift */,
 				3B090BD61CDAD8A8006CAB26 /* Language.swift */,
+				3B9057131CE98D5100111EB5 /* ArticleImage.swift */,
 			);
 			name = models;
 			sourceTree = "<group>";
@@ -745,6 +748,7 @@
 				3BE0A8A01CD81D6B00C7A46E /* Util.swift in Sources */,
 				3B090BD71CDAD8A8006CAB26 /* Language.swift in Sources */,
 				3BD010821CD5855900FB9C2F /* ReadIndexController.swift in Sources */,
+				3B9057141CE98D5100111EB5 /* ArticleImage.swift in Sources */,
 				3B22E4801CD9E7180032DDF1 /* REle.swift in Sources */,
 				3B2037C81CD4A57900A27644 /* MainTabBarController.swift in Sources */,
 				3BD010851CD5892F00FB9C2F /* Article.swift in Sources */,

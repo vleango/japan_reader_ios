@@ -28,6 +28,7 @@ class Article: Object {
         static let subtitle_bits = "subtitle_bits"
         static let body_bits = "body_bits"
         static let favorite_id = "favorite_id"
+        static let images = "images"
     }
     
     dynamic var id = ""
@@ -44,6 +45,7 @@ class Article: Object {
     let titleBits = List<TextBit>()
     let subtitleBits = List<TextBit>()
     let bodyBits = List<TextBit>()
+    let images = List<ArticleImage>()
     
     convenience init(json:JSON) {
         self.init()
@@ -58,17 +60,17 @@ class Article: Object {
         
         let titleBitsArray = json[Article.constants.title_bits].arrayValue
         for bit in titleBitsArray {
-            self.titleBits.append(TextBit.init(bits: bit))
+            self.titleBits.append(TextBit.init(json: bit))
         }
         
         let subtitleBitsArray = json[Article.constants.subtitle_bits].arrayValue
         for bit in subtitleBitsArray {
-            self.subtitleBits.append(TextBit.init(bits: bit))
+            self.subtitleBits.append(TextBit.init(json: bit))
         }
         
         let bodyBitsArray = json[Article.constants.body_bits].arrayValue
         for bit in bodyBitsArray {
-            self.bodyBits.append(TextBit.init(bits: bit))
+            self.bodyBits.append(TextBit.init(json: bit))
         }
 
         let imageUrl = json[Article.constants.image_url].stringValue
@@ -77,6 +79,11 @@ class Article: Object {
         }
         self.published_date = json[Article.constants.published_date].stringValue
         self.source = json[Article.constants.source].stringValue
+        
+        let imagesArr = json[Article.constants.images].arrayValue
+        for image in imagesArr {
+            self.images.append(ArticleImage.init(json: image))
+        }
     }
     
     func bitsAsString(list:List<TextBit>) -> String {

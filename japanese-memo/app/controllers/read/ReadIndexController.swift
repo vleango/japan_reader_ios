@@ -59,7 +59,7 @@ class ReadIndexController: UITableViewController {
         if segue.identifier == showSegue {
             let showVC = segue.destinationViewController as! ReadShowController
             let article = sender as! Article
-            showVC.artibutedArticle = ArtibutedArticle.init(article: article, image: tableViewImageCache.imageCache[article.image_url!])
+            showVC.artibutedArticle = ArtibutedArticle.init(article: article, coverImage: tableViewImageCache.imageCache[article.image_url!])
         }
     }
     
