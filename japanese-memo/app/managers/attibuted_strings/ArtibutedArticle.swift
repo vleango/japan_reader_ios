@@ -20,8 +20,8 @@ class ArtibutedArticle:ArtibutedBase {
     var attributedString:NSMutableAttributedString {
         get {
             let string = NSMutableAttributedString.init()
-            string.appendAttributedString(imageString())
-            string.appendAttributedString(newLine(2))
+            //string.appendAttributedString(imageString())
+            //string.appendAttributedString(newLine(2))
             string.appendAttributedString(titleString())
             string.appendAttributedString(newLine(2))
             string.appendAttributedString(publishedString())
@@ -83,12 +83,12 @@ class ArtibutedArticle:ArtibutedBase {
     
     private func bodyString() -> NSMutableAttributedString {
         if article.bodyBits.count != 0 {
-            return BitStringFrom(parts.body, text: article.body, bits: article.bodyBits, attributes: attributes(paragraphStyle(.Justified)))
+            return BitStringFrom(parts.body, text: article.body, bits: article.bodyBits, attributes: attributes(paragraphStyle(.Natural)))
         }
         else {
             return NSMutableAttributedString(
                 string: article.body,
-                attributes: attributes(paragraphStyle(.Justified))
+                attributes: attributes(paragraphStyle(.Natural))
             )
         }
     }
