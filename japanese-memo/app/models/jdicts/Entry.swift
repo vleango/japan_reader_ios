@@ -18,11 +18,13 @@ class Entry {
     var id:String!
     var priority:Int?
     var favoriteId:String = ""
+    var userGenerated:Bool = false
     
     convenience init(json: JSON) {
         self.init()
         self.id = json["id"].stringValue
         self.priority = json["priority"].int
+        self.userGenerated = json["user_generated"].boolValue
         self.favoriteId = json["favorite_id"].stringValue
         let k_eleJson = json["k_eles"]
         for (_, k_ele):(String, JSON) in k_eleJson {

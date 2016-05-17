@@ -86,6 +86,14 @@ class SearchShowController: UITableViewController {
         }
         return title
     }
+    
+    override func tableView(tableView: UITableView, titleForFooterInSection section: Int) -> String? {
+        var string:String?
+        if section == sections.senses.rawValue && entry.userGenerated {
+            string = "User generated entry"
+        }
+        return string
+    }
 
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("searchSubtitleCell", forIndexPath: indexPath) as! SubtitleCell
