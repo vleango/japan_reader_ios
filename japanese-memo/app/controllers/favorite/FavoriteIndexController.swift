@@ -125,7 +125,7 @@ class FavoriteIndexController: UITableViewController, DZNEmptyDataSetSource, DZN
     override func tableView(tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
         switch sections(rawValue: section)! {
         case .search:
-            return "Search"
+            return "Dictionary"
         case .read:
             return "Read"
         }

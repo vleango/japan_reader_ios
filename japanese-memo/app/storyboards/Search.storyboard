@@ -6,11 +6,11 @@
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
-        <!--Navigation Controller-->
+        <!--Dictionary-->
         <scene sceneID="lUp-yd-T9V">
             <objects>
                 <navigationController storyboardIdentifier="SearchNavVC" automaticallyAdjustsScrollViewInsets="NO" useStoryboardIdentifierAsRestorationIdentifier="YES" id="gdG-u8-znQ" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" systemItem="search" id="ctt-ru-FFy"/>
+                    <tabBarItem key="tabBarItem" title="Dictionary" image="search" id="ctt-ru-FFy"/>
                     <toolbarItems/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
@@ -27,7 +27,7 @@
             </objects>
             <point key="canvasLocation" x="334.5" y="535.5"/>
         </scene>
-        <!--Search-->
+        <!--Dictionary-->
         <scene sceneID="Ktn-0J-2ey">
             <objects>
                 <tableViewController id="rKq-Kb-Mcm" customClass="SearchIndexController" customModule="japanese_memo" customModuleProvider="target" sceneMemberID="viewController">
@@ -85,7 +85,7 @@
                             <outlet property="delegate" destination="rKq-Kb-Mcm" id="g5E-FH-J7c"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Search" id="KQv-Gk-obg"/>
+                    <navigationItem key="navigationItem" title="Dictionary" id="KQv-Gk-obg"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
                     <connections>
                         <outlet property="searchBar" destination="POH-pv-GB1" id="cbS-82-m13"/>
@@ -304,4 +304,7 @@
             <point key="canvasLocation" x="1355.5" y="1383.5"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="search" width="25" height="25"/>
+    </resources>
 </document>

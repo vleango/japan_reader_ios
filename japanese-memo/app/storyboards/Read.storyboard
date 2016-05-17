@@ -11,7 +11,7 @@
         <scene sceneID="iqP-Zj-N0M">
             <objects>
                 <navigationController storyboardIdentifier="ReadNavVC" automaticallyAdjustsScrollViewInsets="NO" useStoryboardIdentifierAsRestorationIdentifier="YES" id="r3c-rx-Vwf" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Read" image="Bookmark" id="Zbq-41-8Ax"/>
+                    <tabBarItem key="tabBarItem" title="Read" image="bookmark" id="Zbq-41-8Ax"/>
                     <toolbarItems/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
@@ -275,6 +275,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="Bookmark" width="25" height="24"/>
+        <image name="bookmark" width="25" height="24"/>
     </resources>
 </document>
