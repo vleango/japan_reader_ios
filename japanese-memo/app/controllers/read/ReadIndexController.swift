@@ -13,7 +13,7 @@ import DZNEmptyDataSet
 
 class ReadIndexController: UITableViewController, DZNEmptyDataSetSource, DZNEmptyDataSetDelegate {
 
-    @IBOutlet weak var segmentedControl: UISegmentedControl!
+    //@IBOutlet weak var segmentedControl: UISegmentedControl!
     var articles = [Article]()
     let showSegue = "sToReadShowSegue"
     let tableViewImageCache = TableViewImageCacher.init()
@@ -78,14 +78,14 @@ class ReadIndexController: UITableViewController, DZNEmptyDataSetSource, DZNEmpt
     
     // MARK: - Network
     private func loadData(infiniteScrollView:UITableView? = nil) {
-        let selectedType = Article.articleTypes(rawValue: segmentedControl.selectedSegmentIndex)!
+        //let selectedType = Article.articleTypes(rawValue: segmentedControl.selectedSegmentIndex)!
         
         var params:[String : AnyObject] = [:]
         if let validNextPage = nextPage {
             params["page"] = validNextPage
         }
         
-        NetworkManager.reads(selectedType, params: params, callback: { (success, object) -> Void in
+        NetworkManager.reads(params: params, callback: { (success, object) -> Void in
             
             // stop spinning if this is passed in
             if let validInfiniteScrollView = infiniteScrollView {

@@ -28,7 +28,7 @@
             </objects>
             <point key="canvasLocation" x="334.5" y="535.5"/>
         </scene>
-        <!--Read Index Controller-->
+        <!--Read-->
         <scene sceneID="wv1-eb-3Wp">
             <objects>
                 <tableViewController id="ASa-fe-9P1" customClass="ReadIndexController" customModule="japanese_memo" customModuleProvider="target" sceneMemberID="viewController">
@@ -123,24 +123,9 @@
                             <outlet property="delegate" destination="ASa-fe-9P1" id="mao-GP-lrG"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" id="gPX-fe-2xg">
-                        <nil key="title"/>
-                        <segmentedControl key="titleView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="bar" selectedSegmentIndex="0" id="oHx-gK-mc1">
-                            <rect key="frame" x="100" y="7" width="176" height="30"/>
-                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            <segments>
-                                <segment title="All"/>
-                                <segment title="Easy"/>
-                                <segment title="Normal"/>
-                            </segments>
-                            <connections>
-                                <action selector="segmentedControlValueChanged:" destination="ASa-fe-9P1" eventType="valueChanged" id="nc9-so-NU0"/>
-                            </connections>
-                        </segmentedControl>
-                    </navigationItem>
+                    <navigationItem key="navigationItem" title="Read" id="gPX-fe-2xg"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
                     <connections>
-                        <outlet property="segmentedControl" destination="oHx-gK-mc1" id="a5v-wY-DZM"/>
                         <segue destination="hRe-On-kgE" kind="show" identifier="sToReadShowSegue" id="isr-oj-GeC"/>
                     </connections>
                 </tableViewController>
