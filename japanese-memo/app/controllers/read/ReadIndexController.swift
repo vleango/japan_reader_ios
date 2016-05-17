@@ -94,7 +94,7 @@ class ReadIndexController: UITableViewController, DZNEmptyDataSetSource, DZNEmpt
             
             if success {
                 
-                self.refreshControl?.attributedTitle = NSAttributedString.init(string: UtilManager.stringFromDate(NSDate.init(), format: "yyyy-MM-dd HH:mm"))
+                self.refreshControl?.attributedTitle = NSAttributedString.init(string: "Last updated: \(UtilManager.stringFromDate(NSDate.init(), format: "yyyy-MM-dd HH:mm"))")
                 
                 if let rawJSON = object {
                     if infiniteScrollView == nil {

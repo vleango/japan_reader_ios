@@ -47,6 +47,17 @@ final class Login {
         }
     }
     
+    func addNewEntry(params:[String:AnyObject], fromViewController:UIViewController, callback: ((success:Bool, object:AnyObject?) -> Void)?) {
+        canPerformAction(fromViewController) { (success) in
+            if success {
+                NetworkManager.createEntry(params, callback: callback)
+            }
+            else if let validCallback = callback {
+                validCallback(success: false, object: nil)
+            }
+        }
+    }
+    
     func toggleEntry(save:Bool, entry:Entry, fromViewController:UIViewController, callback: ((success:Bool, object:AnyObject?) -> Void)?) {
         canPerformAction(fromViewController) { (success) in
             if success {

@@ -27,7 +27,8 @@ class SearchNewController: UITableViewController, UITextFieldDelegate {
     }
 
     @IBAction func saveBtnClicked(sender: AnyObject) {
-        NetworkManager.createEntry(params()) { (success, object) in
+        
+        LoginManager.addNewEntry(params(), fromViewController: self) { (success, object) in
             if success {
                 if let rawJSON = object {
                     let json = JSON(rawJSON)
