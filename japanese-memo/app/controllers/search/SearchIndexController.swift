@@ -9,6 +9,7 @@
 import UIKit
 import SwiftyJSON
 import DZNEmptyDataSet
+import Toast_Swift
 
 class SearchIndexController: UITableViewController, UISearchBarDelegate, DZNEmptyDataSetSource, DZNEmptyDataSetDelegate {
     
@@ -37,6 +38,9 @@ class SearchIndexController: UITableViewController, UISearchBarDelegate, DZNEmpt
         
         // DZNEmptyDataSet hide footer lines
         self.tableView.tableFooterView = UIView()
+        
+        // Add NotificationCenter Observer
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(searchNewCompleted), name: Constants.notificationObservers.saveEntryNotificationKey, object: nil)
     }
     
     override func viewDidLayoutSubviews() {
@@ -161,6 +165,14 @@ class SearchIndexController: UITableViewController, UISearchBarDelegate, DZNEmpt
     
     func emptyDataSetDidTapButton(scrollView: UIScrollView!) {
         performSegueWithIdentifier(newSegue, sender: searchBar.text)
+    }
+    
+    // MARK: - NSNotification Observers
+    
+    func searchNewCompleted(sender:NSNotification) {
+        self.view.makeToast("New entry created! Please check your Favorites.", duration: 4, position: .Center)
+        searchBar.text = ""
+        tableView.reloadData()
     }
 
 }

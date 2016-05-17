@@ -34,7 +34,9 @@ class SearchNewController: UITableViewController, UITextFieldDelegate {
                     let json = JSON(rawJSON)
                     let status = json["status"].boolValue
                     if status {
-                        self.dismissViewControllerAnimated(true, completion: nil)
+                        self.dismissViewControllerAnimated(true, completion: {
+                            NSNotificationCenter.defaultCenter().postNotificationName(Constants.notificationObservers.saveEntryNotificationKey, object: nil)
+                        })
                     }
                     else {
                         UtilManager.displayAlertView("Error", message: "Something went wrong...", viewController: self)

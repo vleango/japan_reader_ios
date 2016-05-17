@@ -12,6 +12,7 @@ target 'japanese-memo' do
   pod 'FBSDKLoginKit', '~> 4.11.0'
   pod 'DZNEmptyDataSet', '~> 1.8'
   pod 'JGProgressHUD', '~> 1.3.1'
+  pod 'Toast-Swift', '~> 1.3.0'
 end
 
 target 'japanese-memoTests' do
