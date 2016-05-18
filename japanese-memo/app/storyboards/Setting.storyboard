@@ -60,30 +60,16 @@
                                     </tableViewCell>
                                 </cells>
                             </tableViewSection>
-                            <tableViewSection headerTitle="Facebook Login" id="ZPo-XQ-ciI">
-                                <cells>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" rowHeight="44" id="4gu-iJ-oML">
-                                        <rect key="frame" x="0.0" y="209" width="375" height="44"/>
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="4gu-iJ-oML" id="daY-5b-Olr">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <color key="backgroundColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="calibratedRGB"/>
-                                        </tableViewCellContentView>
-                                        <color key="backgroundColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="calibratedRGB"/>
-                                    </tableViewCell>
-                                </cells>
-                            </tableViewSection>
                             <tableViewSection headerTitle="Contact" footerTitle="Looking for bloggers and article writers! Please let us know if you would like to help!" id="YqA-3h-hAc">
                                 <cells>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" textLabel="Obx-nS-PwV" style="IBUITableViewCellStyleDefault" id="Bfg-g1-psf">
-                                        <rect key="frame" x="0.0" y="304" width="375" height="44"/>
+                                        <rect key="frame" x="0.0" y="209" width="375" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Bfg-g1-psf" id="BNG-bw-I1y">
                                             <rect key="frame" x="0.0" y="0.0" width="342" height="43"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="questions, comments, concerns?" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Obx-nS-PwV">
+                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Write to us" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Obx-nS-PwV">
                                                     <rect key="frame" x="15" y="0.0" width="325" height="43"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="16"/>
@@ -95,6 +81,20 @@
                                         <connections>
                                             <segue destination="GLd-cK-Uvc" kind="show" id="Q7g-kt-0y7"/>
                                         </connections>
+                                    </tableViewCell>
+                                </cells>
+                            </tableViewSection>
+                            <tableViewSection headerTitle="Facebook Login" id="ZPo-XQ-ciI">
+                                <cells>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" rowHeight="44" id="4gu-iJ-oML">
+                                        <rect key="frame" x="0.0" y="336" width="375" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="4gu-iJ-oML" id="daY-5b-Olr">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <color key="backgroundColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="calibratedRGB"/>
+                                        </tableViewCellContentView>
+                                        <color key="backgroundColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="calibratedRGB"/>
                                     </tableViewCell>
                                 </cells>
                             </tableViewSection>
@@ -149,10 +149,10 @@
             </objects>
             <point key="canvasLocation" x="1400.5" y="535.5"/>
         </scene>
-        <!--View Controller-->
+        <!--Setting Contact Controller-->
         <scene sceneID="9gn-2a-K7D">
             <objects>
-                <viewController id="GLd-cK-Uvc" sceneMemberID="viewController">
+                <viewController id="GLd-cK-Uvc" customClass="SettingContactController" customModule="japanese_memo" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="7LC-88-UX4"/>
                         <viewControllerLayoutGuide type="bottom" id="YGS-a6-gdb"/>
@@ -208,11 +208,15 @@
                                             <constraint firstAttribute="height" constant="40" id="o11-Pd-neL"/>
                                         </constraints>
                                     </stackView>
-                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="Enter comments" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="oAa-Kv-Yu5">
+                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="Enter comments..." textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="oAa-Kv-Yu5">
                                         <rect key="frame" x="0.0" y="80" width="343" height="466"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                        <connections>
+                                            <outlet property="delegate" destination="GLd-cK-Uvc" id="GHy-oN-Ekr"/>
+                                        </connections>
                                     </textView>
                                 </subviews>
                             </stackView>
@@ -225,7 +229,20 @@
                             <constraint firstItem="YGS-a6-gdb" firstAttribute="top" secondItem="IvU-DT-NMy" secondAttribute="bottom" id="ztk-Zi-9Ae"/>
                         </constraints>
                     </view>
+                    <navigationItem key="navigationItem" id="3pM-WR-eEJ">
+                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="beP-Ov-bFP">
+                            <connections>
+                                <action selector="saveBtnClicked:" destination="GLd-cK-Uvc" id="fYS-Xv-bKM"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
+                    <connections>
+                        <outlet property="bodyTextView" destination="oAa-Kv-Yu5" id="Bib-Ij-YO0"/>
+                        <outlet property="emailTextField" destination="Hak-bD-2UU" id="xTD-Y5-iHN"/>
+                        <outlet property="nameTextField" destination="dEn-KL-A7F" id="9kt-tn-je2"/>
+                        <outlet property="saveBtn" destination="beP-Ov-bFP" id="c5O-Bb-bOD"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="e6g-7b-M51" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

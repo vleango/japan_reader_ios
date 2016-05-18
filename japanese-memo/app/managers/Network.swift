@@ -87,6 +87,11 @@ final class Network {
         execute(url, method: .POST, params:params, callback:callback)
     }
     
+    func sendInquiry(params:[String : AnyObject], callback: ((success:Bool, object:AnyObject?) -> Void)?) {
+        let url = "inquiries"
+        execute(url, method: .POST, params:params, callback:callback)
+    }
+    
     private func execute(
         url:String,
         method:Alamofire.Method = .GET,

@@ -10,6 +10,7 @@
 		3B090BD31CDAD172006CAB26 /* SettingIndexController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B090BD21CDAD172006CAB26 /* SettingIndexController.swift */; };
 		3B090BD51CDAD234006CAB26 /* SettingLanguageController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B090BD41CDAD234006CAB26 /* SettingLanguageController.swift */; };
 		3B090BD71CDAD8A8006CAB26 /* Language.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B090BD61CDAD8A8006CAB26 /* Language.swift */; };
+		3B0FF4A31CEC506D006B1035 /* SettingContactController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B0FF4A21CEC506D006B1035 /* SettingContactController.swift */; };
 		3B2037941CD4A3AB00A27644 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B2037931CD4A3AB00A27644 /* AppDelegate.swift */; };
 		3B20379B1CD4A3AB00A27644 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3B2037991CD4A3AB00A27644 /* Main.storyboard */; };
 		3B20379D1CD4A3AB00A27644 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3B20379C1CD4A3AB00A27644 /* Assets.xcassets */; };
@@ -92,6 +93,7 @@
 		3B090BD21CDAD172006CAB26 /* SettingIndexController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SettingIndexController.swift; path = app/controllers/setting/SettingIndexController.swift; sourceTree = "<group>"; };
 		3B090BD41CDAD234006CAB26 /* SettingLanguageController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SettingLanguageController.swift; path = app/controllers/setting/SettingLanguageController.swift; sourceTree = "<group>"; };
 		3B090BD61CDAD8A8006CAB26 /* Language.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Language.swift; path = app/models/Language.swift; sourceTree = "<group>"; };
+		3B0FF4A21CEC506D006B1035 /* SettingContactController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SettingContactController.swift; path = app/controllers/setting/SettingContactController.swift; sourceTree = "<group>"; };
 		3B2037901CD4A3AB00A27644 /* japanese-memo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "japanese-memo.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		3B2037931CD4A3AB00A27644 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = AppDelegate.swift; path = config/AppDelegate.swift; sourceTree = "<group>"; };
 		3B20379A1CD4A3AB00A27644 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -210,6 +212,7 @@
 			children = (
 				3B090BD21CDAD172006CAB26 /* SettingIndexController.swift */,
 				3B090BD41CDAD234006CAB26 /* SettingLanguageController.swift */,
+				3B0FF4A21CEC506D006B1035 /* SettingContactController.swift */,
 			);
 			name = setting;
 			sourceTree = "<group>";
@@ -747,6 +750,7 @@
 				3B22E47A1CD9A62A0032DDF1 /* Entry.swift in Sources */,
 				3BE0A8A01CD81D6B00C7A46E /* Util.swift in Sources */,
 				3B090BD71CDAD8A8006CAB26 /* Language.swift in Sources */,
+				3B0FF4A31CEC506D006B1035 /* SettingContactController.swift in Sources */,
 				3BD010821CD5855900FB9C2F /* ReadIndexController.swift in Sources */,
 				3B9057141CE98D5100111EB5 /* ArticleImage.swift in Sources */,
 				3B22E4801CD9E7180032DDF1 /* REle.swift in Sources */,

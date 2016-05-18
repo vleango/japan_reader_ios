@@ -8,15 +8,19 @@
 
 import UIKit
 import FBSDKLoginKit
+import Toast_Swift
 
 class SettingIndexController: UITableViewController {
 
-    enum sections:Int { case language, facebook }
+    enum sections:Int { case language, contact, facebook }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         self.tableView.separatorColor = UIColor.clearColor()
+        
+        // Add NotificationCenter Observer
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(sentInquiryCompleted), name: Constants.notificationObservers.sentInquiryNotificationKey, object: nil)
     }
     
     override func viewDidAppear(animated: Bool) {
@@ -42,6 +46,12 @@ class SettingIndexController: UITableViewController {
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    
+    // MARK - NSNotification Methods
+    
+    func sentInquiryCompleted(sender:NSNotification) {
+        self.view.makeToast("Thank you! Your message has been sent!", duration: 4, position: .Center)
     }
 
 }
