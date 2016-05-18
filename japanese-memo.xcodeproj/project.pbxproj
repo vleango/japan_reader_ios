@@ -941,7 +941,7 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = "$(SRCROOT)/japanese-memo/config/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "leang.tha.japanese-memo";
+				PRODUCT_BUNDLE_IDENTIFIER = leang.tha.japanreader;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 			};
@@ -957,7 +957,7 @@
 				INFOPLIST_FILE = "$(SRCROOT)/japanese-memo/config/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				OTHER_SWIFT_FLAGS = "$(inherited) \"-D\" \"COCOAPODS\" -DPRODUCTION";
-				PRODUCT_BUNDLE_IDENTIFIER = "leang.tha.japanese-memo";
+				PRODUCT_BUNDLE_IDENTIFIER = leang.tha.japanreader;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 			};
