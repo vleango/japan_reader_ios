@@ -124,7 +124,13 @@
                             <outlet property="delegate" destination="ASa-fe-9P1" id="mao-GP-lrG"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Read" id="gPX-fe-2xg"/>
+                    <navigationItem key="navigationItem" title="Read" id="gPX-fe-2xg">
+                        <barButtonItem key="rightBarButtonItem" image="shuffle" id="yjB-h5-0tr">
+                            <connections>
+                                <action selector="shuffleBtnClicked:" destination="ASa-fe-9P1" id="W6M-Qq-L7i"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
                     <connections>
                         <segue destination="hRe-On-kgE" kind="show" identifier="sToReadShowSegue" id="isr-oj-GeC"/>
@@ -180,6 +186,11 @@
                             <barButtonItem title="Save" id="yfH-fd-g7g">
                                 <connections>
                                     <action selector="saveBtnClicked:" destination="hRe-On-kgE" id="BtO-r7-DFi"/>
+                                </connections>
+                            </barButtonItem>
+                            <barButtonItem image="shuffle" id="005-mm-mol">
+                                <connections>
+                                    <action selector="shuffleBtnClicked:" destination="hRe-On-kgE" id="ryN-uM-x68"/>
                                 </connections>
                             </barButtonItem>
                             <barButtonItem image="right" id="bpF-oD-uJR">
@@ -278,5 +289,6 @@
         <image name="bookmark" width="25" height="24"/>
         <image name="left" width="6" height="10"/>
         <image name="right" width="6" height="10"/>
+        <image name="shuffle" width="17" height="17"/>
     </resources>
 </document>

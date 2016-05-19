@@ -92,6 +92,11 @@ final class Network {
         execute(url, method: .POST, params:params, callback:callback)
     }
     
+    func randomArticle(callback: ((success:Bool, object:AnyObject?) -> Void)?) {
+        let url = "articles/randoms"
+        execute(url, params: nil, callback: callback)
+    }
+    
     private func execute(
         url:String,
         method:Alamofire.Method = .GET,

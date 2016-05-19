@@ -84,7 +84,7 @@ class ReadShowController: UIViewController, UITextViewDelegate, UIPopoverPresent
                     self.artibutedArticle.article = Article.init(json: json)
                     
                     // grab previous and next
-                    let previousJson = json[""]
+                    let previousJson = json["prev_article"]
                     if previousJson != nil {
                         self.previousArticle = ArtibutedArticle.init(article: Article.init(json: previousJson), coverImage: nil)
                         self.prevArticleBtn.enabled = true
@@ -93,7 +93,7 @@ class ReadShowController: UIViewController, UITextViewDelegate, UIPopoverPresent
                         self.prevArticleBtn.enabled = false
                     }
                     
-                    let nextJson = json[""]
+                    let nextJson = json["next_article"]
                     if nextJson != nil {
                         self.nextArticle = ArtibutedArticle.init(article: Article.init(json: nextJson), coverImage: nil)
                         self.nextArticleBtn.enabled = true
@@ -185,6 +185,17 @@ class ReadShowController: UIViewController, UITextViewDelegate, UIPopoverPresent
                         self.saveBtn.title = saveBtnStates.Save.rawValue
                     }
                 }
+            }
+        }
+    }
+    
+    @IBAction func shuffleBtnClicked(sender: AnyObject) {
+        NetworkManager.randomArticle { (success, object) in
+            if let rawJSON = object {
+                let json = JSON(rawJSON)
+                let article = Article.init(json: json)
+                let randomArticle = ArtibutedArticle.init(article: article, coverImage: nil)
+                self.replaceArticle(randomArticle)
             }
         }
     }

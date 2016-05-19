@@ -12,7 +12,6 @@ import UIScrollView_InfiniteScroll
 
 class ReadIndexController: UITableViewController {
 
-    //@IBOutlet weak var segmentedControl: UISegmentedControl!
     var articles = [Article]()
     let showSegue = "sToReadShowSegue"
     let tableViewImageCache = TableViewImageCacher.init()
@@ -20,10 +19,6 @@ class ReadIndexController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-//        // Hide on swipe configs
-//        navigationController?.hidesBarsOnSwipe = true
-//        navigationController?.hidesBarsWhenKeyboardAppears = true
         
         // auto height for cells
         tableView.rowHeight = UITableViewAutomaticDimension
@@ -39,11 +34,6 @@ class ReadIndexController: UITableViewController {
         // load the data from network
         loadData()
     }
-    
-    // used with hidesBarsOnSwipe
-//    override func prefersStatusBarHidden() -> Bool {
-//        return navigationController?.navigationBarHidden ?? false
-//    }
     
     func refresh(sender:AnyObject) {
         nextPage = nil
@@ -161,6 +151,16 @@ class ReadIndexController: UITableViewController {
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         self.tableView.deselectRowAtIndexPath(indexPath, animated: true)
         self.performSegueWithIdentifier(showSegue, sender: articles[indexPath.row])
+    }
+    
+    @IBAction func shuffleBtnClicked(sender: AnyObject) {
+        NetworkManager.randomArticle { (success, object) in
+            if let rawJSON = object {
+                let json = JSON(rawJSON)
+                let article = Article.init(json: json)
+                self.performSegueWithIdentifier(self.showSegue, sender: article)
+            }
+        }
     }
 
 }
