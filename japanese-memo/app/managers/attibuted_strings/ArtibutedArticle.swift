@@ -39,6 +39,10 @@ class ArtibutedArticle:ArtibutedBase {
         self.coverImage = coverImage
     }
     
+    func allImagesDownloaded() -> Bool {
+        return images.count == article.images.count
+    }
+    
     // MARK - private methods
     
     private func imageString(image:UIImage?, extraLength:Int) -> NSMutableAttributedString {

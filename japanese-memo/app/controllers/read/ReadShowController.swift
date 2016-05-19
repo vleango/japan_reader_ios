@@ -13,7 +13,13 @@ class ReadShowController: UIViewController, UITextViewDelegate, UIPopoverPresent
 
     @IBOutlet weak var textView: UITextView!
     @IBOutlet weak var saveBtn: UIBarButtonItem!
+    @IBOutlet weak var prevArticleBtn: UIBarButtonItem!
+    @IBOutlet weak var nextArticleBtn: UIBarButtonItem!
+    
     var artibutedArticle:ArtibutedArticle!
+    var previousArticle:ArtibutedArticle?
+    var nextArticle:ArtibutedArticle?
+    
     private let wordSegue = "sToReadWordSegue"
     
     enum wordKeys:String { case textBit, rect }
@@ -29,12 +35,7 @@ class ReadShowController: UIViewController, UITextViewDelegate, UIPopoverPresent
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-    
-//    // used with hidesBarsOnSwipe
-//    override func prefersStatusBarHidden() -> Bool {
-//        return navigationController?.navigationBarHidden ?? false
-//    }
-    
+
     // Disables scroll so that the textView isn't in the middle after the text is loaded
     override func viewWillAppear(animated: Bool) {
         textView.scrollEnabled = false
@@ -44,13 +45,6 @@ class ReadShowController: UIViewController, UITextViewDelegate, UIPopoverPresent
     // Reenables scrolling for viewWillAppear purpose
     override func viewDidAppear(animated: Bool) {
         textView.scrollEnabled = true
-    }
-    
-    // reload the attributed string (since bounds needs to be recalculated)
-    override func viewWillTransitionToSize(size: CGSize, withTransitionCoordinator coordinator: UIViewControllerTransitionCoordinator) {
-        coordinator.animateAlongsideTransition(nil) { (UIViewControllerTransitionCoordinatorContext) in
-            self.textView.attributedText = self.artibutedArticle.attributedString
-        }
     }
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
@@ -79,11 +73,35 @@ class ReadShowController: UIViewController, UITextViewDelegate, UIPopoverPresent
     // Mark - Network
     
     private func loadData() {
+        
+        self.prevArticleBtn.enabled = false
+        self.nextArticleBtn.enabled = false
+        
         NetworkManager.read(artibutedArticle.article.id) { (success, object) in
             if success {
                 if let rawJSON = object {
                     let json = JSON(rawJSON)
                     self.artibutedArticle.article = Article.init(json: json)
+                    
+                    // grab previous and next
+                    let previousJson = json[""]
+                    if previousJson != nil {
+                        self.previousArticle = ArtibutedArticle.init(article: Article.init(json: previousJson), coverImage: nil)
+                        self.prevArticleBtn.enabled = true
+                    }
+                    else {
+                        self.prevArticleBtn.enabled = false
+                    }
+                    
+                    let nextJson = json[""]
+                    if nextJson != nil {
+                        self.nextArticle = ArtibutedArticle.init(article: Article.init(json: nextJson), coverImage: nil)
+                        self.nextArticleBtn.enabled = true
+                    }
+                    else {
+                        self.nextArticleBtn.enabled = false
+                    }
+                    
 
                     // need to resync with app
                     if self.artibutedArticle.article.favoriteId != "" {
@@ -103,14 +121,20 @@ class ReadShowController: UIViewController, UITextViewDelegate, UIPopoverPresent
 
                             if let index = self.artibutedArticle.article.images.indexOf(articleImage) {
                                 self.artibutedArticle.images[index] = image
-                                // reset because the image is ready
-                                self.textView.attributedText = self.artibutedArticle.attributedString
+                                self.imageLoaded()
                             }
                         })
                     }
                     
                 }
             }
+        }
+    }
+    
+    private func imageLoaded() {
+        if artibutedArticle.allImagesDownloaded() {
+            // reset because the image is ready
+            self.textView.attributedText = self.artibutedArticle.attributedString
         }
     }
     
@@ -164,5 +188,27 @@ class ReadShowController: UIViewController, UITextViewDelegate, UIPopoverPresent
             }
         }
     }
+    
+    @IBAction func previousBtnClicked(sender: AnyObject) {
+        if let validPrevious = previousArticle {
+            replaceArticle(validPrevious)
+        }
+    }
+    
+    @IBAction func nextBtnClicked(sender: AnyObject) {
+        if let validNext = nextArticle {
+            replaceArticle(validNext)
+        }
+    }
+    
+    private func replaceArticle(article:ArtibutedArticle) {
+        artibutedArticle = article
+        previousArticle = nil
+        nextArticle = nil
+        textView.attributedText = artibutedArticle.attributedString
+        textView.setContentOffset(CGPointMake(0, -64), animated: true)
+        loadData()
+    }
+    
     
 }

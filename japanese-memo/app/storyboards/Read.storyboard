@@ -5,6 +5,7 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <capability name="Navigation items with more than one left or right bar item" minToolsVersion="7.0"/>
     </dependencies>
     <scenes>
         <!--Read-->
@@ -175,14 +176,28 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="voa-x3-VLa">
-                        <barButtonItem key="rightBarButtonItem" title="Save" id="yfH-fd-g7g">
-                            <connections>
-                                <action selector="saveBtnClicked:" destination="hRe-On-kgE" id="BtO-r7-DFi"/>
-                            </connections>
-                        </barButtonItem>
+                        <rightBarButtonItems>
+                            <barButtonItem title="Save" id="yfH-fd-g7g">
+                                <connections>
+                                    <action selector="saveBtnClicked:" destination="hRe-On-kgE" id="BtO-r7-DFi"/>
+                                </connections>
+                            </barButtonItem>
+                            <barButtonItem image="right" id="bpF-oD-uJR">
+                                <connections>
+                                    <action selector="nextBtnClicked:" destination="hRe-On-kgE" id="uZy-bo-PWe"/>
+                                </connections>
+                            </barButtonItem>
+                            <barButtonItem image="left" id="km9-dF-Z9I">
+                                <connections>
+                                    <action selector="previousBtnClicked:" destination="hRe-On-kgE" id="qVC-CJ-1qF"/>
+                                </connections>
+                            </barButtonItem>
+                        </rightBarButtonItems>
                     </navigationItem>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
                     <connections>
+                        <outlet property="nextArticleBtn" destination="bpF-oD-uJR" id="xJU-s4-p3m"/>
+                        <outlet property="prevArticleBtn" destination="km9-dF-Z9I" id="uX7-V6-roU"/>
                         <outlet property="saveBtn" destination="yfH-fd-g7g" id="MH1-EJ-ltm"/>
                         <outlet property="textView" destination="qTU-LV-BIm" id="2mc-WC-v5H"/>
                         <segue destination="cOM-sm-d0L" kind="popoverPresentation" identifier="sToReadWordSegue" popoverAnchorView="qTU-LV-BIm" id="Rl2-7Q-XNx">
@@ -261,5 +276,7 @@
     </scenes>
     <resources>
         <image name="bookmark" width="25" height="24"/>
+        <image name="left" width="6" height="10"/>
+        <image name="right" width="6" height="10"/>
     </resources>
 </document>
