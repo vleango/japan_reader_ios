@@ -19,13 +19,43 @@ class ReadActionsController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.preferredContentSize = CGSizeMake(200, 200)
+        
+        // DZNEmptyDataSet hide footer lines
+        self.tableView.tableFooterView = UIView()
+        
+        // Add NotificationCenter Observer
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(favoriteFromShowUpdated), name: Constants.notificationObservers.updateActionFavoriteIdNotificationKey, object: nil)
     }
     
     override func viewDidAppear(animated: Bool) {
         super.viewDidAppear(animated)
-        saveCell = tableView.cellForRowAtIndexPath(NSIndexPath.init(forRow: 2, inSection: 0))
+        saveCell = tableView.cellForRowAtIndexPath(NSIndexPath.init(forRow: rows.save.rawValue, inSection: 0))
         if article.favoriteId != "" {
             saveCell.accessoryType = .Checkmark
+        }
+        
+        // Share Button
+        if let shareCell = tableView.cellForRowAtIndexPath(NSIndexPath.init(forRow: rows.share.rawValue, inSection: 0)) {
+            
+            let content : FBSDKShareLinkContent = FBSDKShareLinkContent()
+            content.contentURL = NSURL(string: article.appSource)
+            content.contentTitle = article.title
+            content.contentDescription = article.body
+            let shareButton = FBSDKShareButton()
+            shareButton.shareContent = content
+            let size = shareCell.frame.size
+            shareButton.center = CGPointMake(size.width/2, size.height/2)
+            shareCell.addSubview(shareButton)
+        }
+
+        // Like Button
+        if let likeCell = tableView.cellForRowAtIndexPath(NSIndexPath.init(forRow: rows.like.rawValue, inSection: 0)) {
+            let likeButton = FBSDKLikeControl()
+            likeButton.likeControlStyle = .BoxCount
+            likeButton.objectID = article.appSource
+            let size = likeCell.frame.size
+            likeButton.center = CGPointMake(size.width/2, size.height/2)
+            likeCell.addSubview(likeButton)
         }
     }
 
@@ -38,27 +68,9 @@ class ReadActionsController: UITableViewController {
     
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         tableView.deselectRowAtIndexPath(indexPath, animated: true)
-
-        switch rows(rawValue: indexPath.row)! {
-        case .share:
-            share()
-        case .like:
-            like()
-        case .save:
+        if indexPath.row == rows.save.rawValue {
             save()
         }
-    }
-    
-    private func share() {
-        let content : FBSDKShareLinkContent = FBSDKShareLinkContent()
-        content.contentURL = NSURL(string: article.appSource)
-        content.contentTitle = article.title
-        content.contentDescription = article.body
-        FBSDKShareDialog.showFromViewController(self, withContent: content, delegate: nil)
-    }
-    
-    private func like() {
-        
     }
     
     private func save() {
@@ -82,6 +94,21 @@ class ReadActionsController: UITableViewController {
             }
         }
 
+    }
+    
+    // MARK - NSNotification Methods
+    
+    func favoriteFromShowUpdated(sender:NSNotification) {
+        if article != nil {
+            let favoriteId = sender.object as! String
+            article.favoriteId = favoriteId
+            if favoriteId != "" {
+                saveCell.accessoryType = .Checkmark
+            }
+            else {
+                saveCell.accessoryType = .None
+            }
+        }
     }
     
 }

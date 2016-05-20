@@ -32,7 +32,7 @@ class ReadShowController: UIViewController, UITextViewDelegate, UIPopoverPresent
         textView.attributedText = artibutedArticle.attributedString
         
         // Add NotificationCenter Observer
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(favoriteKeyUpdated), name: Constants.notificationObservers.updateFavoriteIdNotificationKey, object: nil)
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(favoriteKeyUpdated), name: Constants.notificationObservers.updateActionFavoriteIdNotificationKey, object: nil)
     }
     
     override func didReceiveMemoryWarning() {
@@ -110,6 +110,10 @@ class ReadShowController: UIViewController, UITextViewDelegate, UIPopoverPresent
                     }
                     else {
                         self.nextArticleBtn.enabled = false
+                    }
+                    
+                    if self.artibutedArticle.article.favoriteId != "" {
+                        NSNotificationCenter.defaultCenter().postNotificationName(Constants.notificationObservers.updateActionFavoriteIdNotificationKey, object: self.artibutedArticle.article.favoriteId)
                     }
                     
                     // set because translations are ready
