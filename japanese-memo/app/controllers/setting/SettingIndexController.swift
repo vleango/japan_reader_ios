@@ -8,11 +8,12 @@
 
 import UIKit
 import FBSDKLoginKit
+import FBSDKShareKit
 import Toast_Swift
 
-class SettingIndexController: UITableViewController {
+class SettingIndexController: UITableViewController, FBSDKAppInviteDialogDelegate {
 
-    enum sections:Int { case language, contact, facebook }
+    enum sections:Int { case language, contact, invite, facebook }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -48,10 +49,38 @@ class SettingIndexController: UITableViewController {
         // Dispose of any resources that can be recreated.
     }
     
+    // MARK - TableViewDelegate Methods
+    
+    override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        tableView.deselectRowAtIndexPath(indexPath, animated: true)
+        if indexPath.section == sections.invite.rawValue {
+            let content = FBSDKAppInviteContent()
+            content.appLinkURL = NSURL(string: "https://fb.me/1691136201139509")
+            content.appInvitePreviewImageURL = NSURL(string: "https://dl.dropboxusercontent.com/u/65072172/japan_reader.png")
+            FBSDKAppInviteDialog.showFromViewController(self, withContent: content, delegate: self)
+        }
+    }
+    
     // MARK - NSNotification Methods
     
     func sentInquiryCompleted(sender:NSNotification) {
         self.view.makeToast("Thank you! Your message has been sent!", duration: 4, position: .Center)
+    }
+    
+    // MARK - AppInviteDialogDelegate Methods
+    
+    func appInviteDialog(appInviteDialog: FBSDKAppInviteDialog!, didCompleteWithResults results: [NSObject : AnyObject]!) {
+        if results != nil {
+            if !results.values.contains({ (item) -> Bool in
+                String(item) == "cancel"
+            }) {
+                self.view.makeToast("Thank you for sharing!", duration: 4, position: .Center)
+            }
+        }
+    }
+
+    func appInviteDialog(appInviteDialog: FBSDKAppInviteDialog!, didFailWithError error: NSError!) {
+        print(error)
     }
 
 }
