@@ -8,11 +8,12 @@
 
 import UIKit
 import SwiftyJSON
+import FBSDKShareKit
 
 class ReadShowController: UIViewController, UITextViewDelegate, UIPopoverPresentationControllerDelegate {
-
+    
     @IBOutlet weak var textView: UITextView!
-    @IBOutlet weak var saveBtn: UIBarButtonItem!
+    @IBOutlet weak var actionBtn: UIBarButtonItem!
     @IBOutlet weak var prevArticleBtn: UIBarButtonItem!
     @IBOutlet weak var nextArticleBtn: UIBarButtonItem!
     
@@ -21,21 +22,24 @@ class ReadShowController: UIViewController, UITextViewDelegate, UIPopoverPresent
     var nextArticle:ArtibutedArticle?
     
     private let wordSegue = "sToReadWordSegue"
+    private let actionsSegue = "sToReadActionsSegue"
     
     enum wordKeys:String { case textBit, rect }
-    private enum saveBtnStates:String { case Save, Unsave }
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         textView.delegate = self
         textView.attributedText = artibutedArticle.attributedString
+        
+        // Add NotificationCenter Observer
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(favoriteKeyUpdated), name: Constants.notificationObservers.updateFavoriteIdNotificationKey, object: nil)
     }
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-
+    
     // Disables scroll so that the textView isn't in the middle after the text is loaded
     override func viewWillAppear(animated: Bool) {
         textView.scrollEnabled = false
@@ -50,7 +54,7 @@ class ReadShowController: UIViewController, UITextViewDelegate, UIPopoverPresent
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if segue.identifier == wordSegue {
             let popoverViewController = segue.destinationViewController as! ReadWordController
-            popoverViewController.modalPresentationStyle = UIModalPresentationStyle.Popover
+            popoverViewController.modalPresentationStyle = .Popover
             popoverViewController.popoverPresentationController!.delegate = self
             let presentingVC = popoverViewController.popoverPresentationController
             
@@ -62,6 +66,12 @@ class ReadShowController: UIViewController, UITextViewDelegate, UIPopoverPresent
                 let bit = dict[wordKeys.textBit.rawValue] as! TextBit
                 popoverViewController.artibutedWord = ArtibutedWord.init(bit: bit)
             }
+        }
+        else if segue.identifier == actionsSegue {
+            let popoverViewController = segue.destinationViewController as! ReadActionsController
+            popoverViewController.modalPresentationStyle = .Popover
+            popoverViewController.popoverPresentationController!.delegate = self
+            popoverViewController.article = artibutedArticle.article
         }
     }
     
@@ -102,23 +112,12 @@ class ReadShowController: UIViewController, UITextViewDelegate, UIPopoverPresent
                         self.nextArticleBtn.enabled = false
                     }
                     
-
-                    // need to resync with app
-                    if self.artibutedArticle.article.favoriteId != "" {
-                        // if the entry was saved, then we do remove
-                        self.saveBtn.title = saveBtnStates.Unsave.rawValue
-                    }
-                    else {
-                        // if the entry was NOT saved, then we do save
-                        self.saveBtn.title = saveBtnStates.Save.rawValue
-                    }
-                    
                     // set because translations are ready
                     self.textView.attributedText = self.artibutedArticle.attributedString
-
+                    
                     for articleImage in self.artibutedArticle.article.images {
                         NetworkManager.downloadImage(articleImage.url, callback: { (image) in
-
+                            
                             if let index = self.artibutedArticle.article.images.indexOf(articleImage) {
                                 self.artibutedArticle.images[index] = image
                                 self.imageLoaded()
@@ -155,7 +154,7 @@ class ReadShowController: UIViewController, UITextViewDelegate, UIPopoverPresent
         case .body:
             sender[wordKeys.textBit.rawValue] = artibutedArticle.article.bodyBits[index!]
         }
-
+        
         let beginning = textView.beginningOfDocument
         let start = textView.positionFromPosition(beginning, offset: characterRange.location)
         let end = textView.positionFromPosition(start!, offset: characterRange.length)
@@ -163,30 +162,17 @@ class ReadShowController: UIViewController, UITextViewDelegate, UIPopoverPresent
         let rect = textView.firstRectForRange(textRange!)
         let posRect = textView.convertRect(rect, toView: textView.inputView)
         sender[wordKeys.rect.rawValue] = NSStringFromCGRect(posRect)
-
+        
         performSegueWithIdentifier(wordSegue, sender: sender)
-
+        
         return false
     }
     
-    @IBAction func saveBtnClicked(sender: AnyObject) {
-        let toggle = saveBtn.title == saveBtnStates.Save.rawValue
-        LoginManager.toggleArticle(toggle, article: artibutedArticle.article, fromViewController: self) { (success, object) in
-            if success {
-                if let rawJSON = object {
-                    let json = JSON(rawJSON)
-                    if json["status"].stringValue == "create" {
-                        // entry saved
-                        self.saveBtn.title = saveBtnStates.Unsave.rawValue
-                        self.artibutedArticle.article.favoriteId = json["favorite_id"].stringValue
-                    }
-                    else {
-                        // entry removed
-                        self.saveBtn.title = saveBtnStates.Save.rawValue
-                    }
-                }
-            }
-        }
+    // Mark - NSNotification Methods
+    
+    func favoriteKeyUpdated(sender:NSNotification) {
+        let favoriteId = sender.object as! String
+        artibutedArticle.article.favoriteId = favoriteId
     }
     
     @IBAction func shuffleBtnClicked(sender: AnyObject) {
@@ -220,6 +206,5 @@ class ReadShowController: UIViewController, UITextViewDelegate, UIPopoverPresent
         textView.setContentOffset(CGPointMake(0, -64), animated: true)
         loadData()
     }
-    
     
 }

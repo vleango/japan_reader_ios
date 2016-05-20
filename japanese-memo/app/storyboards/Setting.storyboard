@@ -105,10 +105,10 @@
                                     </tableViewCell>
                                 </cells>
                             </tableViewSection>
-                            <tableViewSection headerTitle="Facebook Login" footerTitle="Used for saving Articles &amp; Dictionary Words, as well as Sharing and Liking articles" id="ZPo-XQ-ciI">
+                            <tableViewSection footerTitle="Used for Sharing and Liking articles" id="ZPo-XQ-ciI">
                                 <cells>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" rowHeight="44" id="4gu-iJ-oML">
-                                        <rect key="frame" x="0.0" y="431" width="375" height="44"/>
+                                        <rect key="frame" x="0.0" y="416" width="375" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="4gu-iJ-oML" id="daY-5b-Olr">
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="43"/>

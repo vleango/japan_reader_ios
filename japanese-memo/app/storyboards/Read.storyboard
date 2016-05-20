@@ -183,9 +183,12 @@
                     </view>
                     <navigationItem key="navigationItem" id="voa-x3-VLa">
                         <rightBarButtonItems>
-                            <barButtonItem title="Save" id="yfH-fd-g7g">
+                            <barButtonItem systemItem="action" id="yfH-fd-g7g">
                                 <connections>
-                                    <action selector="saveBtnClicked:" destination="hRe-On-kgE" id="BtO-r7-DFi"/>
+                                    <action selector="actionBtnClicked:" destination="hRe-On-kgE" id="H0i-Xb-S2o"/>
+                                    <segue destination="fQe-I6-SHM" kind="popoverPresentation" identifier="sToReadActionsSegue" popoverAnchorBarButtonItem="yfH-fd-g7g" id="m5B-U5-n52">
+                                        <popoverArrowDirection key="popoverArrowDirection" up="YES" down="YES" left="YES" right="YES"/>
+                                    </segue>
                                 </connections>
                             </barButtonItem>
                             <barButtonItem image="shuffle" id="005-mm-mol">
@@ -207,9 +210,9 @@
                     </navigationItem>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
                     <connections>
+                        <outlet property="actionBtn" destination="yfH-fd-g7g" id="tuM-p3-qE8"/>
                         <outlet property="nextArticleBtn" destination="bpF-oD-uJR" id="xJU-s4-p3m"/>
                         <outlet property="prevArticleBtn" destination="km9-dF-Z9I" id="uX7-V6-roU"/>
-                        <outlet property="saveBtn" destination="yfH-fd-g7g" id="MH1-EJ-ltm"/>
                         <outlet property="textView" destination="qTU-LV-BIm" id="2mc-WC-v5H"/>
                         <segue destination="cOM-sm-d0L" kind="popoverPresentation" identifier="sToReadWordSegue" popoverAnchorView="qTU-LV-BIm" id="Rl2-7Q-XNx">
                             <popoverArrowDirection key="popoverArrowDirection" up="YES" down="YES" left="YES" right="YES"/>
@@ -219,6 +222,82 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="81R-CK-hFm" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1401.5" y="535.5"/>
+        </scene>
+        <!--Read Actions Controller-->
+        <scene sceneID="fRR-dE-ZCD">
+            <objects>
+                <tableViewController id="fQe-I6-SHM" customClass="ReadActionsController" customModule="japanese_memo" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" scrollEnabled="NO" dataMode="static" style="grouped" separatorStyle="default" rowHeight="44" sectionHeaderHeight="18" sectionFooterHeight="18" id="j9b-8E-H1h">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="calibratedRGB"/>
+                        <sections>
+                            <tableViewSection id="Fvr-SN-IV5">
+                                <cells>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" textLabel="WmU-pB-Ewz" style="IBUITableViewCellStyleDefault" id="vx5-n6-Hk6">
+                                        <rect key="frame" x="0.0" y="35" width="375" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="vx5-n6-Hk6" id="Nwx-Cn-Qsp">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Share" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="WmU-pB-Ewz">
+                                                    <rect key="frame" x="15" y="0.0" width="345" height="43"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" textLabel="ftZ-Pu-Lta" style="IBUITableViewCellStyleDefault" id="6La-xN-DrS">
+                                        <rect key="frame" x="0.0" y="79" width="375" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="6La-xN-DrS" id="y1G-7A-4J2">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Like" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="ftZ-Pu-Lta">
+                                                    <rect key="frame" x="15" y="0.0" width="345" height="43"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" textLabel="cQL-Zf-nyv" style="IBUITableViewCellStyleDefault" id="th1-B2-Dov">
+                                        <rect key="frame" x="0.0" y="123" width="375" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="th1-B2-Dov" id="kiC-hc-CGK">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Save" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="cQL-Zf-nyv">
+                                                    <rect key="frame" x="15" y="0.0" width="345" height="43"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </cells>
+                            </tableViewSection>
+                        </sections>
+                        <connections>
+                            <outlet property="dataSource" destination="fQe-I6-SHM" id="B1C-qr-ihP"/>
+                            <outlet property="delegate" destination="fQe-I6-SHM" id="5E0-CD-cKI"/>
+                        </connections>
+                    </tableView>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="6En-eG-5S4" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1914.5" y="1378.5"/>
         </scene>
         <!--Read Word Controller-->
         <scene sceneID="mCL-cW-dgW">

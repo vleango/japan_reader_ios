@@ -196,5 +196,4 @@ class FavoriteIndexController: UITableViewController, DZNEmptyDataSetSource, DZN
         
         return NSAttributedString(string: "The articles that you read, or the new words that you learn can be saved for later use. Click on the upper-right Save button when you found something that you link.", attributes: attrs)
     }
-    
 }

@@ -29,6 +29,7 @@ class Article: Object {
         static let body_bits = "body_bits"
         static let favorite_id = "favorite_id"
         static let images = "images"
+        static let app_source = "app_source"
     }
     
     dynamic var id = ""
@@ -37,10 +38,11 @@ class Article: Object {
     dynamic var published_date = ""
     dynamic var image_url:String? = ""
     dynamic var source = ""
+    dynamic var appSource = ""
     dynamic var title = ""
     dynamic var subtitle = ""
     dynamic var body = ""
-    dynamic var favoriteId = ""
+    dynamic var favoriteId:String = ""
     
     let titleBits = List<TextBit>()
     let subtitleBits = List<TextBit>()
@@ -79,6 +81,7 @@ class Article: Object {
         }
         self.published_date = json[Article.constants.published_date].stringValue
         self.source = json[Article.constants.source].stringValue
+        self.appSource = json[Article.constants.app_source].stringValue
         
         let imagesArr = json[Article.constants.images].arrayValue
         for image in imagesArr {
