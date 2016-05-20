@@ -105,7 +105,7 @@
                                     </tableViewCell>
                                 </cells>
                             </tableViewSection>
-                            <tableViewSection footerTitle="Used for Sharing and Liking articles" id="ZPo-XQ-ciI">
+                            <tableViewSection footerTitle="Allows you to Share, Like, and Save articles" id="ZPo-XQ-ciI">
                                 <cells>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" rowHeight="44" id="4gu-iJ-oML">
                                         <rect key="frame" x="0.0" y="416" width="375" height="44"/>

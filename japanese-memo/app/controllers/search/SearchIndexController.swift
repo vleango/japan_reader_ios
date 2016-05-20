@@ -129,9 +129,9 @@ class SearchIndexController: UITableViewController, UISearchBarDelegate, DZNEmpt
     
     // MARK: - DZNEmptyDataSet Methods
     
-    func emptyDataSetShouldDisplay(scrollView: UIScrollView!) -> Bool {
-        return searchBar.text != ""
-    }
+//    func emptyDataSetShouldDisplay(scrollView: UIScrollView!) -> Bool {
+//        return searchBar.text != ""
+//    }
     
     func titleForEmptyDataSet(scrollView: UIScrollView!) -> NSAttributedString! {
         let attrs = [
@@ -139,7 +139,12 @@ class SearchIndexController: UITableViewController, UISearchBarDelegate, DZNEmpt
             NSForegroundColorAttributeName: UIColor.darkGrayColor()
         ]
         
-        return NSAttributedString(string: "Nothing Found...", attributes: attrs)
+        if searchBar.text == "" {
+            return NSAttributedString(string: "Dictionary Search", attributes: attrs)
+        }
+        else {
+            return NSAttributedString(string: "Nothing Found...", attributes: attrs)
+        }
     }
     
     func descriptionForEmptyDataSet(scrollView: UIScrollView!) -> NSAttributedString! {
@@ -153,14 +158,25 @@ class SearchIndexController: UITableViewController, UISearchBarDelegate, DZNEmpt
             NSParagraphStyleAttributeName: paragraph
         ]
         
-        return NSAttributedString(string: "The dictionary did not find anything matching your search. Would you like to add a new entry?", attributes: attrs)
+        if searchBar.text == "" {
+            return NSAttributedString(string: "Begin searching by entering your text in to the search bar.", attributes: attrs)
+        }
+        else {
+            return NSAttributedString(string: "The dictionary did not find anything matching your search. Would you like to add a new entry?", attributes: attrs)
+        }
     }
-    
+
     func buttonTitleForEmptyDataSet(scrollView: UIScrollView!, forState state: UIControlState) -> NSAttributedString! {
         let attrs = [
             NSForegroundColorAttributeName: UIColor.blueColor()
         ]
-        return NSAttributedString(string: "Add New", attributes: attrs)
+        
+        if searchBar.text == "" {
+            return NSAttributedString(string: "", attributes: attrs)
+        }
+        else {
+            return NSAttributedString(string: "Add New", attributes: attrs)
+        }
     }
     
     func emptyDataSetDidTapButton(scrollView: UIScrollView!) {
