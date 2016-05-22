@@ -12,11 +12,16 @@ import DZNEmptyDataSet
 
 class FavoriteIndexController: UITableViewController, DZNEmptyDataSetSource, DZNEmptyDataSetDelegate {
 
+    @IBOutlet weak var authBtn: UIBarButtonItem!
+    
     var entries:[Entry] = []
     var articles:[Article] = []
-    let tableViewImageCache = TableViewImageCacher.init()
-    let searchSegue = "sToSearchShowSegue"
-    let readSegue = "sToReadShowSegue"
+    private let tableViewImageCache = TableViewImageCacher.init()
+    private let searchSegue = "sToSearchShowSegue"
+    private let readSegue = "sToReadShowSegue"
+    private let signInText = "Sign In"
+    private let signOutText = "Sign Out"
+    
     
     enum sections:Int {case read, search}
     
@@ -34,6 +39,11 @@ class FavoriteIndexController: UITableViewController, DZNEmptyDataSetSource, DZN
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
         loadData()
+    }
+    
+    override func viewDidAppear(animated: Bool) {
+        super.viewDidAppear(animated)
+        updateAuthText()
     }
 
     override func didReceiveMemoryWarning() {
@@ -170,8 +180,6 @@ class FavoriteIndexController: UITableViewController, DZNEmptyDataSetSource, DZN
         performSegueWithIdentifier(identifier, sender: sender)
     }
     
-    
-    
     // MARK: - DZNEmptyDataSet Methods
 
     func titleForEmptyDataSet(scrollView: UIScrollView!) -> NSAttributedString! {
@@ -196,4 +204,32 @@ class FavoriteIndexController: UITableViewController, DZNEmptyDataSetSource, DZN
         
         return NSAttributedString(string: "The articles that you read, or the new words that you learn can be saved for later use. Click on the upper-right Save button when you found something that you link.", attributes: attrs)
     }
+    
+    @IBAction func authBtnClicked(sender: AnyObject) {
+        if LoginManager.isUserLoggedIn() {
+            LoginManager.signOutUser({ (success, object) in
+                self.updateAuthText()
+                self.entries.removeAll()
+                self.articles.removeAll()
+                self.tableView.reloadData()
+            })
+            
+        }
+        else {
+            LoginManager.presentSignInVC(self)
+        }
+    }
+    
+    // MARK: - Private methods
+    
+    private func updateAuthText() {
+        if LoginManager.isUserLoggedIn() {
+            authBtn.title = signOutText
+        }
+        else {
+            authBtn.title = signInText
+        }
+    }
+    
+    
 }

@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3B03EC1D1CEFAA9600C70E5D /* Auth.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3B03EC1C1CEFAA9600C70E5D /* Auth.storyboard */; };
 		3B090BD31CDAD172006CAB26 /* SettingIndexController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B090BD21CDAD172006CAB26 /* SettingIndexController.swift */; };
 		3B090BD51CDAD234006CAB26 /* SettingLanguageController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B090BD41CDAD234006CAB26 /* SettingLanguageController.swift */; };
 		3B090BD71CDAD8A8006CAB26 /* Language.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B090BD61CDAD8A8006CAB26 /* Language.swift */; };
@@ -59,6 +60,8 @@
 		3B8EFA5A1CD834E100C8D305 /* ArtibutedArticle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B8EFA591CD834E100C8D305 /* ArtibutedArticle.swift */; };
 		3B8F02F31CDADBBB00E41A90 /* Default.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B8F02F21CDADBBB00E41A90 /* Default.swift */; };
 		3B9057141CE98D5100111EB5 /* ArticleImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B9057131CE98D5100111EB5 /* ArticleImage.swift */; };
+		3BAAE5571CEFAED100F51B18 /* SignInController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BAAE5561CEFAED100F51B18 /* SignInController.swift */; };
+		3BB29B481CF0830F00B5A9C0 /* SignUpController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BB29B471CF0830F00B5A9C0 /* SignUpController.swift */; };
 		3BD0107D1CD5783900FB9C2F /* Network.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BD0107C1CD5783900FB9C2F /* Network.swift */; };
 		3BD010821CD5855900FB9C2F /* ReadIndexController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BD010811CD5855900FB9C2F /* ReadIndexController.swift */; };
 		3BD010851CD5892F00FB9C2F /* Article.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BD010841CD5892F00FB9C2F /* Article.swift */; };
@@ -91,6 +94,7 @@
 
 /* Begin PBXFileReference section */
 		1D1013781C4C71E4915D6AFA /* Pods-japanese-memoTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-japanese-memoTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-japanese-memoTests/Pods-japanese-memoTests.debug.xcconfig"; sourceTree = "<group>"; };
+		3B03EC1C1CEFAA9600C70E5D /* Auth.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = Auth.storyboard; path = app/storyboards/Auth.storyboard; sourceTree = "<group>"; };
 		3B090BD21CDAD172006CAB26 /* SettingIndexController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SettingIndexController.swift; path = app/controllers/setting/SettingIndexController.swift; sourceTree = "<group>"; };
 		3B090BD41CDAD234006CAB26 /* SettingLanguageController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SettingLanguageController.swift; path = app/controllers/setting/SettingLanguageController.swift; sourceTree = "<group>"; };
 		3B090BD61CDAD8A8006CAB26 /* Language.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Language.swift; path = app/models/Language.swift; sourceTree = "<group>"; };
@@ -150,6 +154,8 @@
 		3B8EFA5C1CD838CE00C8D305 /* tha.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; name = tha.playground; path = playgrounds/tha.playground; sourceTree = "<group>"; };
 		3B8F02F21CDADBBB00E41A90 /* Default.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Default.swift; path = app/managers/Default.swift; sourceTree = "<group>"; };
 		3B9057131CE98D5100111EB5 /* ArticleImage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ArticleImage.swift; path = app/models/ArticleImage.swift; sourceTree = "<group>"; };
+		3BAAE5561CEFAED100F51B18 /* SignInController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SignInController.swift; path = app/controllers/auth/SignInController.swift; sourceTree = "<group>"; };
+		3BB29B471CF0830F00B5A9C0 /* SignUpController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SignUpController.swift; path = app/controllers/auth/SignUpController.swift; sourceTree = "<group>"; };
 		3BD0107C1CD5783900FB9C2F /* Network.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Network.swift; path = app/managers/Network.swift; sourceTree = "<group>"; };
 		3BD010811CD5855900FB9C2F /* ReadIndexController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ReadIndexController.swift; path = app/controllers/read/ReadIndexController.swift; sourceTree = "<group>"; };
 		3BD010841CD5892F00FB9C2F /* Article.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Article.swift; path = app/models/Article.swift; sourceTree = "<group>"; };
@@ -275,6 +281,7 @@
 			isa = PBXGroup;
 			children = (
 				3B20379E1CD4A3AB00A27644 /* LaunchScreen.storyboard */,
+				3B03EC1C1CEFAA9600C70E5D /* Auth.storyboard */,
 				3B2037991CD4A3AB00A27644 /* Main.storyboard */,
 				3B7CF7181CD56BC5006ACED3 /* Read.storyboard */,
 				3B2037C91CD4A63400A27644 /* Search.storyboard */,
@@ -287,6 +294,7 @@
 		3B2037C61CD4A53B00A27644 /* controllers */ = {
 			isa = PBXGroup;
 			children = (
+				3BAAE5581CEFAEDE00F51B18 /* auth */,
 				3BD0107E1CD584FC00FB9C2F /* read */,
 				3B7CF71E1CD5726D006ACED3 /* search */,
 				3B8259121CDDB71D00647336 /* favorite */,
@@ -391,6 +399,15 @@
 				3B6019D81CD871B90009C7E3 /* RubyView.swift */,
 			);
 			name = reads;
+			sourceTree = "<group>";
+		};
+		3BAAE5581CEFAEDE00F51B18 /* auth */ = {
+			isa = PBXGroup;
+			children = (
+				3BAAE5561CEFAED100F51B18 /* SignInController.swift */,
+				3BB29B471CF0830F00B5A9C0 /* SignUpController.swift */,
+			);
+			name = auth;
 			sourceTree = "<group>";
 		};
 		3BD0107B1CD5781C00FB9C2F /* managers */ = {
@@ -594,6 +611,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3B03EC1D1CEFAA9600C70E5D /* Auth.storyboard in Resources */,
 				3B2037A01CD4A3AB00A27644 /* LaunchScreen.storyboard in Resources */,
 				3B20379D1CD4A3AB00A27644 /* Assets.xcassets in Resources */,
 				3B7CF71B1CD56CE8006ACED3 /* Favorite.storyboard in Resources */,
@@ -777,8 +795,10 @@
 				3B5A832B1CD62A5D00BED97F /* TextBit.swift in Sources */,
 				3B3436031CE21CD6001DEB36 /* SearchNewController.swift in Sources */,
 				3B239F381CD9F36100EC0659 /* Ant.swift in Sources */,
+				3BAAE5571CEFAED100F51B18 /* SignInController.swift in Sources */,
 				3B6019D91CD871B90009C7E3 /* RubyView.swift in Sources */,
 				3B239F3A1CD9F37D00EC0659 /* Dial.swift in Sources */,
+				3BB29B481CF0830F00B5A9C0 /* SignUpController.swift in Sources */,
 				3B7CF7201CD572A8006ACED3 /* SearchIndexController.swift in Sources */,
 				3B22E4771CD9A4890032DDF1 /* Sense.swift in Sources */,
 				3B239F3C1CD9F38E00EC0659 /* Field.swift in Sources */,

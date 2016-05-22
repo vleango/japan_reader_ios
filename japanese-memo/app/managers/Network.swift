@@ -27,6 +27,21 @@ final class Network {
         }
     }
     
+    func register(params:[String : AnyObject], callback: ((success:Bool, object:AnyObject?) -> Void)?) {
+        let url = "users"
+        execute(url, method: .POST, params: params, callback: callback)
+    }
+    
+    func signIn(params:[String : AnyObject], callback: ((success:Bool, object:AnyObject?) -> Void)?) {
+        let url = "sessions/new"
+        execute(url, params: params, callback: callback)
+    }
+    
+    func singOut(callback: ((success:Bool, object:AnyObject?) -> Void)?) {
+        let url = "sessions/destroy"
+        execute(url, method: .DELETE, params: nil, callback: callback)
+    }
+    
     func search(params:[String : AnyObject], callback: ((success:Bool, object:AnyObject?) -> Void)?) {
         let url = "searches"
         execute(url, method: .POST, params:addLang(params), callback: callback)
@@ -106,8 +121,8 @@ final class Network {
         if isLoading == false {
             isLoading = true
             var header:[String: String]?
-            if let userID = LoginManager.AccessTokenUserId() {
-                header = ["AUTHORIZATION" : "Bearer \(userID)"]
+            if let accessToken = UserDefault.getUserAccessToken() {
+                header = ["AUTHORIZATION" : "Bearer \(accessToken)"]
             }
 
             Alamofire.request(method, "\(Constants.app.apiUrl)\(url)", parameters: params, headers: header)

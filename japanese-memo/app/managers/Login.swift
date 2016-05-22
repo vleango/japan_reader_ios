@@ -8,42 +8,39 @@
 
 import Foundation
 import UIKit
-import FBSDKLoginKit
 
 let LoginManager = Login()
 
 final class Login {
     
     func isUserLoggedIn() -> Bool {
-        return FBSDKAccessToken.currentAccessToken() != nil
+        return UserDefault.getUserAccessToken() != nil
     }
-    
-    func AccessTokenUserId() -> String? {
-        var string:String?
-        if isUserLoggedIn() {
-            string = FBSDKAccessToken.currentAccessToken().userID
-        }
-        return string
-    }
-    
+
     func canPerformAction(fromViewController:UIViewController,
                           callback: (success:Bool) -> Void) {
         
         if isUserLoggedIn() {
             callback(success: true)
         }
-        else { // Attempt to login
-            let manager = FBSDKLoginManager()
-            //let permissions = ["email", "public_profile"]
-            manager.logInWithReadPermissions(nil, fromViewController: fromViewController, handler: { (result, error) in
-                if error != nil {
-                    callback(success: false)
-                } else if result.isCancelled {
-                    callback(success: false)
-                } else {
-                    callback(success: true)
-                }
-            })
+        else {
+            presentSignInVC(fromViewController)
+        }
+    }
+    
+    func presentSignInVC(fromViewController:UIViewController) {
+        let signInVC = UIStoryboard.init(name: "Auth", bundle: nil).instantiateViewControllerWithIdentifier("SignInNavVC")
+        fromViewController.presentViewController(signInVC, animated: true, completion: nil)
+    }
+    
+    func signOutUser(callback: ((success:Bool, object:AnyObject?) -> Void)?) {
+        NetworkManager.singOut { (success, object) in
+            if success {
+                UserDefault.setUserAccessToken(nil)
+            }
+            if let validCallback = callback {
+                validCallback(success: success, object: nil)
+            }
         }
     }
     

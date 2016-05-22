@@ -16,10 +16,11 @@ final class Default {
     struct constants {
         static let languageName = "language_name"
         static let languageId = "language_id"
+        static let accessToken = "access_token"
     }
     
-    let defaults = NSUserDefaults.standardUserDefaults()
-    let defaultLanguage = (id: "eng", name: "English")
+    private let defaults = NSUserDefaults.standardUserDefaults()
+    private let defaultLanguage = (id: "eng", name: "English")
     
     func getLanguage() -> Language {
         let languageName = defaults.objectForKey(Default.constants.languageName)
@@ -40,6 +41,12 @@ final class Default {
         defaults.setObject(language.id, forKey: Default.constants.languageId)
     }
     
+    func getUserAccessToken() -> String? {
+        return defaults.stringForKey(Default.constants.accessToken)
+    }
     
+    func setUserAccessToken(token:String?) {
+        defaults.setObject(token, forKey: Default.constants.accessToken)
+    }
 
 }

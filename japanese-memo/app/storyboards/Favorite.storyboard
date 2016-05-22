@@ -123,9 +123,16 @@
                             <outlet property="delegate" destination="oqw-uz-N5n" id="XEE-be-GGv"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Favorites" id="yi7-27-tQA"/>
+                    <navigationItem key="navigationItem" title="Favorites" id="yi7-27-tQA">
+                        <barButtonItem key="rightBarButtonItem" title="." id="O91-Jt-Wzg">
+                            <connections>
+                                <action selector="authBtnClicked:" destination="oqw-uz-N5n" id="x6d-Bp-Tiz"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
                     <connections>
+                        <outlet property="authBtn" destination="O91-Jt-Wzg" id="5Qb-gc-BLw"/>
                         <segue destination="jlN-3K-pCD" kind="show" identifier="sToSearchShowSegue" id="tUB-35-fxt"/>
                         <segue destination="yXS-DE-ldh" kind="show" identifier="sToReadShowSegue" id="zmE-Ah-vYc"/>
                     </connections>
