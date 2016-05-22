@@ -52,7 +52,6 @@
                                         <rect key="frame" x="191" y="105" width="160" height="30"/>
                                         <state key="normal" title="Register New Account?"/>
                                         <connections>
-                                            <action selector="registerBtnClicked:" destination="An0-ep-aJY" eventType="touchUpInside" id="uJa-lh-Lb4"/>
                                             <segue destination="1vW-iT-ba1" kind="show" id="NAT-gO-2Ry"/>
                                         </connections>
                                     </button>

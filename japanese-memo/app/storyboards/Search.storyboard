@@ -148,7 +148,7 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" id="jhz-o8-XKl">
-                        <barButtonItem key="rightBarButtonItem" id="TBE-dr-PSv">
+                        <barButtonItem key="rightBarButtonItem" title="." id="TBE-dr-PSv">
                             <connections>
                                 <action selector="SaveBtnClicked:" destination="izz-4D-6LL" id="iYL-yL-yjx"/>
                             </connections>
