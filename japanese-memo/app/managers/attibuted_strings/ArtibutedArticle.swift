@@ -88,7 +88,7 @@ class ArtibutedArticle:ArtibutedBase {
         let text = "Source"
         let attrs = attributes(paragraphStyle(), font: UIFont.systemFontOfSize(14))
         let string = NSMutableAttributedString.init(string: text, attributes: attrs)
-        string.addAttribute(NSLinkAttributeName, value: article.source, range: NSMakeRange(0, text.characters.count))
+        string.addAttribute(NSLinkAttributeName, value: article.appSource, range: NSMakeRange(0, text.characters.count))
         return string
     }
     

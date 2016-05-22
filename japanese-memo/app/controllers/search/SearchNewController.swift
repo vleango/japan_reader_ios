@@ -28,6 +28,10 @@ class SearchNewController: UITableViewController, UITextFieldDelegate {
 
     @IBAction func saveBtnClicked(sender: AnyObject) {
         
+        if kanjiTextField.text == "" && readingTextField.text == "" && definitionTextField.text == "" {
+            return
+        }
+        
         LoginManager.addNewEntry(params(), fromViewController: self) { (success, object) in
             if success {
                 if let rawJSON = object {
