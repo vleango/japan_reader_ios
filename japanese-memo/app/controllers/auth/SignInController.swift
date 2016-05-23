@@ -9,16 +9,14 @@
 import UIKit
 import SwiftyJSON
 
-class SignInController: UIViewController {
+class SignInController: UIViewController, UITextFieldDelegate {
 
-    @IBOutlet weak var emailTextField: UITextField!
+    @IBOutlet weak var loginTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
     }
 
     override func didReceiveMemoryWarning() {
@@ -34,7 +32,7 @@ class SignInController: UIViewController {
     
     @IBAction func signInBtnClicked(sender: AnyObject) {
         let params:[String:AnyObject] = [
-            "user[login]" : emailTextField.text!,
+            "user[login]" : loginTextField.text!,
             "user[password]" : passwordTextField.text!
         ]
         NetworkManager.signIn(params) { (success, object) in
@@ -55,6 +53,21 @@ class SignInController: UIViewController {
                 }
             }
         }
+    }
+    
+    // MARK: - TextFieldDelegate methods
+    
+    func textFieldShouldReturn(textField: UITextField) -> Bool {
+        if textField == loginTextField {
+            passwordTextField.becomeFirstResponder()
+            return false
+        }
+        else if textField == passwordTextField {
+            passwordTextField.resignFirstResponder()
+            signInBtnClicked(textField)
+            return false
+        }
+        return true
     }
 
 }

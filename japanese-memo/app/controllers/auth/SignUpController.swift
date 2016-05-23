@@ -9,7 +9,7 @@
 import UIKit
 import SwiftyJSON
 
-class SignUpController: UIViewController {
+class SignUpController: UIViewController, UITextFieldDelegate {
 
     @IBOutlet weak var nameTextField: UITextField!
     @IBOutlet weak var emailTextField: UITextField!
@@ -84,6 +84,29 @@ class SignUpController: UIViewController {
                 }
             }
         }
+    }
+    
+    // MARK: - TextFieldDelegate methods
+    
+    func textFieldShouldReturn(textField: UITextField) -> Bool {
+        if textField == nameTextField {
+            emailTextField.becomeFirstResponder()
+            return false
+        }
+        else if textField == emailTextField {
+            passwordTextField.becomeFirstResponder()
+            return false
+        }
+        else if textField == passwordTextField {
+            passwordConfirmationTextField.becomeFirstResponder()
+            return false
+        }
+        else if textField == passwordConfirmationTextField {
+            passwordConfirmationTextField.resignFirstResponder()
+            signUpBtnClicked(textField)
+            return false
+        }
+        return true
     }
     
     // MARK: Private methods
