@@ -8,12 +8,23 @@
 
 import Foundation
 import UIKit
+import Toast_Swift
 
 let UtilManager = Util()
 
 final class Util {
     
     private let dateFormatter = NSDateFormatter()
+    
+    func showToastActivity(view:UIView, position:ToastPosition = .Center) {
+        view.makeToastActivity(position)
+        view.userInteractionEnabled = false
+    }
+    
+    func finishToastActivity(view:UIView) {
+        view.hideToastActivity()
+        view.userInteractionEnabled = true
+    }
     
     func dateFromString(dateString:String, format:String? = Constants.format.dateTimeFormat) -> NSDate? {
         dateFormatter.dateFormat = format

@@ -31,11 +31,19 @@ class SignInController: UIViewController, UITextFieldDelegate {
     }
     
     @IBAction func signInBtnClicked(sender: AnyObject) {
+        if loginTextField.text == "" || passwordTextField.text == "" {
+            return
+        }
+        
         let params:[String:AnyObject] = [
             "user[login]" : loginTextField.text!,
             "user[password]" : passwordTextField.text!
         ]
+        
+        UtilManager.showToastActivity(view)
         NetworkManager.signIn(params) { (success, object) in
+            
+            UtilManager.finishToastActivity(self.view)
             if success {
                 
                 if let rawJSON = object {

@@ -16,6 +16,7 @@ class ReadShowController: UIViewController, UITextViewDelegate, UIPopoverPresent
     @IBOutlet weak var actionBtn: UIBarButtonItem!
     @IBOutlet weak var prevArticleBtn: UIBarButtonItem!
     @IBOutlet weak var nextArticleBtn: UIBarButtonItem!
+    @IBOutlet weak var randomBtn: UIBarButtonItem!
     
     var artibutedArticle:ArtibutedArticle!
     var previousArticle:ArtibutedArticle?
@@ -28,7 +29,6 @@ class ReadShowController: UIViewController, UITextViewDelegate, UIPopoverPresent
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        textView.delegate = self
         textView.attributedText = artibutedArticle.attributedString
         
         // Add NotificationCenter Observer
@@ -86,12 +86,17 @@ class ReadShowController: UIViewController, UITextViewDelegate, UIPopoverPresent
         
         self.prevArticleBtn.enabled = false
         self.nextArticleBtn.enabled = false
+        self.randomBtn.enabled = false
+        self.actionBtn.enabled = false
         
         NetworkManager.read(artibutedArticle.article.id) { (success, object) in
             if success {
                 if let rawJSON = object {
                     let json = JSON(rawJSON)
                     self.artibutedArticle.article = Article.init(json: json)
+                    
+                    self.randomBtn.enabled = true
+                    self.actionBtn.enabled = true
                     
                     // grab previous and next
                     let previousJson = json["prev_article"]

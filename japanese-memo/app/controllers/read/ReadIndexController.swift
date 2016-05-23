@@ -13,12 +13,19 @@ import UIScrollView_InfiniteScroll
 class ReadIndexController: UITableViewController {
 
     var articles = [Article]()
-    let showSegue = "sToReadShowSegue"
-    let tableViewImageCache = TableViewImageCacher.init()
-    var nextPage:Int?
+    private let showSegue = "sToReadShowSegue"
+    private let tableViewImageCache = TableViewImageCacher.init()
+    private var nextPage:Int?
+    private let activityIndicator = UIActivityIndicatorView()
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        // set activityIndicator to NavItem
+        activityIndicator.activityIndicatorViewStyle = .White
+        let activityItem = UIBarButtonItem.init(customView: activityIndicator)
+        let refreshItem = UIBarButtonItem.init(barButtonSystemItem: .Refresh, target: self, action: #selector(ReadIndexController.refresh(_:)))
+        navigationItem.setLeftBarButtonItems([refreshItem, activityItem], animated: true)
         
         // auto height for cells
         tableView.rowHeight = UITableViewAutomaticDimension
@@ -26,11 +33,7 @@ class ReadIndexController: UITableViewController {
 
         // configure infinite scrolling
         configureInfiniteScroll()
-        
-        // add refresh control
-        refreshControl = UIRefreshControl()
-        refreshControl!.addTarget(self, action: #selector(ReadIndexController.refresh(_:)), forControlEvents: UIControlEvents.ValueChanged)
-        
+
         // load the data from network
         loadData()
     }
@@ -69,6 +72,7 @@ class ReadIndexController: UITableViewController {
             params["page"] = validNextPage
         }
         
+        activityIndicator.startAnimating()
         NetworkManager.reads(params: params, callback: { (success, object) -> Void in
             
             // stop spinning if this is passed in
@@ -76,9 +80,9 @@ class ReadIndexController: UITableViewController {
                 validInfiniteScrollView.finishInfiniteScroll()
             }
             
+            self.activityIndicator.stopAnimating()
+            
             if success {
-                
-                self.refreshControl?.attributedTitle = NSAttributedString.init(string: "Last updated: \(UtilManager.stringFromDate(NSDate.init(), format: "yyyy-MM-dd HH:mm"))")
                 
                 if let rawJSON = object {
                     if infiniteScrollView == nil {
@@ -108,8 +112,6 @@ class ReadIndexController: UITableViewController {
             else {
                 UtilManager.displayAlertView("Network Error", message: "An error has occurred", viewController: self)
             }
-            
-            self.refreshControl?.endRefreshing()
         })
     }
     

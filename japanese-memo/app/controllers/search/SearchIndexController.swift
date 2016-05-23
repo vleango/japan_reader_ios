@@ -16,9 +16,9 @@ class SearchIndexController: UITableViewController, UISearchBarDelegate, DZNEmpt
     @IBOutlet weak var searchBar: UISearchBar!
     var entries:[Entry] = []
     var searchBarTextFromSearchVC:String?
-    let showSegue = "sToSearchShowSegue"
-    let newSegue = "sToEntryNewVC"
-    let activityIndicator = UIActivityIndicatorView()
+    private let showSegue = "sToSearchShowSegue"
+    private let newSegue = "sToEntryNewVC"
+    private let activityIndicator = UIActivityIndicatorView()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -91,6 +91,7 @@ class SearchIndexController: UITableViewController, UISearchBarDelegate, DZNEmpt
     private func search(query:String) {
         activityIndicator.startAnimating()
         NetworkManager.search(["search": ["query" : query]]) { (success, object) in
+            self.activityIndicator.stopAnimating()
             if success {
                 self.entries.removeAll()
                 self.searchBar.resignFirstResponder()
@@ -105,8 +106,6 @@ class SearchIndexController: UITableViewController, UISearchBarDelegate, DZNEmpt
                 
                 self.tableView.reloadData()
             }
-            
-            self.activityIndicator.stopAnimating()
         }
     }
 

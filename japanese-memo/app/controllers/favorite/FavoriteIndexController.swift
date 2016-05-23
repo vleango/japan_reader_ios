@@ -66,6 +66,10 @@ class FavoriteIndexController: UITableViewController, DZNEmptyDataSetSource, DZN
     
     // MARK: - Network
     func loadData() {
+        if LoginManager.isUserLoggedIn() == false {
+            return
+        }
+        
         NetworkManager.favorites { (success, object) in
             self.entries.removeAll()
             self.articles.removeAll()

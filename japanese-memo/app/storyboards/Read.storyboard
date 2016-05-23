@@ -171,6 +171,9 @@
                                     </fragment>
                                 </attributedString>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                <connections>
+                                    <outlet property="delegate" destination="hRe-On-kgE" id="qwh-aS-n5o"/>
+                                </connections>
                             </textView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -185,7 +188,6 @@
                         <rightBarButtonItems>
                             <barButtonItem systemItem="action" id="yfH-fd-g7g">
                                 <connections>
-                                    <action selector="actionBtnClicked:" destination="hRe-On-kgE" id="H0i-Xb-S2o"/>
                                     <segue destination="fQe-I6-SHM" kind="popoverPresentation" identifier="sToReadActionsSegue" popoverAnchorBarButtonItem="yfH-fd-g7g" id="m5B-U5-n52">
                                         <popoverArrowDirection key="popoverArrowDirection" up="YES" down="YES" left="YES" right="YES"/>
                                     </segue>
@@ -213,6 +215,7 @@
                         <outlet property="actionBtn" destination="yfH-fd-g7g" id="tuM-p3-qE8"/>
                         <outlet property="nextArticleBtn" destination="bpF-oD-uJR" id="xJU-s4-p3m"/>
                         <outlet property="prevArticleBtn" destination="km9-dF-Z9I" id="uX7-V6-roU"/>
+                        <outlet property="randomBtn" destination="005-mm-mol" id="G19-mh-NkE"/>
                         <outlet property="textView" destination="qTU-LV-BIm" id="2mc-WC-v5H"/>
                         <segue destination="cOM-sm-d0L" kind="popoverPresentation" identifier="sToReadWordSegue" popoverAnchorView="qTU-LV-BIm" id="Rl2-7Q-XNx">
                             <popoverArrowDirection key="popoverArrowDirection" up="YES" down="YES" left="YES" right="YES"/>

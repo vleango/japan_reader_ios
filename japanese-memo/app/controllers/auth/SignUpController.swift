@@ -42,13 +42,22 @@ class SignUpController: UIViewController, UITextFieldDelegate {
     }
     
     @IBAction func signUpBtnClicked(sender: AnyObject) {
+        
+        if nameTextField.text == "" || emailTextField.text == "" || passwordTextField.text == "" || passwordConfirmationTextField.text == "" {
+            return
+        }
+        
         let params:[String:AnyObject] = [
             "user[name]" : nameTextField.text!,
             "user[email]" : emailTextField.text!,
             "user[password]" : passwordTextField.text!,
             "user[password_confirmation]" : passwordConfirmationTextField.text!
         ]
+        
+        UtilManager.showToastActivity(view)
         NetworkManager.register(params) { (success, object) in
+            
+            UtilManager.finishToastActivity(self.view)
             if success {
                 
                 if let rawJSON = object {
