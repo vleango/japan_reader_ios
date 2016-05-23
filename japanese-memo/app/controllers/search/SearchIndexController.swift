@@ -158,7 +158,7 @@ class SearchIndexController: UITableViewController, UISearchBarDelegate, DZNEmpt
         ]
         
         if searchBar.text == "" {
-            return NSAttributedString(string: "Begin searching by entering your text in to the search bar.", attributes: attrs)
+            return NSAttributedString(string: "Begin searching by entering your text into the search bar.", attributes: attrs)
         }
         else {
             return NSAttributedString(string: "The dictionary did not find anything matching your search. Would you like to add a new entry?", attributes: attrs)
