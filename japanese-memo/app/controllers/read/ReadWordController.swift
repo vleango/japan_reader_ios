@@ -19,7 +19,7 @@ class ReadWordController: UIViewController, UITextViewDelegate {
         super.viewDidLoad()
         textView.delegate = self
         self.preferredContentSize = CGSizeMake(200, 200)
-        textView.attributedText = artibutedWord.attributedString
+        reloadArtibutedString()
         loadData()
     }
 
@@ -29,20 +29,32 @@ class ReadWordController: UIViewController, UITextViewDelegate {
     }
 
     private func loadData() {
-        NetworkManager.translation(["search": ["query" : artibutedWord.bit.word]]) { (success, object) in
-            if success {
-                if let rawJSON = object {
-                    let json = JSON(rawJSON)
-                    let entriesJson = json["entries"]
-                    for (_, entry):(String, JSON) in entriesJson {
-                        self.artibutedWord.entries.append(Entry.init(json: entry))
+        if artibutedWord.bit.entryIdsString != "" {
+            let params:[String:AnyObject] = [
+                "entry[ids]" : artibutedWord.bit.entryIdsString
+            ]
+            NetworkManager.entries(params, callback: { (success, object) in
+                if success {
+                    if let rawJSON = object {
+                        let json = JSON(rawJSON)
+                        let entriesJson = json["entries"]
+                        for (_, entry):(String, JSON) in entriesJson {
+                            self.artibutedWord.entries.append(Entry.init(json: entry))
+                        }
                     }
+                    self.reloadArtibutedString(true)
                 }
-
-                self.artibutedWord.showSense = true
-                self.textView.attributedText = self.artibutedWord.attributedString
-            }
+            })
         }
+        else {
+            reloadArtibutedString(true)
+        }
+        
+    }
+    
+    private func reloadArtibutedString(showSense:Bool = false) {
+        self.artibutedWord.showSense = showSense
+        self.textView.attributedText = self.artibutedWord.attributedString
     }
     
     @IBAction func learnMoreBtnClicked(sender: AnyObject) {
@@ -67,13 +79,6 @@ class ReadWordController: UIViewController, UITextViewDelegate {
     // Reenables scrolling for viewWillAppear purpose
     override func viewDidAppear(animated: Bool) {
         textView.scrollEnabled = true
-    }
-    
-    // reload the attributed string (since bounds needs to be recalculated)
-    override func viewWillTransitionToSize(size: CGSize, withTransitionCoordinator coordinator: UIViewControllerTransitionCoordinator) {
-        coordinator.animateAlongsideTransition(nil) { (UIViewControllerTransitionCoordinatorContext) in
-            self.textView.attributedText = self.artibutedWord.attributedString
-        }
     }
     
     @IBAction func closeBtnClicked(sender: AnyObject) {

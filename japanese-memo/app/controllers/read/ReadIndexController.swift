@@ -35,12 +35,12 @@ class ReadIndexController: UITableViewController {
         configureInfiniteScroll()
 
         // load the data from network
-        loadData()
+        loadDataAndScrollToTop(false)
     }
     
     func refresh(sender:AnyObject) {
         nextPage = nil
-        loadData()
+        loadDataAndScrollToTop()
     }
 
     override func didReceiveMemoryWarning() {
@@ -59,12 +59,12 @@ class ReadIndexController: UITableViewController {
     private func configureInfiniteScroll() {
         tableView.addInfiniteScrollWithHandler { (scrollView) -> Void in
             let tableView = scrollView as! UITableView
-            self.loadData(tableView)
+            self.loadDataAndScrollToTop(false, infiniteScrollView: tableView)
         }
     }
     
     // MARK: - Network
-    private func loadData(infiniteScrollView:UITableView? = nil) {
+    private func loadDataAndScrollToTop(scrollToTop:Bool = true, infiniteScrollView:UITableView? = nil) {
         //let selectedType = Article.articleTypes(rawValue: segmentedControl.selectedSegmentIndex)!
         
         var params:[String : AnyObject] = [:]
@@ -106,7 +106,10 @@ class ReadIndexController: UITableViewController {
                             }
                         }
                     })
-
+                    
+                    if scrollToTop {
+                        self.tableView.scrollToRowAtIndexPath(NSIndexPath.init(forRow: 0, inSection: 0), atScrollPosition: .Top, animated: true)
+                    }
                 }
             }
             else {
@@ -119,7 +122,7 @@ class ReadIndexController: UITableViewController {
         nextPage = nil
         articles.removeAll()
         tableView.reloadData()
-        loadData()
+        loadDataAndScrollToTop(false)
     }
 
     // MARK: - Table view data source

@@ -90,7 +90,7 @@ class SearchIndexController: UITableViewController, UISearchBarDelegate, DZNEmpt
     
     private func search(query:String) {
         activityIndicator.startAnimating()
-        NetworkManager.search(["search": ["query" : query]]) { (success, object) in
+        NetworkManager.search(["entry": ["query" : query]]) { (success, object) in
             self.activityIndicator.stopAnimating()
             if success {
                 self.entries.removeAll()

@@ -25,7 +25,6 @@ class Article: Object {
         static let published_date = "published_date"
         static let source = "source"
         static let title_bits = "title_bits"
-        static let subtitle_bits = "subtitle_bits"
         static let body_bits = "body_bits"
         static let favorite_id = "favorite_id"
         static let images = "images"
@@ -40,12 +39,10 @@ class Article: Object {
     dynamic var source = ""
     dynamic var appSource = ""
     dynamic var title = ""
-    dynamic var subtitle = ""
     dynamic var body = ""
     dynamic var favoriteId:String = ""
     
     let titleBits = List<TextBit>()
-    let subtitleBits = List<TextBit>()
     let bodyBits = List<TextBit>()
     let images = List<ArticleImage>()
     
@@ -55,7 +52,6 @@ class Article: Object {
         self.provider = json[Article.constants.provider].stringValue
         self.news_id = json[Article.constants.news_id].stringValue
         self.title = json[Article.constants.title].stringValue
-        self.subtitle = json[Article.constants.subtitle].stringValue
         self.body = json[Article.constants.body].stringValue
         
         self.favoriteId = json[Article.constants.favorite_id].stringValue
@@ -63,11 +59,6 @@ class Article: Object {
         let titleBitsArray = json[Article.constants.title_bits].arrayValue
         for bit in titleBitsArray {
             self.titleBits.append(TextBit.init(json: bit))
-        }
-        
-        let subtitleBitsArray = json[Article.constants.subtitle_bits].arrayValue
-        for bit in subtitleBitsArray {
-            self.subtitleBits.append(TextBit.init(json: bit))
         }
         
         let bodyBitsArray = json[Article.constants.body_bits].arrayValue

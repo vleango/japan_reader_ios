@@ -43,15 +43,16 @@ final class Network {
     }
     
     func search(params:[String : AnyObject], callback: ((success:Bool, object:AnyObject?) -> Void)?) {
-        let url = "searches"
+        let url = "entries/searches"
         execute(url, method: .POST, params:addLang(params), callback: callback)
     }
+    
     
     // Setting Lang to the params
     private func addLang(params:[String:AnyObject]?) -> [String:AnyObject] {
         if let validParams = params {
             var paramsWithLang = validParams
-            paramsWithLang["search[lang]"] = UserDefault.getLanguage().id
+            paramsWithLang["entry[lang]"] = UserDefault.getLanguage().id
             return paramsWithLang
         }
         else {
@@ -76,10 +77,10 @@ final class Network {
         let url = "articles/\(articleId)"
         execute(url, params:nil, callback: callback)
     }
-    
-    func translation(params:[String : AnyObject], callback: ((success:Bool, object:AnyObject?) -> Void)?) {
-        let url = "searches"
-        execute(url, method: .POST, params:addLang(params), callback: callback)
+
+    func entries(params:[String : AnyObject], callback: ((success:Bool, object:AnyObject?) -> Void)?) {
+        let url = "entries"
+        execute(url, params:addLang(params), callback: callback)
     }
     
     func favorites(callback: ((success:Bool, object:AnyObject?) -> Void)?) {
