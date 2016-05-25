@@ -117,6 +117,41 @@
                                     <outlet property="titleLabel" destination="w1e-1c-BaM" id="GBZ-cR-7qM"/>
                                 </connections>
                             </tableViewCell>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="favoritearticleNoCoverCell" rowHeight="86" id="RmU-XQ-10M" customClass="ReadIndexCell" customModule="japanese_memo" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="236" width="375" height="86"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="RmU-XQ-10M" id="unE-fl-SOd">
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="85"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="title" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6aK-Wf-s9w">
+                                            <rect key="frame" x="16" y="24" width="351" height="21"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Provider | Date" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dt7-FO-IZK">
+                                            <rect key="frame" x="16" y="46" width="351" height="15"/>
+                                            <fontDescription key="fontDescription" type="system" weight="thin" pointSize="12"/>
+                                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstItem="6aK-Wf-s9w" firstAttribute="trailing" secondItem="unE-fl-SOd" secondAttribute="trailingMargin" id="5cg-Hh-P7m"/>
+                                        <constraint firstItem="6aK-Wf-s9w" firstAttribute="trailing" secondItem="dt7-FO-IZK" secondAttribute="trailing" id="Aqo-Pc-Yl4"/>
+                                        <constraint firstItem="dt7-FO-IZK" firstAttribute="top" secondItem="6aK-Wf-s9w" secondAttribute="bottom" constant="1" id="C3g-ja-K8u"/>
+                                        <constraint firstItem="6aK-Wf-s9w" firstAttribute="top" secondItem="unE-fl-SOd" secondAttribute="topMargin" constant="16" id="RZx-9h-XFK"/>
+                                        <constraint firstItem="6aK-Wf-s9w" firstAttribute="leading" secondItem="unE-fl-SOd" secondAttribute="leadingMargin" constant="8" id="kij-R9-80h"/>
+                                        <constraint firstItem="6aK-Wf-s9w" firstAttribute="leading" secondItem="dt7-FO-IZK" secondAttribute="leading" id="siN-nq-93r"/>
+                                        <constraint firstAttribute="bottomMargin" secondItem="dt7-FO-IZK" secondAttribute="bottom" constant="16" id="xEV-CQ-Fdw"/>
+                                    </constraints>
+                                </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="subtitleLabel" destination="dt7-FO-IZK" id="wf0-rr-0Pq"/>
+                                    <outlet property="titleLabel" destination="6aK-Wf-s9w" id="zUI-d2-GAd"/>
+                                </connections>
+                            </tableViewCell>
                         </prototypes>
                         <connections>
                             <outlet property="dataSource" destination="oqw-uz-N5n" id="WRN-9p-Kg2"/>
