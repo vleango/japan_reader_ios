@@ -12,7 +12,7 @@ import Toast_Swift
 
 class SettingIndexController: UITableViewController, FBSDKAppInviteDialogDelegate {
 
-    enum sections:Int { case language, contact, invite }
+    enum sections:Int { case language, contact, invite, version }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -27,6 +27,12 @@ class SettingIndexController: UITableViewController, FBSDKAppInviteDialogDelegat
         // Set Default Language
         let languageCell = tableView.cellForRowAtIndexPath(NSIndexPath.init(forRow: 0, inSection: sections.language.rawValue))
         languageCell?.textLabel?.text = UserDefault.getLanguage().name
+        
+        let versionCell = tableView.cellForRowAtIndexPath(NSIndexPath.init(forRow: 0, inSection: sections.version.rawValue))
+        let nsObject: AnyObject? = NSBundle.mainBundle().infoDictionary!["CFBundleShortVersionString"]
+        let version = nsObject as? String
+        versionCell?.textLabel?.text = version
+        
         tableView.reloadData()
     }
 
