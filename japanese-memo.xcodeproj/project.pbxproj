@@ -55,6 +55,7 @@
 		3B7CF71D1CD571CF006ACED3 /* Setting.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3B7CF71C1CD571CF006ACED3 /* Setting.storyboard */; };
 		3B7CF7201CD572A8006ACED3 /* SearchIndexController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B7CF71F1CD572A8006ACED3 /* SearchIndexController.swift */; };
 		3B8259141CDDB75800647336 /* FavoriteIndexController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B8259131CDDB75800647336 /* FavoriteIndexController.swift */; };
+		3B82DEB61CF555A000943BB7 /* Placeholder.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B82DEB51CF555A000943BB7 /* Placeholder.m */; };
 		3B89BD6D1CDB8A2400BB5511 /* SearchCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B89BD6C1CDB8A2400BB5511 /* SearchCell.swift */; };
 		3B8EFA551CD8296B00C8D305 /* ImageAttachment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B8EFA541CD8296B00C8D305 /* ImageAttachment.swift */; };
 		3B8EFA5A1CD834E100C8D305 /* ArtibutedArticle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B8EFA591CD834E100C8D305 /* ArtibutedArticle.swift */; };
@@ -148,6 +149,8 @@
 		3B7CF71C1CD571CF006ACED3 /* Setting.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = Setting.storyboard; path = app/storyboards/Setting.storyboard; sourceTree = "<group>"; };
 		3B7CF71F1CD572A8006ACED3 /* SearchIndexController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SearchIndexController.swift; path = app/controllers/search/SearchIndexController.swift; sourceTree = "<group>"; };
 		3B8259131CDDB75800647336 /* FavoriteIndexController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = FavoriteIndexController.swift; path = app/controllers/favorite/FavoriteIndexController.swift; sourceTree = "<group>"; };
+		3B82DEB41CF5559F00943BB7 /* japanese-memo-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "japanese-memo-Bridging-Header.h"; sourceTree = "<group>"; };
+		3B82DEB51CF555A000943BB7 /* Placeholder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Placeholder.m; path = config/Placeholder.m; sourceTree = "<group>"; };
 		3B89BD6C1CDB8A2400BB5511 /* SearchCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchCell.swift; sourceTree = "<group>"; };
 		3B8EFA541CD8296B00C8D305 /* ImageAttachment.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ImageAttachment.swift; path = vendors/ImageAttachment/ImageAttachment.swift; sourceTree = "<group>"; };
 		3B8EFA591CD834E100C8D305 /* ArtibutedArticle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ArtibutedArticle.swift; path = app/managers/attibuted_strings/ArtibutedArticle.swift; sourceTree = "<group>"; };
@@ -480,8 +483,10 @@
 			isa = PBXGroup;
 			children = (
 				3B2037931CD4A3AB00A27644 /* AppDelegate.swift */,
+				3B82DEB51CF555A000943BB7 /* Placeholder.m */,
 				3BE0A8A31CD81DF200C7A46E /* Constants.swift */,
 				3B2037A11CD4A3AB00A27644 /* Info.plist */,
+				3B82DEB41CF5559F00943BB7 /* japanese-memo-Bridging-Header.h */,
 			);
 			name = config;
 			sourceTree = "<group>";
@@ -509,6 +514,7 @@
 				3B20378E1CD4A3AB00A27644 /* Resources */,
 				DF460CF1A4D1DD63E39CED60 /* 📦 Embed Pods Frameworks */,
 				C435C594835D89AB011BF026 /* 📦 Copy Pods Resources */,
+				3B82DEB71CF5562900943BB7 /* Run Script */,
 			);
 			buildRules = (
 			);
@@ -684,6 +690,20 @@
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-japanese-memoUITests/Pods-japanese-memoUITests-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
+		3B82DEB71CF5562900943BB7 /* Run Script */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Run Script";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "SCRIPT=`/usr/bin/find \"${SRCROOT}\" -name newrelic_postbuild.sh | head -n 1`\n/bin/bash \"${SCRIPT}\" \"AA8d96214616645a2c6b3ca22f05fa80a121c61c03\"";
+		};
 		5DC876B89B3302A900E291E5 /* 📦 Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -807,6 +827,7 @@
 				3B239F3E1CD9F3B800EC0659 /* Gloss.swift in Sources */,
 				3B239F421CD9F3DF00EC0659 /* KePri.swift in Sources */,
 				3B239F441CD9F3F500EC0659 /* LSource.swift in Sources */,
+				3B82DEB61CF555A000943BB7 /* Placeholder.m in Sources */,
 				3B22E47E1CD9E6A00032DDF1 /* KEle.swift in Sources */,
 				3B239F401CD9F3CF00EC0659 /* KeInf.swift in Sources */,
 				3BE0A8A41CD81DF200C7A46E /* Constants.swift in Sources */,
@@ -961,6 +982,7 @@
 			baseConfigurationReference = A528E3B8C0DC9E16FF74A8AE /* Pods-japanese-memo.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = "$(SRCROOT)/japanese-memo/config/Info.plist";
@@ -968,6 +990,8 @@
 				PRODUCT_BUNDLE_IDENTIFIER = leang.tha.japanreader;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
+				SWIFT_OBJC_BRIDGING_HEADER = "japanese-memo/japanese-memo-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
 			name = Debug;
 		};
@@ -976,6 +1000,7 @@
 			baseConfigurationReference = 7AAA4438477CF7C451756E8E /* Pods-japanese-memo.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = "$(SRCROOT)/japanese-memo/config/Info.plist";
@@ -984,6 +1009,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = leang.tha.japanreader;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
+				SWIFT_OBJC_BRIDGING_HEADER = "japanese-memo/japanese-memo-Bridging-Header.h";
 			};
 			name = Release;
 		};

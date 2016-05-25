@@ -13,6 +13,7 @@ target 'japanese-memo' do
   pod 'DZNEmptyDataSet', '~> 1.8'
   pod 'JGProgressHUD', '~> 1.3.1'
   pod 'Toast-Swift', '~> 1.3.0'
+  pod 'NewRelicAgent', '~> 5.5.1'
 end
 
 target 'japanese-memoTests' do
