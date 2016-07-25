@@ -9,6 +9,7 @@ japanese-memo/config/info.plist
 ## Build generated
 build/
 DerivedData/
+Pods/*
 
 ## Various settings
 *.pbxuser
