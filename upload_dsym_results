@@ -1,3 +1,0 @@
-dSYM archive upload attempt #1 (of 3)
-curl --write-out %{http_code} --silent --output /dev/null -F dsym=@"/tmp/japanese-memo.app.dSYM-1464148457.zip" -F buildId="57c17863da7333df820ebe1c93d5e9c2,17147ff0d93035c58e2880916c951ab0" -F appName="japanese-memo" -H "X-APP-LICENSE-KEY: AA8d96214616645a2c6b3ca22f05fa80a121c61c03" "https://mobile-symbol-upload.newrelic.com/symbol"
-New Relic: Successfully uploaded debug symbols

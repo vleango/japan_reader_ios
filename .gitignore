@@ -5,6 +5,7 @@
 japanese-memo/config/AppDelegate.swift
 japanese-memo/config/Constants.swift
 japanese-memo/config/info.plist
+upload_dsym_results
 
 ## Build generated
 build/
